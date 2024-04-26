@@ -64,4 +64,9 @@ public class Usuario{
     public void setSeguindo(List<Usuario> seguindo) {
         this.seguindo = seguindo;
     }
+
+    //To String
+    public String toString(){
+        return "Nome: " + this.getNome() + "\nEmail: " + this.getEmail() + "\nUsername: " + getUsername() + "\nSenha: " + getSenha();
+    }
 }

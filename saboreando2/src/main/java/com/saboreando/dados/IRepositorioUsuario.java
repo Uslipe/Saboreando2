@@ -11,6 +11,6 @@ public interface IRepositorioUsuario<T> {
     Usuario listar(String username);
 
     //Remover
-    void remover(String senha);
+    void remover(String username,String senha);
 
 }
