@@ -1,18 +1,28 @@
-package com.saboreando;
+package com.saboreando.dados.beans;
 
 import java.util.List;
 
 public class Postagem{
     private Usuario autorPostagem;
     private String conteudo;
-    //private List<Curtida> curtidas;
+    private List<Curtida> curtidas;
     //private List<Comentario> comentarios;
-    //private int qntCurtidas;
+    private int qntCurtidas;
 
     //Construtor
     public Postagem(Usuario autor, String conteudo){
         this.autorPostagem = autor;
         this.conteudo = conteudo;
+    }
+
+    //Métodos
+    public int calcularQntCurtidas(){
+        qntCurtidas = curtidas.size();
+        return qntCurtidas;
+    }
+
+    public void adicionarCurtida(Curtida curtida){
+        curtidas.add(curtida);
     }
 
     //Gets e Sets

@@ -1,4 +1,4 @@
-package com.saboreando;
+package com.saboreando.dados.beans;
 
 import java.util.List;
 
