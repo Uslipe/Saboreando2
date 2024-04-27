@@ -19,13 +19,8 @@ public class RepositorioUsuario implements IRepositorioUsuario {
     }
 
     @Override
-    public Usuario listar(String username) {
-        for(int i = 0; i < listaUsuarios.size(); i++){
-            if(listaUsuarios.get(i).getUsername().equals(username)){
-                return listaUsuarios.get(i);
-            }
-        }
-        return null;
+    public ArrayList<Usuario> listar() {
+        return new ArrayList<>(listaUsuarios);
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.saboreando.dados;
 
+import java.util.List;
 
 import com.saboreando.dados.beans.Usuario;
 
@@ -8,7 +9,7 @@ public interface IRepositorioUsuario<T> {
     void inserir(Usuario u);
 
     //Achar usuário por username
-    Usuario listar(String username);
+    List<T> listar();
 
     //Remover
     void remover(String username,String senha);

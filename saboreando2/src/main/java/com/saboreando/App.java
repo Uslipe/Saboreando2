@@ -14,12 +14,11 @@ public class App
         repo.inserir(u1);
         repo.inserir(u2);
 
-        System.out.println(repo.listar("uslipe"));
-        System.out.println(repo.listar("minhaxixa"));
+        System.out.println(repo.listar());
         
         repo.remover("uslipe", "12345678");
 
-        System.out.println(repo.listar("uslipe")); // Printa "null"
+        System.out.println(repo.listar()); // Printa "null"
 
     }
 }

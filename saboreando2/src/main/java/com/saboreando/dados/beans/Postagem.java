@@ -6,7 +6,7 @@ public class Postagem{
     private Usuario autorPostagem;
     private String conteudo;
     private List<Curtida> curtidas;
-    //private List<Comentario> comentarios;
+    private List<Comentario> comentarios;
     private int qntCurtidas;
 
     //Construtor
