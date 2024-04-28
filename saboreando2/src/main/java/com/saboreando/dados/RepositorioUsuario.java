@@ -13,16 +13,20 @@ public class RepositorioUsuario implements IRepositorioUsuario {
         this.listaUsuarios = new ArrayList<>();
     }
 
+    //Métodos da Interface
+    //Inserir na lista
     @Override
     public void inserir(Usuario u) {
         this.listaUsuarios.add(u);
     }
 
+    //Retorna um arraylist com todos os usuários cadastrados
     @Override
     public ArrayList<Usuario> listar() {
         return new ArrayList<>(listaUsuarios);
     }
 
+    //Remover usuário baseado no username e senha
     @Override
     public void remover(String username, String senha) {
         for(int i = 0; i < listaUsuarios.size(); i++){

@@ -25,6 +25,10 @@ public class Postagem{
         curtidas.add(curtida);
     }
 
+    public void adicionarComentario(Comentario comentario){
+        comentarios.add(comentario);
+    }
+
     //Gets e Sets
     public Usuario getAutorPostagem() {
         return autorPostagem;
@@ -42,5 +46,9 @@ public class Postagem{
         this.conteudo = conteudo;
     }
 
+    //To String
+    public String toString(){
+        return "\nAutor: " + autorPostagem.getUsername() + "\nConteúdo: " + conteudo + "\n";
+    }
     
 }

@@ -67,6 +67,6 @@ public class Usuario{
 
     //To String
     public String toString(){
-        return "Nome: " + this.getNome() + "\nEmail: " + this.getEmail() + "\nUsername: " + getUsername() + "\nSenha: " + getSenha();
+        return "\nNome: " + this.getNome() + "\nEmail: " + this.getEmail() + "\nUsername: " + getUsername() + "\nSenha: " + getSenha() + "\n";
     }
 }
