@@ -35,6 +35,17 @@ public class RepositorioUsuario implements IRepositorioUsuario {
         return new ArrayList<>(listaUsuarios);
     }
 
+    //Retorna o indice do usuario na lista
+    public int procurarUsuarioIndice(String username){
+
+        for(int i = 0; i < listaUsuarios.size(); i++){
+            if(username.equals(listaUsuarios.get(i).getUsername())){
+                return i;
+            }
+        }
+        return -1; //Se o usuario não for encontrado
+    }
+
     //Remover usuário baseado no username e senha
     @Override
     public void remover(String username, String senha) {
