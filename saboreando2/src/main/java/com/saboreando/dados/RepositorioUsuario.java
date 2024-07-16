@@ -5,10 +5,19 @@ import java.util.ArrayList;
 import com.saboreando.dados.beans.Usuario;
 
 @SuppressWarnings("rawtypes")//Não sei oque é isso, mas desativou um alerta da linha de baixo 
+
 public class RepositorioUsuario implements IRepositorioUsuario {
+    private static RepositorioUsuario instance;
     private ArrayList<Usuario> listaUsuarios;
 
-    //Tinha dado erro pois esqueci de inicializar a lista
+    public static RepositorioUsuario getInstance(){
+        if(instance == null){
+            instance = new RepositorioUsuario();
+        }
+        return instance;
+    }
+
+    //Construtor
     public RepositorioUsuario() {
         this.listaUsuarios = new ArrayList<>();
     }
