@@ -25,8 +25,8 @@ public class RepositorioUsuario implements IRepositorioUsuario {
     //Métodos da Interface
     //Inserir na lista
     @Override
-    public void inserir(Usuario u) {
-        this.listaUsuarios.add(u);
+    public void inserir(Usuario usuario) {
+        this.listaUsuarios.add(usuario);
     }
 
     //Retorna um arraylist com todos os usuários cadastrados
@@ -35,7 +35,7 @@ public class RepositorioUsuario implements IRepositorioUsuario {
         return new ArrayList<>(listaUsuarios);
     }
 
-    //Retorna o indice do usuario na lista
+    //Procura um usuário por username e retorna o indice do usuario na lista
     public int procurarUsuarioIndice(String username){
 
         for(int i = 0; i < listaUsuarios.size(); i++){
@@ -56,5 +56,9 @@ public class RepositorioUsuario implements IRepositorioUsuario {
         }
     }
 
+    //Editar username do usuário
+    public void editarUsername(Usuario usuario, String novoUsername){
+        listaUsuarios.get(procurarUsuarioIndice(usuario.getUsername())).setUsername(novoUsername);
+    }
     
 }

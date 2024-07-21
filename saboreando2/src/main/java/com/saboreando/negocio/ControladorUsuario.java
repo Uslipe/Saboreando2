@@ -15,25 +15,37 @@ public class ControladorUsuario {
         return instance;
     }
 
+    //Construtor da classe
     public ControladorUsuario(){
         this.repositorioUsuario = RepositorioUsuario.getInstance();
     }
 
     //Cadastrar usuário
-    public void cadastrarUsuario(Usuario u){
+    public void cadastrarUsuario(Usuario usuario){
         //Verifica se todos os campos são preenchidos
-        if(u.getNome() == null || u.getEmail() == null || u.getUsername() == null || u.getSenha() == null){
+        if(usuario.getNome() == null || usuario.getEmail() == null || usuario.getUsername() == null || usuario.getSenha() == null){
             throw new IllegalArgumentException("Argumento nulo");
         }
         //Caso todos estejam preenchidos...
         else{
             //...Verifica se o username já é cadastrado
-            if(repositorioUsuario.procurarUsuarioIndice(u.getUsername()) == -1){
-                repositorioUsuario.inserir(u);
+            if(repositorioUsuario.procurarUsuarioIndice(usuario.getUsername()) == -1){
+                repositorioUsuario.inserir(usuario);
             }
             else{
                 throw new IllegalArgumentException("Usuário existente");
             }
+        }
+    }
+
+    //Editar dados do usuário
+    public void editarUsernameUsuario(Usuario usuario, String novoUsername){
+        //Verifica se o usuário existe
+        if(repositorioUsuario.procurarUsuarioIndice(usuario.getUsername()) != -1){ //"Se o usuário está na lista..."
+            repositorioUsuario.editarUsername(usuario, novoUsername);
+        }
+        else{
+            throw new IllegalArgumentException("Usuário não encontrado");
         }
     }
 }
