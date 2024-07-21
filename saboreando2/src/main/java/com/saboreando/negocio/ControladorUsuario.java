@@ -38,11 +38,31 @@ public class ControladorUsuario {
         }
     }
 
-    //Editar dados do usuário
+    //Editar username do usuário
     public void editarUsernameUsuario(Usuario usuario, String novoUsername){
         //Verifica se o usuário existe
         if(repositorioUsuario.procurarUsuarioIndice(usuario.getUsername()) != -1){ //"Se o usuário está na lista..."
             repositorioUsuario.editarUsername(usuario, novoUsername);
+        }
+        else{
+            throw new IllegalArgumentException("Usuário não encontrado");
+        }
+    }
+
+    //Editar email do usuário
+    public void editarEmailUsuario(Usuario usuario, String novoEmail){
+        if(repositorioUsuario.procurarUsuarioIndice(usuario.getUsername()) != -1){ //"Se o usuário está na lista..."
+            repositorioUsuario.editarEmail(usuario, novoEmail);
+        }
+        else{
+            throw new IllegalArgumentException("Usuário não encontrado");
+        }
+    }
+
+    //Editar nome do usuário
+    public void editarNomeUsuario(Usuario usuario, String novoNome){
+        if(repositorioUsuario.procurarUsuarioIndice(usuario.getUsername()) != -1){ //"Se o usuário está na lista..."
+            repositorioUsuario.editarNome(usuario, novoNome);
         }
         else{
             throw new IllegalArgumentException("Usuário não encontrado");

@@ -67,7 +67,7 @@ public class RepositorioUsuario implements IRepositorioUsuario {
     }
 
     //Editar nome do usuário
-    public void editaNome(Usuario usuario, String novoNome){
+    public void editarNome(Usuario usuario, String novoNome){
         listaUsuarios.get(procurarUsuarioIndice(usuario.getUsername())).setNome(novoNome);
     }
 }
