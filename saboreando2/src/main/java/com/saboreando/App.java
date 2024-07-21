@@ -4,42 +4,26 @@ import com.saboreando.dados.RepositorioPostagem;
 import com.saboreando.dados.RepositorioUsuario;
 import com.saboreando.dados.beans.Postagem;
 import com.saboreando.dados.beans.Usuario;
+import com.saboreando.negocio.ControladorUsuario;
 
 public class App 
 {
     public static void main( String[] args ){
-        RepositorioUsuario repo = new RepositorioUsuario();
-        RepositorioPostagem sitorio = new RepositorioPostagem();
+        new RepositorioUsuario();
+        //Instanciando o repositorio de usuários com sigleton
+        RepositorioUsuario repositorio = RepositorioUsuario.getInstance();
 
-        //Criando Usuarios
-        Usuario u1 = new Usuario("Felipe", "felipe.pereira.nave@gmail.com", "uslipe", "12345678");
-        Usuario u2 = new Usuario("Gisele", "xixa.gatinha@gmail.com", "minhaxixa", "12345678");
+        //Instanciando o controlador de usuários
+        ControladorUsuario controlador = ControladorUsuario.getInstance();
 
-        //Criando Posgatens
-        Postagem p1 = new Postagem(u1, "Bolu di morango do pica pau");
-        Postagem p2 = new Postagem(u1, "Sanduiche perfeito do jake");
-        Postagem p3 = new Postagem(u1, "Torta de fadas da amity");
-        Postagem p4 = new Postagem(u2, "Sanduiche sensivel especial do bmo");
-        Postagem p5 = new Postagem(u2, "Torta escocesa do pica pau");
-        
-        repo.inserir(u1);
-        repo.inserir(u2);
+        Usuario usuario1 = new Usuario("Felipe", "felipe@smau.com", "uslipe", "12345678");
+        Usuario usuario2 = new Usuario("Gisele", "gisele@smau.com", "xixa", "12345678");
+        Usuario usuario3 = new Usuario("Giovana", "giovana@smau.com", "xeo", "12345678");
 
-        sitorio.inserir(p1);
-        sitorio.inserir(p2);
-        sitorio.inserir(p3);
-        sitorio.inserir(p4);
-        sitorio.inserir(p5);
+        controlador.cadastrarUsuario(usuario1);
+        controlador.cadastrarUsuario(usuario2);
+        controlador.cadastrarUsuario(usuario3);
 
-        System.out.println("Todos os usuários: " + repo.listar());
-        System.out.println("\n\n");
-        System.out.println("Todos as postagens: " + sitorio.listar());
-        
-        repo.remover("uslipe", "12345678");
-
-        System.out.println("\n\n");
-        System.out.println("Usuarios restantes: ");
-        System.out.println(repo.listar()); 
-
+        System.out.println(repositorio.listar());
     }
 }
