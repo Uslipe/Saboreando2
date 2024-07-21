@@ -4,7 +4,16 @@ import com.saboreando.dados.RepositorioUsuario;
 import com.saboreando.dados.beans.Usuario;
 
 public class ControladorUsuario {
+    private static ControladorUsuario instance;
     private RepositorioUsuario repositorioUsuario;
+
+    //Padrão singleton de única instância
+    public static ControladorUsuario getInstance(){
+        if(instance == null){
+            instance = new ControladorUsuario();
+        }
+        return instance;
+    }
 
     public ControladorUsuario(){
         this.repositorioUsuario = RepositorioUsuario.getInstance();
