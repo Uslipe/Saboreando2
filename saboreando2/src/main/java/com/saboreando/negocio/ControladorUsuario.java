@@ -68,5 +68,21 @@ public class ControladorUsuario {
             throw new IllegalArgumentException("Usuário não encontrado");
         }
     }
+
+    //Excluir usuário
+    public void excluirUsuario(String username, String senha){
+        int indice = repositorioUsuario.procurarUsuarioIndice(username);
+        if(indice != -1){
+            if(senha.equals(repositorioUsuario.retornarUsuario(indice).getSenha())){
+                repositorioUsuario.remover(indice);
+            }
+            else{
+                throw new IllegalArgumentException("Senha incorreta");
+            }
+        }
+        else{
+            throw new IllegalArgumentException("Usuário não encontrado");
+        } 
+    }
 }
 

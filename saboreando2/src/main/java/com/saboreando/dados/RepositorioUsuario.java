@@ -46,14 +46,15 @@ public class RepositorioUsuario implements IRepositorioUsuario {
         return -1; //Se o usuario não for encontrado
     }
 
+    //Retornar um usuário da lista
+    public Usuario retornarUsuario(int indice){
+        return listaUsuarios.get(indice);
+    }
+
     //Remover usuário baseado no username e senha
     @Override
-    public void remover(String username, String senha) {
-        for(int i = 0; i < listaUsuarios.size(); i++){
-            if(listaUsuarios.get(i).getSenha().equals(senha) && listaUsuarios.get(i).getUsername().equals(username)){
-                listaUsuarios.remove(i);
-            }
-        }
+    public void remover(int indice) {
+        listaUsuarios.remove(indice);
     }
 
     //Editar username do usuário

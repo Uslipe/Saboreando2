@@ -14,8 +14,10 @@ public class App
         //Instanciando o controlador de usuários
         ControladorUsuario controlador = ControladorUsuario.getInstance();
         //-------------------------------------------------------------------------------------------------------------------
-
+        
         //Teste para inserção de usuários (SUCESSO)
+        System.out.println("TESTE DE CADASTRO DE USUÁRIOS\n");
+
         Usuario usuario1 = new Usuario("Felipe", "felipe@smau.com", "uslipe", "12345678");
         Usuario usuario2 = new Usuario("Gisele", "gisele@smau.com", "xixa", "12345678");
         Usuario usuario3 = new Usuario("Giovana", "giovana@smau.com", "xeo", "12345678");
@@ -27,11 +29,15 @@ public class App
         System.out.println(repositorio.listar());
         //-------------------------------------------------------------------------------------------------------------------
 
-        //Teste para troca de username (SUCESSO) [ALTERAR PARA CONTROLADOR]
+        //Teste para troca de username (SUCESSO)
+        System.out.println("\nTESTE DE TROCA DE USERNAME\n");
         controlador.editarUsernameUsuario(usuario3, "GIOCONDA");
         System.out.println(repositorio.listar());
         //-------------------------------------------------------------------------------------------------------------------
 
-
+        //Teste para exclusão de usuário (SUCESSO)
+        System.out.println("\nTESTE DE EXCLUSÃO DE USUÁRIO\n");
+        controlador.excluirUsuario("GIOCONDA", "12345678");
+        System.out.println(repositorio.listar());
     }
 }
