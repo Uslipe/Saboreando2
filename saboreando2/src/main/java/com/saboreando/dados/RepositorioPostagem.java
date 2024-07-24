@@ -46,5 +46,12 @@ public class RepositorioPostagem implements IRepositorioPostagem{
     public void remover(Postagem p) {
         listaPostagens.remove(p);
     }
+
+    public void adicionarComentario(Comentario comentario){
+        repositorioComentario.inserir(comentario);
+    }
     
+    public List<Comentario> listarComentarios(Postagem postagem){
+        return repositorioComentario.listarComentariosPostagem(postagem);
+    }
 }
