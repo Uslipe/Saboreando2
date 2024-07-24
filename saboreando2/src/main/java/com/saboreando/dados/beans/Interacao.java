@@ -18,4 +18,13 @@ public abstract class Interacao {
     public void setAutor(Usuario autor) {
         this.autor = autor;
     }
+
+    public Postagem getPostagemRelacionada() {
+        return postagemRelacionada;
+    }
+
+    public void setPostagemRelacionada(Postagem postagemRelacionada) {
+        this.postagemRelacionada = postagemRelacionada;
+    }
+
 }
