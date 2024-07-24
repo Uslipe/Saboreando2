@@ -15,4 +15,9 @@ public class Comentario extends Interacao {
     public void setTexto(String texto) {
         this.texto = texto;
     }
+
+    // Método para obter a postagem relacionada de uma interação
+    public Postagem getPostagemRelacionada(Interacao interacao) {
+        return interacao.getPostagemRelacionada();
+    }
 }

@@ -3,6 +3,7 @@ package com.saboreando.dados;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.saboreando.dados.beans.Comentario;
 import com.saboreando.dados.beans.Postagem;
 
 @SuppressWarnings("rawtypes") //Isso faz o alerta amarelo sumir
@@ -10,6 +11,8 @@ import com.saboreando.dados.beans.Postagem;
 public class RepositorioPostagem implements IRepositorioPostagem{
     private static RepositorioPostagem instance;
     private ArrayList<Postagem> listaPostagens;
+
+    private RepositorioComentario repositorioComentario;
 
     //Padrão singleton
     public static RepositorioPostagem getInstance(){
@@ -22,6 +25,7 @@ public class RepositorioPostagem implements IRepositorioPostagem{
     //Construtor
     public RepositorioPostagem() {
         this.listaPostagens = new ArrayList<>();
+        this.repositorioComentario = RepositorioComentario.getInstance();
     }
 
     //Métodos interface
