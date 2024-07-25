@@ -3,7 +3,6 @@ package com.saboreando.dados;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.saboreando.dados.beans.Comentario;
 import com.saboreando.dados.beans.Curtida;
 import com.saboreando.dados.beans.Postagem;
 
