@@ -64,26 +64,29 @@ public class App
         System.out.println(repositorioPostagem.listar());
         //-------------------------------------------------------------------------------------------------------------------
         
-        //TESTE DE COMENTÁRIO
+        //TESTE DE COMENTÁRIO E CURTIDA
         Comentario comentario1 = new Comentario(usuario1, postagem3, "Que delícia!");
         Comentario comentario2 = new Comentario(usuario1, postagem3, "Quero provar esse juice");
 
+        //Duas curtidas na postagem 3
+        Curtida curtida1 = new Curtida(usuario1, postagem3);
+        Curtida curtida2 = new Curtida(usuario2, postagem3);
+        Curtida curtida3 = new Curtida(usuario2, postagem3);
+
+        //Adiciona os comentários
         repositorioPostagem.adicionarComentario(comentario1);
         repositorioPostagem.adicionarComentario(comentario2);
 
-        System.out.println("\nTESTE DE LISTAGEM DE COMENTÁRIOS\n");
-        System.out.println(repositorioPostagem.listarComentarios(postagem3));
-        //-------------------------------------------------------------------------------------------------------------------
-        
-        //TESTE DE CURTIDAS
-        Curtida curtida1 = new Curtida(usuario1, postagem3);
-        Curtida curtida2 = new Curtida(usuario2, postagem3);
-
+        //Adiciona as curtidas
         repositorioPostagem.adicionarCurtida(curtida1);
         repositorioPostagem.adicionarCurtida(curtida2);
-        
+        repositorioPostagem.adicionarCurtida(curtida3);
+
+        System.out.println("\nTESTE DE LISTAGEM DE COMENTÁRIOS\n");
+        System.out.println(repositorioPostagem.listarComentarios(postagem3));
         System.out.println("QUANTIDADE DE CURTIDAS");
         System.out.println(repositorioPostagem.contabilizarCurtidas(postagem3));
+        //-------------------------------------------------------------------------------------------------------------------
     }
     
 }
