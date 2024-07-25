@@ -1,8 +1,10 @@
 package com.saboreando;
 
+import com.saboreando.dados.RepositorioCurtida;
 import com.saboreando.dados.RepositorioPostagem;
 import com.saboreando.dados.RepositorioUsuario;
 import com.saboreando.dados.beans.Comentario;
+import com.saboreando.dados.beans.Curtida;
 import com.saboreando.dados.beans.Postagem;
 import com.saboreando.dados.beans.Usuario;
 import com.saboreando.negocio.ControladorUsuario;
@@ -14,6 +16,7 @@ public class App
         //Instanciando o repositorio de usuários com sigleton
         RepositorioUsuario repositorioUsuario = RepositorioUsuario.getInstance();
         RepositorioPostagem repositorioPostagem = RepositorioPostagem.getInstance();
+        RepositorioCurtida repositorioCurtida = RepositorioCurtida.getInstance();
 
         //Instanciando o controlador de usuários
         ControladorUsuario controlador = ControladorUsuario.getInstance();
@@ -70,5 +73,17 @@ public class App
 
         System.out.println("\nTESTE DE LISTAGEM DE COMENTÁRIOS\n");
         System.out.println(repositorioPostagem.listarComentarios(postagem3));
+        //-------------------------------------------------------------------------------------------------------------------
+        
+        //TESTE DE CURTIDAS
+        Curtida curtida1 = new Curtida(usuario1, postagem3);
+        Curtida curtida2 = new Curtida(usuario2, postagem3);
+
+        repositorioPostagem.adicionarCurtida(curtida1);
+        repositorioPostagem.adicionarCurtida(curtida2);
+        
+        System.out.println("QUANTIDADE DE CURTIDAS");
+        System.out.println(repositorioPostagem.contabilizarCurtidas(postagem3));
     }
+    
 }
