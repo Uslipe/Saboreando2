@@ -1,7 +1,5 @@
 package com.saboreando.dados.beans;
 
-import java.util.List;
-
 public class Postagem{
     private Usuario autorPostagem;
     private String conteudo;
