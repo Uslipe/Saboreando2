@@ -5,9 +5,6 @@ import java.util.List;
 public class Postagem{
     private Usuario autorPostagem;
     private String conteudo;
-    private List<Curtida> curtidas;
-    private List<Comentario> comentarios;
-    private int qntCurtidas;
 
     //Construtor
     public Postagem(Usuario autor, String conteudo){
@@ -16,19 +13,6 @@ public class Postagem{
     }
 
     //Métodos
-    public int calcularQntCurtidas(){
-        qntCurtidas = curtidas.size();
-        return qntCurtidas;
-    }
-
-    public void adicionarCurtida(Curtida curtida){
-        curtidas.add(curtida);
-    }
-
-    public void adicionarComentario(Comentario comentario){
-        comentarios.add(comentario);
-    }
-
     //Gets e Sets
     public Usuario getAutorPostagem() {
         return autorPostagem;
