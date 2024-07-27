@@ -31,4 +31,13 @@ public class ControladorPostagem {
             throw new IllegalArgumentException("Argumento nulo");
         }
     }
+
+    public String retornarConteudoPostagem(Postagem postagem){
+        if(postagem.getConteudo() != null){
+            return postagem.getConteudo();
+        }
+        else{
+            throw new IllegalArgumentException("Conteúdo da postagem não identificado");
+        }
+    }
 }
