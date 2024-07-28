@@ -6,6 +6,7 @@ import java.util.List;
 import com.saboreando.dados.beans.Comentario;
 import com.saboreando.dados.beans.Curtida;
 import com.saboreando.dados.beans.Postagem;
+import com.saboreando.dados.beans.Usuario;
 
 @SuppressWarnings("rawtypes") //Isso faz o alerta amarelo sumir
 
@@ -48,6 +49,10 @@ public class RepositorioPostagem implements IRepositorioPostagem{
     @Override
     public void remover(Postagem p) {
         listaPostagens.remove(p);
+    }
+
+    public Usuario retornarAutorPostagem(Postagem postagem){
+        return postagem.getAutorPostagem();
     }
 
     //Métodos de comentários

@@ -1,6 +1,7 @@
 package com.saboreando.dados.beans;
 
 public class Postagem{
+    private String tituloPostagem;
     private Usuario autorPostagem;
     private String conteudo;
 
@@ -12,6 +13,14 @@ public class Postagem{
 
     //Métodos
     //Gets e Sets
+    public String getTituloPostagem() {
+        return tituloPostagem;
+    }
+
+    public void setTituloPostagem(String tituloPostagem) {
+        this.tituloPostagem = tituloPostagem;
+    }
+
     public Usuario getAutorPostagem() {
         return autorPostagem;
     }

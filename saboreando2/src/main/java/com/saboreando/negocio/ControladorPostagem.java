@@ -3,6 +3,7 @@ package com.saboreando.negocio;
 import com.saboreando.dados.RepositorioPostagem;
 import com.saboreando.dados.RepositorioUsuario;
 import com.saboreando.dados.beans.Postagem;
+import com.saboreando.dados.beans.Usuario;
 
 public class ControladorPostagem {
     private static ControladorPostagem instance;
