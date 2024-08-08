@@ -64,4 +64,14 @@ public class ControladorPostagem {
             throw new IllegalArgumentException("Conteúdo da postagem não identificado");
         }
     }
+
+    //Retornar quantidade de curtidas
+    public int retornarQuantidadeCurtidas(Postagem postagem){
+        return repositorioPostagem.contabilizarCurtidas(postagem);
+    }
+
+    //Retornar quantidade de comentários
+    public int retornarQuantidadeComentarios(Postagem postagem){
+        return repositorioPostagem.contabilizarComentarios(postagem);
+    }
 }
