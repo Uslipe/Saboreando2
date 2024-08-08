@@ -33,6 +33,9 @@ public class ControladorPostagem {
         }
     }
 
+
+    //MÉTODOS PARA MONTAGEM DA POSTAGEM
+    //Retornar o título
     public String retornarTituloPostagem(Postagem postagem){
         if(postagem.getTituloPostagem() != null){
             return postagem.getTituloPostagem();
@@ -42,9 +45,20 @@ public class ControladorPostagem {
         }
     }
 
+    //Retornar conteúdo
     public String retornarConteudoPostagem(Postagem postagem){
         if(postagem.getConteudo() != null){
             return postagem.getConteudo();
+        }
+        else{
+            throw new IllegalArgumentException("Conteúdo da postagem não identificado");
+        }
+    }
+
+    //RetornarAutor
+    public String retornarAutorPostagem(Postagem postagem){
+        if(repositorioPostagem.retornarAutorPostagem(postagem) != null){
+            return  repositorioPostagem.retornarAutorPostagem(postagem);
         }
         else{
             throw new IllegalArgumentException("Conteúdo da postagem não identificado");
