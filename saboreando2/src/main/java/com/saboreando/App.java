@@ -1,5 +1,6 @@
 package com.saboreando;
 
+import com.exceptions.CurtidaExistenteException;
 import com.exceptions.UsuarioExisteException;
 import com.exceptions.UsuarioNaoEncontradoException;
 import com.saboreando.dados.RepositorioCurtida;
@@ -9,12 +10,13 @@ import com.saboreando.dados.beans.Comentario;
 import com.saboreando.dados.beans.Curtida;
 import com.saboreando.dados.beans.Postagem;
 import com.saboreando.dados.beans.Usuario;
+import com.saboreando.negocio.ControladorCurtida;
 import com.saboreando.negocio.ControladorPostagem;
 import com.saboreando.negocio.ControladorUsuario;
 
 public class App 
 {
-    public static void main( String[] args ) throws UsuarioExisteException, UsuarioNaoEncontradoException{
+    public static void main( String[] args ) throws UsuarioExisteException, UsuarioNaoEncontradoException, CurtidaExistenteException{
         new RepositorioUsuario();
         //Instanciando o repositorio de usuários com sigleton
         RepositorioUsuario repositorioUsuario = RepositorioUsuario.getInstance();
@@ -24,6 +26,7 @@ public class App
         //Instanciando os controladores
         ControladorUsuario controladorUsuario = ControladorUsuario.getInstance();
         ControladorPostagem controladorPostagem = ControladorPostagem.getInstance();
+        ControladorCurtida controladorCurtida = ControladorCurtida.getInstance();
 
         //TESTES DE USUÁRIO
         //-------------------------------------------------------------------------------------------------------------------
@@ -85,9 +88,9 @@ public class App
         repositorioPostagem.adicionarComentario(comentario2);
 
         //Adiciona as curtidas
-        repositorioPostagem.adicionarCurtida(curtida1);
-        repositorioPostagem.adicionarCurtida(curtida2);
-        repositorioPostagem.adicionarCurtida(curtida3);
+        controladorCurtida.inserirCurtida(curtida1, usuario1, postagem3);
+        controladorCurtida.inserirCurtida(curtida2, usuario2, postagem3);
+        controladorCurtida.inserirCurtida(curtida3, usuario2, postagem3);
 
         System.out.println("\nTESTE DE LISTAGEM DE COMENTÁRIOS\n");
         System.out.println(repositorioPostagem.listarComentarios(postagem3));
