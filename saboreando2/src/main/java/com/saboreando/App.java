@@ -44,7 +44,6 @@ public class App
 
         //Teste para troca de username (SUCESSO)
         //System.out.println("\nTESTE DE TROCA DE USERNAME\n");
-        System.out.println(repositorioUsuario.listar());
         controlador.editarUsernameUsuario(usuario3, "gioca");
         //Essa linha gera erro corretamente, porém se eu alterar o username de instância dele para "uslipe", o código buga lindamente - controlador.editarUsernameUsuario(usuario4, "joanderson");
         //System.out.println(repositorioUsuario.listar());
@@ -58,9 +57,9 @@ public class App
 
         //TESTES DE POSTAGEM
         //Teste para cadastro de postagens (SUCESSO) (passar pelo controlador ainda)
-        Postagem postagem1 = new Postagem(usuario1, "Bolo de morango");
-        Postagem postagem2 = new Postagem(usuario2, "Tteokbokki");
-        Postagem postagem3 = new Postagem(usuario2, "Banana juice");
+        Postagem postagem1 = new Postagem(usuario1, "Bolo de morango", "Bolo branco com cauda de morango");
+        Postagem postagem2 = new Postagem(usuario2, "Tteokbokki", "Bolinho de farinha de arroz com molho apimentado");
+        Postagem postagem3 = new Postagem(usuario2, "Banana juice", "Leite saborizado com essência de banana");
 
         repositorioPostagem.inserir(postagem1);
         repositorioPostagem.inserir(postagem2);

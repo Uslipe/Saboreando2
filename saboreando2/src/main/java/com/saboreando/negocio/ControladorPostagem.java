@@ -33,6 +33,15 @@ public class ControladorPostagem {
         }
     }
 
+    public String retornarTituloPostagem(Postagem postagem){
+        if(postagem.getTituloPostagem() != null){
+            return postagem.getTituloPostagem();
+        }
+        else{
+            throw new IllegalArgumentException("Titulo da postagem não identificado");
+        }
+    }
+
     public String retornarConteudoPostagem(Postagem postagem){
         if(postagem.getConteudo() != null){
             return postagem.getConteudo();

@@ -6,8 +6,9 @@ public class Postagem{
     private String conteudo;
 
     //Construtor
-    public Postagem(Usuario autor, String conteudo){
+    public Postagem(Usuario autor, String titulo, String conteudo){
         this.autorPostagem = autor;
+        this.tituloPostagem = titulo;
         this.conteudo = conteudo;
     }
 
