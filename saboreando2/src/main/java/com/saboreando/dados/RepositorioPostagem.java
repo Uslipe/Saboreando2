@@ -61,6 +61,10 @@ public class RepositorioPostagem implements IRepositorioPostagem{
         return postagem.getTituloPostagem();
     }
 
+    public String retornarConteudoPostagem(Postagem postagem){
+        return postagem.getConteudo();
+    }
+
     //AVISO: no controlador, colocar o método para retornar uma lista com as postagens e verificar se a postagem puxada já não está presente na lista
     public Postagem retornarPostagensAleatorias(){
         Random numeroAleatorio = new Random();

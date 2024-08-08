@@ -37,8 +37,8 @@ public class ControladorPostagem {
     //MÉTODOS PARA MONTAGEM DA POSTAGEM
     //Retornar o título
     public String retornarTituloPostagem(Postagem postagem){
-        if(postagem.getTituloPostagem() != null){
-            return postagem.getTituloPostagem();
+        if(repositorioPostagem.retornarTituloPostagem(postagem) != null){
+            return repositorioPostagem.retornarTituloPostagem(postagem);
         }
         else{
             throw new IllegalArgumentException("Titulo da postagem não identificado");
@@ -47,8 +47,8 @@ public class ControladorPostagem {
 
     //Retornar conteúdo
     public String retornarConteudoPostagem(Postagem postagem){
-        if(postagem.getConteudo() != null){
-            return postagem.getConteudo();
+        if(repositorioPostagem.retornarConteudoPostagem(postagem) != null){
+            return repositorioPostagem.retornarConteudoPostagem(postagem);
         }
         else{
             throw new IllegalArgumentException("Conteúdo da postagem não identificado");
