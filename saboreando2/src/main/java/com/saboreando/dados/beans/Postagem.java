@@ -40,7 +40,7 @@ public class Postagem{
 
     //To String
     public String toString(){
-        return "\nAutor: " + autorPostagem.getUsername() + "\nConteúdo: " + conteudo + "\n";
+        return "\nAutor: " + autorPostagem.getUsername() + "\nTítulo: " + tituloPostagem +"\nConteúdo: " + conteudo + "\n";
     }
     
 }

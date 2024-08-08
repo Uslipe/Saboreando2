@@ -25,7 +25,7 @@ public class ControladorPostagem {
     //Criar uma nova postagem
     public void criarPostagem(Postagem postagem){
         //Abordagem um pouco diferente do cadastrarUsuario
-        if(postagem.getAutorPostagem() != null && postagem.getConteudo() != null){
+        if(postagem.getAutorPostagem() != null && postagem.getConteudo() != null && postagem.getTituloPostagem() != null){
             repositorioPostagem.inserir(postagem);
         }
         else{

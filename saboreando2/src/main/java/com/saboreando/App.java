@@ -9,6 +9,7 @@ import com.saboreando.dados.beans.Comentario;
 import com.saboreando.dados.beans.Curtida;
 import com.saboreando.dados.beans.Postagem;
 import com.saboreando.dados.beans.Usuario;
+import com.saboreando.negocio.ControladorPostagem;
 import com.saboreando.negocio.ControladorUsuario;
 
 public class App 
@@ -20,8 +21,9 @@ public class App
         RepositorioPostagem repositorioPostagem = RepositorioPostagem.getInstance();
         RepositorioCurtida repositorioCurtida = RepositorioCurtida.getInstance();
 
-        //Instanciando o controlador de usuários
-        ControladorUsuario controlador = ControladorUsuario.getInstance();
+        //Instanciando os controladores
+        ControladorUsuario controladorUsuario = ControladorUsuario.getInstance();
+        ControladorPostagem controladorPostagem = ControladorPostagem.getInstance();
 
         //TESTES DE USUÁRIO
         //-------------------------------------------------------------------------------------------------------------------
@@ -34,39 +36,39 @@ public class App
         Usuario usuario3 = new Usuario("Giovana", "giovana@smau.com", "xeo", "12345678");
         Usuario usuario4 = new Usuario("Joanderson", "joanderson@smau.com", "joa", "12345678");
 
-        controlador.cadastrarUsuario(usuario1);
-        controlador.cadastrarUsuario(usuario2);
-        controlador.cadastrarUsuario(usuario3);
-        //Teste de exception [OK] - controlador.cadastrarUsuario(usuario4);
+        controladorUsuario.cadastrarUsuario(usuario1);
+        controladorUsuario.cadastrarUsuario(usuario2);
+        controladorUsuario.cadastrarUsuario(usuario3);
+        //Teste de exception [OK] - controladorUsuario.cadastrarUsuario(usuario4);
 
         //System.out.println(repositorioUsuario.listar());
         //-------------------------------------------------------------------------------------------------------------------
 
         //Teste para troca de username (SUCESSO)
         //System.out.println("\nTESTE DE TROCA DE USERNAME\n");
-        controlador.editarUsernameUsuario(usuario3, "gioca");
-        //Essa linha gera erro corretamente, porém se eu alterar o username de instância dele para "uslipe", o código buga lindamente - controlador.editarUsernameUsuario(usuario4, "joanderson");
+        controladorUsuario.editarUsernameUsuario(usuario3, "gioca");
+        //Essa linha gera erro corretamente, porém se eu alterar o username de instância dele para "uslipe", o código buga lindamente - controladorUsuario.editarUsernameUsuario(usuario4, "joanderson");
         //System.out.println(repositorioUsuario.listar());
         //-------------------------------------------------------------------------------------------------------------------
 
         //Teste para exclusão de usuário (SUCESSO)
         //System.out.println("\nTESTE DE EXCLUSÃO DE USUÁRIO\n");
-        //controlador.excluirUsuario("GIOCONDA", "12345678");
+        //controladorUsuario.excluirUsuario("GIOCONDA", "12345678");
         //System.out.println(repositorioUsuario.listar());
         //-------------------------------------------------------------------------------------------------------------------
 
         //TESTES DE POSTAGEM
-        //Teste para cadastro de postagens (SUCESSO) (passar pelo controlador ainda)
+        //Teste para cadastro de postagens (SUCESSO) (passar pelo controladorUsuario ainda)
         Postagem postagem1 = new Postagem(usuario1, "Bolo de morango", "Bolo branco com cauda de morango");
         Postagem postagem2 = new Postagem(usuario2, "Tteokbokki", "Bolinho de farinha de arroz com molho apimentado");
         Postagem postagem3 = new Postagem(usuario2, "Banana juice", "Leite saborizado com essência de banana");
 
-        repositorioPostagem.inserir(postagem1);
-        repositorioPostagem.inserir(postagem2);
-        repositorioPostagem.inserir(postagem3);
+        controladorPostagem.criarPostagem(postagem1);
+        controladorPostagem.criarPostagem(postagem2);
+        controladorPostagem.criarPostagem(postagem3);
 
         System.out.println("\nTESTE DE CADASTRO DE POSTAGEM\n");
-        System.out.println(repositorioPostagem.listar());
+        System.out.println(repositorioPostagem.listar()); //Usando o repositorio só para listar
         //-------------------------------------------------------------------------------------------------------------------
         
         //TESTE DE COMENTÁRIO E CURTIDA
