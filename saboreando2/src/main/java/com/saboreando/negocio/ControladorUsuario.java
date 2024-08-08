@@ -41,14 +41,22 @@ public class ControladorUsuario {
     }
 
     //Editar username do usuário
-    public void editarUsernameUsuario(Usuario usuario, String novoUsername) throws UsuarioNaoEncontradoException{
-        //Verifica se o usuário existe
-        if(repositorioUsuario.procurarUsuarioIndice(usuario.getUsername()) != -1){ //"Se o usuário está na lista..."
-            repositorioUsuario.editarUsername(usuario, novoUsername);
+    public void editarUsernameUsuario(Usuario usuario, String novoUsername) throws UsuarioNaoEncontradoException, UsuarioExisteException{
+        //Verifica se o novo username já não pertence a alguém
+        if(repositorioUsuario.procurarUsuarioIndice(novoUsername) == -1){
+            //Verifica se o usuário existe
+            if(repositorioUsuario.procurarUsuarioIndice(usuario.getUsername()) != -1){ //"Se o usuário está na lista..."
+                repositorioUsuario.editarUsername(usuario, novoUsername);
+            }
+            else{
+                throw new UsuarioNaoEncontradoException();
+            }
         }
+        //Se o novo username pertencer a alguém, lança a exception
         else{
-            throw new UsuarioNaoEncontradoException();
+            throw new UsuarioExisteException(novoUsername);
         }
+        
     }
 
     //Editar email do usuário

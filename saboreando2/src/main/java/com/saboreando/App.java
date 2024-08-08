@@ -44,8 +44,8 @@ public class App
 
         //Teste para troca de username (SUCESSO)
         //System.out.println("\nTESTE DE TROCA DE USERNAME\n");
-        controlador.editarUsernameUsuario(usuario3, "GIOCONDA");
-        controlador.editarUsernameUsuario(usuario4, "GIOCONDA");
+        controlador.editarUsernameUsuario(usuario3, "gioca");
+        controlador.editarUsernameUsuario(usuario4, "joanderson");
         //System.out.println(repositorioUsuario.listar());
         //-------------------------------------------------------------------------------------------------------------------
 
