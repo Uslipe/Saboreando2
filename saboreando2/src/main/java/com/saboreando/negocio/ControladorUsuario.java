@@ -47,7 +47,7 @@ public class ControladorUsuario {
             repositorioUsuario.editarUsername(usuario, novoUsername);
         }
         else{
-            throw new UsuarioNaoEncontradoException(usuario.getUsername());
+            throw new UsuarioNaoEncontradoException();
         }
     }
 
@@ -57,7 +57,7 @@ public class ControladorUsuario {
             repositorioUsuario.editarEmail(usuario, novoEmail);
         }
         else{
-            throw new UsuarioNaoEncontradoException(usuario.getUsername());
+            throw new UsuarioNaoEncontradoException();
         }
     }
 
@@ -67,7 +67,7 @@ public class ControladorUsuario {
             repositorioUsuario.editarNome(usuario, novoNome);
         }
         else{
-            throw new UsuarioNaoEncontradoException(usuario.getUsername());
+            throw new UsuarioNaoEncontradoException();
         }
     }
 
@@ -83,7 +83,7 @@ public class ControladorUsuario {
             }
         }
         else{
-            throw new UsuarioNaoEncontradoException(username);
+            throw new UsuarioNaoEncontradoException();
         } 
     }
 }
