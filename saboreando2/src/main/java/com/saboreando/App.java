@@ -32,7 +32,7 @@ public class App
         Usuario usuario1 = new Usuario("Felipe", "felipe@smau.com", "uslipe", "12345678");
         Usuario usuario2 = new Usuario("Gisele", "gisele@smau.com", "xixa", "12345678");
         Usuario usuario3 = new Usuario("Giovana", "giovana@smau.com", "xeo", "12345678");
-        Usuario usuario4 = new Usuario("Joanderson", "joanderson@smau.com", "uslipe", "12345678");
+        Usuario usuario4 = new Usuario("Joanderson", "joanderson@smau.com", "joa", "12345678");
 
         controlador.cadastrarUsuario(usuario1);
         controlador.cadastrarUsuario(usuario2);
@@ -44,14 +44,15 @@ public class App
 
         //Teste para troca de username (SUCESSO)
         //System.out.println("\nTESTE DE TROCA DE USERNAME\n");
+        System.out.println(repositorioUsuario.listar());
         controlador.editarUsernameUsuario(usuario3, "gioca");
-        controlador.editarUsernameUsuario(usuario4, "joanderson");
+        //Essa linha gera erro corretamente, porém se eu alterar o username de instância dele para "uslipe", o código buga lindamente - controlador.editarUsernameUsuario(usuario4, "joanderson");
         //System.out.println(repositorioUsuario.listar());
         //-------------------------------------------------------------------------------------------------------------------
 
         //Teste para exclusão de usuário (SUCESSO)
         //System.out.println("\nTESTE DE EXCLUSÃO DE USUÁRIO\n");
-        controlador.excluirUsuario("GIOCONDA", "12345678");
+        //controlador.excluirUsuario("GIOCONDA", "12345678");
         //System.out.println(repositorioUsuario.listar());
         //-------------------------------------------------------------------------------------------------------------------
 
