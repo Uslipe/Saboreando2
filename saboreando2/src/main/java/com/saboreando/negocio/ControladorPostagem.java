@@ -33,7 +33,6 @@ public class ControladorPostagem {
         }
     }
 
-
     //MÉTODOS PARA MONTAGEM DA POSTAGEM
     //Retornar o título
     public String retornarTituloPostagem(Postagem postagem){
@@ -57,8 +56,8 @@ public class ControladorPostagem {
 
     //RetornarAutor
     public String retornarAutorPostagem(Postagem postagem){
-        if(repositorioPostagem.retornarAutorPostagem(postagem) != null){
-            return  repositorioPostagem.retornarAutorPostagem(postagem);
+        if(repositorioPostagem.retornarUsernameAutor(postagem) != null){
+            return  repositorioPostagem.retornarUsernameAutor(postagem);
         }
         else{
             throw new IllegalArgumentException("Conteúdo da postagem não identificado");
@@ -73,5 +72,17 @@ public class ControladorPostagem {
     //Retornar quantidade de comentários
     public int retornarQuantidadeComentarios(Postagem postagem){
         return repositorioPostagem.contabilizarComentarios(postagem);
+    }
+
+    //Excluir postagem
+    //para excluir, tem que verificar se o autor postagem é o mesmo usuário da pessoa logada
+    public void excluirPostagem(Usuario usuario, Postagem postagem){
+        //Verifica se o usuário é o autor da postagem
+        if(usuario.equals(postagem.getAutorPostagem())){
+            repositorioPostagem.remover(postagem);
+        }
+        else{
+            throw new IllegalArgumentException("Usuário inválido");
+        }
     }
 }

@@ -53,7 +53,7 @@ public class RepositorioPostagem implements IRepositorioPostagem{
     }
 
     //Métodos para a montagem da postagem
-    public String retornarAutorPostagem(Postagem postagem){
+    public String retornarUsernameAutor(Postagem postagem){
         return postagem.getAutorPostagem().getUsername();
     }
 
