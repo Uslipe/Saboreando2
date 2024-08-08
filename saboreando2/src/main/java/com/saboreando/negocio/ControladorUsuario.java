@@ -1,6 +1,7 @@
 package com.saboreando.negocio;
 
 import com.exceptions.UsuarioExisteException;
+import com.exceptions.UsuarioNaoEncontradoException;
 import com.saboreando.dados.RepositorioUsuario;
 import com.saboreando.dados.beans.Usuario;
 
@@ -40,38 +41,38 @@ public class ControladorUsuario {
     }
 
     //Editar username do usuário
-    public void editarUsernameUsuario(Usuario usuario, String novoUsername){
+    public void editarUsernameUsuario(Usuario usuario, String novoUsername) throws UsuarioNaoEncontradoException{
         //Verifica se o usuário existe
         if(repositorioUsuario.procurarUsuarioIndice(usuario.getUsername()) != -1){ //"Se o usuário está na lista..."
             repositorioUsuario.editarUsername(usuario, novoUsername);
         }
         else{
-            throw new IllegalArgumentException("Usuário não encontrado");
+            throw new UsuarioNaoEncontradoException(usuario.getUsername());
         }
     }
 
     //Editar email do usuário
-    public void editarEmailUsuario(Usuario usuario, String novoEmail){
+    public void editarEmailUsuario(Usuario usuario, String novoEmail) throws UsuarioNaoEncontradoException{
         if(repositorioUsuario.procurarUsuarioIndice(usuario.getUsername()) != -1){ //"Se o usuário está na lista..."
             repositorioUsuario.editarEmail(usuario, novoEmail);
         }
         else{
-            throw new IllegalArgumentException("Usuário não encontrado");
+            throw new UsuarioNaoEncontradoException(usuario.getUsername());
         }
     }
 
     //Editar nome do usuário
-    public void editarNomeUsuario(Usuario usuario, String novoNome){
+    public void editarNomeUsuario(Usuario usuario, String novoNome) throws UsuarioNaoEncontradoException{
         if(repositorioUsuario.procurarUsuarioIndice(usuario.getUsername()) != -1){ //"Se o usuário está na lista..."
             repositorioUsuario.editarNome(usuario, novoNome);
         }
         else{
-            throw new IllegalArgumentException("Usuário não encontrado");
+            throw new UsuarioNaoEncontradoException(usuario.getUsername());
         }
     }
 
     //Excluir usuário
-    public void excluirUsuario(String username, String senha){
+    public void excluirUsuario(String username, String senha) throws UsuarioNaoEncontradoException{
         int indice = repositorioUsuario.procurarUsuarioIndice(username);
         if(indice != -1){
             if(senha.equals(repositorioUsuario.retornarUsuario(indice).getSenha())){
@@ -82,7 +83,7 @@ public class ControladorUsuario {
             }
         }
         else{
-            throw new IllegalArgumentException("Usuário não encontrado");
+            throw new UsuarioNaoEncontradoException(username);
         } 
     }
 }
