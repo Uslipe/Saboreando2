@@ -1,5 +1,6 @@
 package com.saboreando.negocio;
 
+import com.exceptions.UsuarioExisteException;
 import com.saboreando.dados.RepositorioUsuario;
 import com.saboreando.dados.beans.Usuario;
 
@@ -21,7 +22,7 @@ public class ControladorUsuario {
     }
 
     //Cadastrar usuário
-    public void cadastrarUsuario(Usuario usuario){
+    public void cadastrarUsuario(Usuario usuario) throws UsuarioExisteException{
         //Verifica se todos os campos são preenchidos
         if(usuario.getNome() == null || usuario.getEmail() == null || usuario.getUsername() == null || usuario.getSenha() == null){
             throw new IllegalArgumentException("Argumento nulo");
@@ -33,7 +34,7 @@ public class ControladorUsuario {
                 repositorioUsuario.inserir(usuario);
             }
             else{
-                throw new IllegalArgumentException("Usuário existente");
+                throw new UsuarioExisteException(usuario.getUsername());
             }
         }
     }

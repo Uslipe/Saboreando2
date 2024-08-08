@@ -1,5 +1,6 @@
 package com.saboreando;
 
+import com.exceptions.UsuarioExisteException;
 import com.saboreando.dados.RepositorioCurtida;
 import com.saboreando.dados.RepositorioPostagem;
 import com.saboreando.dados.RepositorioUsuario;
@@ -11,7 +12,7 @@ import com.saboreando.negocio.ControladorUsuario;
 
 public class App 
 {
-    public static void main( String[] args ){
+    public static void main( String[] args ) throws UsuarioExisteException{
         new RepositorioUsuario();
         //Instanciando o repositorio de usuários com sigleton
         RepositorioUsuario repositorioUsuario = RepositorioUsuario.getInstance();
@@ -30,10 +31,12 @@ public class App
         Usuario usuario1 = new Usuario("Felipe", "felipe@smau.com", "uslipe", "12345678");
         Usuario usuario2 = new Usuario("Gisele", "gisele@smau.com", "xixa", "12345678");
         Usuario usuario3 = new Usuario("Giovana", "giovana@smau.com", "xeo", "12345678");
+        //Teste de exception [OK] - Usuario usuario4 = new Usuario("Joanderson", "joanderson@smau.com", "uslipe", "12345678");
 
         controlador.cadastrarUsuario(usuario1);
         controlador.cadastrarUsuario(usuario2);
         controlador.cadastrarUsuario(usuario3);
+        //Teste de exception [OK] - controlador.cadastrarUsuario(usuario4);
 
         //System.out.println(repositorioUsuario.listar());
         //-------------------------------------------------------------------------------------------------------------------
