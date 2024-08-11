@@ -14,9 +14,16 @@ import com.saboreando.negocio.ControladorCurtida;
 import com.saboreando.negocio.ControladorPostagem;
 import com.saboreando.negocio.ControladorUsuario;
 
-public class App 
-{
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
+
+public class App extends Application{
     public static void main( String[] args ) throws UsuarioExisteException, UsuarioNaoEncontradoException, CurtidaExistenteException{
+        //Javafx
+        launch(args);
+
         new RepositorioUsuario();
         //Instanciando o repositorio de usuários com sigleton
         RepositorioUsuario repositorioUsuario = RepositorioUsuario.getInstance();
@@ -97,6 +104,14 @@ public class App
         System.out.println("QUANTIDADE DE CURTIDAS");
         System.out.println(repositorioPostagem.contabilizarCurtidas(postagem3));
         //-------------------------------------------------------------------------------------------------------------------
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        primaryStage.setTitle("Tela 1");
+        StackPane root = new StackPane();
+        primaryStage.setScene(new Scene(root, 400, 400));
+        primaryStage.show();
     }
     
 }
