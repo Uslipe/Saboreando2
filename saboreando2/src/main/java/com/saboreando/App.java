@@ -88,7 +88,6 @@ public class App extends Application{
         //Duas curtidas na postagem 3
         Curtida curtida1 = new Curtida(usuario1, postagem3);
         Curtida curtida2 = new Curtida(usuario2, postagem3);
-        Curtida curtida3 = new Curtida(usuario2, postagem3);
 
         //Adiciona os comentários
         repositorioPostagem.adicionarComentario(comentario1);
@@ -97,7 +96,6 @@ public class App extends Application{
         //Adiciona as curtidas
         controladorCurtida.inserirCurtida(curtida1, usuario1, postagem3);
         controladorCurtida.inserirCurtida(curtida2, usuario2, postagem3);
-        controladorCurtida.inserirCurtida(curtida3, usuario2, postagem3);
 
         System.out.println("\nTESTE DE LISTAGEM DE COMENTÁRIOS\n");
         System.out.println(repositorioPostagem.listarComentarios(postagem3));
