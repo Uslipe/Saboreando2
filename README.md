@@ -95,17 +95,3 @@ O padrão Singleton é utilizado para garantir que exista uma única instância 
 - **JavaFX**: Biblioteca para criar a interface gráfica do usuário, oferecendo uma experiência interativa e rica.
 
 ## Estrutura do Projeto
-
-```plaintext
-src/
-├── controlador/
-│   ├── ControladorPostagem.java
-│   ├── ControladorUsuario.java
-│   ├── ControladorCurtida.java
-│   └── ControladorComentario.java
-├── repositorio/
-│   ├── RepositorioPostagem.java
-│   ├── RepositorioUsuario.java
-│   ├── RepositorioCurtida.java
-│   └── RepositorioComentario.java
-└── Main.java
