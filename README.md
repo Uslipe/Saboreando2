@@ -93,5 +93,3 @@ O padrão Singleton é utilizado para garantir que exista uma única instância 
 
 - **Java**: Linguagem de programação utilizada para a lógica da aplicação, incluindo as camadas de controle e repositório.
 - **JavaFX**: Biblioteca para criar a interface gráfica do usuário, oferecendo uma experiência interativa e rica.
-
-## Estrutura do Projeto
