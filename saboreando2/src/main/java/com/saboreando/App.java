@@ -1,8 +1,5 @@
 package com.saboreando;
 
-import com.exceptions.CurtidaExistenteException;
-import com.exceptions.UsuarioExisteException;
-import com.exceptions.UsuarioNaoEncontradoException;
 import com.saboreando.dados.RepositorioCurtida;
 import com.saboreando.dados.RepositorioPostagem;
 import com.saboreando.dados.RepositorioUsuario;
@@ -10,14 +7,19 @@ import com.saboreando.dados.beans.Comentario;
 import com.saboreando.dados.beans.Curtida;
 import com.saboreando.dados.beans.Postagem;
 import com.saboreando.dados.beans.Usuario;
+import com.saboreando.exceptions.CurtidaExistenteException;
+import com.saboreando.exceptions.UsuarioExisteException;
+import com.saboreando.exceptions.UsuarioNaoEncontradoException;
 import com.saboreando.negocio.ControladorCurtida;
 import com.saboreando.negocio.ControladorPostagem;
 import com.saboreando.negocio.ControladorUsuario;
 
 import javafx.application.Application;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.fxml.FXMLLoader;
 
 public class App extends Application{
     public static void main( String[] args ) throws UsuarioExisteException, UsuarioNaoEncontradoException, CurtidaExistenteException{
@@ -106,9 +108,9 @@ public class App extends Application{
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        primaryStage.setTitle("Tela 1");
-        StackPane root = new StackPane();
-        primaryStage.setScene(new Scene(root, 400, 400));
+        Parent root = FXMLLoader.load(getClass().getResource("/resources/aplicacao/telaLogin.fxml"));
+        primaryStage.setTitle("Primeira Tela");
+        primaryStage.setScene(new Scene(root, 650, 400));
         primaryStage.show();
     }
     

@@ -1,10 +1,10 @@
 package com.saboreando.negocio;
 
-import com.exceptions.CurtidaExistenteException;
 import com.saboreando.dados.RepositorioCurtida;
 import com.saboreando.dados.beans.Curtida;
 import com.saboreando.dados.beans.Postagem;
 import com.saboreando.dados.beans.Usuario;
+import com.saboreando.exceptions.CurtidaExistenteException;
 
 public class ControladorCurtida {
     private static ControladorCurtida instance;

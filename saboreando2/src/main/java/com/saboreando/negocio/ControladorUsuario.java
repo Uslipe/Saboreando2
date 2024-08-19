@@ -1,9 +1,9 @@
 package com.saboreando.negocio;
 
-import com.exceptions.UsuarioExisteException;
-import com.exceptions.UsuarioNaoEncontradoException;
 import com.saboreando.dados.RepositorioUsuario;
 import com.saboreando.dados.beans.Usuario;
+import com.saboreando.exceptions.UsuarioExisteException;
+import com.saboreando.exceptions.UsuarioNaoEncontradoException;
 
 public class ControladorUsuario {
     private static ControladorUsuario instance;

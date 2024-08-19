@@ -1,4 +1,4 @@
-package com.exceptions;
+package com.saboreando.exceptions;
 
 public class CurtidaExistenteException extends Exception{
     private String username;

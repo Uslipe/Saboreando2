@@ -7,12 +7,12 @@ com/saboreando/dados/beans/Comentario.class
 com/saboreando/dados/RepositorioUsuario.class
 com/saboreando/dados/IRepositorioUsuario.class
 com/saboreando/negocio/ControladorCurtida.class
-com/exceptions/UsuarioNaoEncontradoException.class
+com/saboreando/exceptions/UsuarioNaoEncontradoException.class
 com/saboreando/dados/RepositorioComentario.class
-com/exceptions/UsuarioExisteException.class
+com/saboreando/exceptions/CurtidaExistenteException.class
+com/saboreando/exceptions/UsuarioExisteException.class
 com/saboreando/dados/beans/Postagem.class
 com/saboreando/dados/RepositorioCurtida.class
 com/saboreando/App.class
 com/saboreando/negocio/ControladorPostagem.class
 com/saboreando/negocio/ControladorUsuario.class
-com/exceptions/CurtidaExistenteException.class
