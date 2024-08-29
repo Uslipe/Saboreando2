@@ -91,6 +91,13 @@
         <configuration>
           <mainClass>com.saboreando.App</mainClass>
         </configuration>
+                    <executions>
+                <execution>
+                    <goals>
+                        <goal>run</goal>
+                    </goals>
+                </execution>
+            </executions>
       </plugin>
       </plugins>
     </pluginManagement>
