@@ -32,4 +32,33 @@ public class Fachada {
     public void inserirCurtida(Curtida curtida, Usuario usuario, Postagem postagem) throws CurtidaExistenteException{
         controladorCurtida.inserirCurtida(curtida, usuario, postagem);
     }
+
+    //Métodos do ControladorPostagem
+    public void criarPostagem(Postagem postagem){
+        controladorPostagem.criarPostagem(postagem);
+    }
+
+    public String retornarTituloPostagem(Postagem postagem){
+        return controladorPostagem.retornarTituloPostagem(postagem);
+    }
+
+    public String retornarConteudoPostagem(Postagem postagem){
+        return controladorPostagem.retornarConteudoPostagem(postagem);
+    }
+
+    public String retornarAutorPostagem(Postagem postagem){
+        return controladorPostagem.retornarAutorPostagem(postagem);
+    }
+
+    public int retornarQuantidadeCurtidas(Postagem postagem){
+        return controladorPostagem.retornarQuantidadeCurtidas(postagem);
+    }
+
+    public int retornarQuantidadeComentarios(Postagem postagem){
+        return controladorPostagem.retornarQuantidadeComentarios(postagem);
+    }
+
+    public void excluirPostagem(Usuario usuario, Postagem postagem){
+        controladorPostagem.excluirPostagem(usuario, postagem);
+    }
 }
