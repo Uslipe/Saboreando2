@@ -24,6 +24,14 @@
                         <Font name="DejaVu Sans Mono Bold" size="36.0" />
                      </font>
                   </Label>
+                  <Label fx:id="labelErro" textFill="#d00b0b">
+                     <VBox.margin>
+                        <Insets top="-32.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
                   <TextField fx:id="inputUsuario" maxWidth="-Infinity" prefHeight="72.0" prefWidth="336.0" promptText="Nome de usuário" style="-fx-background-radius: 16;">
                      <font>
                         <Font size="18.0" />

@@ -26,6 +26,9 @@ public class TelaLoginControlador {
     @FXML
     private Label titulo;
 
+    @FXML
+    private Label labelErro;
+
         // Método chamado ao clicar no botão de login
     @FXML
     private void handleBotaoLogarAction(ActionEvent event) {
@@ -38,6 +41,7 @@ public class TelaLoginControlador {
             if (loginBemSucedido) {
                 // Login bem-sucedido, prossiga para a próxima tela ou exiba uma mensagem de sucesso
                 System.out.println("Login bem-sucedido!");
+                labelErro.setText("");
                 // Aqui você pode navegar para a próxima tela, por exemplo:
                 // irParaProximaTela();
             }
@@ -46,7 +50,7 @@ public class TelaLoginControlador {
             // Usuário não encontrado, exibir uma mensagem de erro
             System.out.println("Usuário não encontrado: " + e.getMessage());
             // Exibir uma mensagem de erro na interface gráfica, se necessário
-            titulo.setText("Usuário não encontrado!");
+            labelErro.setText("Usuário não encontrado!");
             
         }
     }
