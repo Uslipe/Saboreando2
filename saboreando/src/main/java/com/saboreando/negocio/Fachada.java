@@ -4,6 +4,8 @@ import com.saboreando.dados.beans.Curtida;
 import com.saboreando.dados.beans.Postagem;
 import com.saboreando.dados.beans.Usuario;
 import com.saboreando.exceptions.CurtidaExistenteException;
+import com.saboreando.exceptions.UsuarioExisteException;
+import com.saboreando.exceptions.UsuarioNaoEncontradoException;
 
 //Implementação do padrão de projeto FACADE
 public class Fachada {
@@ -60,5 +62,25 @@ public class Fachada {
 
     public void excluirPostagem(Usuario usuario, Postagem postagem){
         controladorPostagem.excluirPostagem(usuario, postagem);
+    }
+
+    public void cadastrarUsuario(Usuario usuario) throws UsuarioExisteException{
+        controladorUsuario.cadastrarUsuario(usuario);
+    }
+
+    public void editarUsernameUsuario(Usuario usuario, String novoUsername) throws UsuarioNaoEncontradoException, UsuarioExisteException{
+        controladorUsuario.editarUsernameUsuario(usuario, novoUsername);
+    }
+
+    public void editarEmailUsuario(Usuario usuario, String novoEmail) throws UsuarioNaoEncontradoException{
+        controladorUsuario.editarEmailUsuario(usuario, novoEmail);
+    }
+
+    public void editarNomeUsuario(Usuario usuario, String novoNome) throws UsuarioNaoEncontradoException{
+        controladorUsuario.editarNomeUsuario(usuario, novoNome);
+    }
+
+    public void excluirUsuario(String username, String senha) throws UsuarioNaoEncontradoException{
+        controladorUsuario.excluirUsuario(username, senha);
     }
 }
