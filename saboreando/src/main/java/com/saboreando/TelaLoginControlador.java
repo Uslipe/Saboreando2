@@ -1,5 +1,9 @@
 package com.saboreando;
 
+import com.saboreando.exceptions.UsuarioNaoEncontradoException;
+import com.saboreando.negocio.LoginControlador;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -7,6 +11,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 public class TelaLoginControlador {
+
+    LoginControlador loginControlador = LoginControlador.getInstance();
     
     @FXML
     private Button botaoLogar;
@@ -19,4 +25,30 @@ public class TelaLoginControlador {
 
     @FXML
     private Label titulo;
+
+        // Método chamado ao clicar no botão de login
+    @FXML
+    private void handleBotaoLogarAction(ActionEvent event) {
+        String username = inputUsuario.getText();
+        String senha = inputSenha.getText();
+        
+        try {
+            boolean loginBemSucedido = loginControlador.validarLogin(username, senha);
+            
+            if (loginBemSucedido) {
+                // Login bem-sucedido, prossiga para a próxima tela ou exiba uma mensagem de sucesso
+                System.out.println("Login bem-sucedido!");
+                // Aqui você pode navegar para a próxima tela, por exemplo:
+                // irParaProximaTela();
+            }
+
+        } catch (UsuarioNaoEncontradoException e) {
+            // Usuário não encontrado, exibir uma mensagem de erro
+            System.out.println("Usuário não encontrado: " + e.getMessage());
+            // Exibir uma mensagem de erro na interface gráfica, se necessário
+            titulo.setText("Usuário não encontrado!");
+            
+        }
+    }
+
 }
