@@ -23,8 +23,8 @@ public class ControladorCurtida {
     }
 
     //Inserir curtida
-    public void inserirCurtida(Curtida curtida, Usuario usuario, Postagem postagm) throws CurtidaExistenteException{
-        if(repositorioCurtida.curtiuOuNao(usuario, postagm) == false){ //Se o usuário não curtiu a postagem
+    public void inserirCurtida(Curtida curtida, Usuario usuario, Postagem postagem) throws CurtidaExistenteException{
+        if(repositorioCurtida.curtiuOuNao(usuario, postagem) == false){ //Se o usuário não curtiu a postagem
             repositorioCurtida.inserir(curtida);
         }
         else{
