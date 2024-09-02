@@ -19,7 +19,7 @@ public class RepositorioUsuario implements IRepositorioUsuario, Serializable {
 
     public static RepositorioUsuario getInstance(){
         if(instance == null){
-            instance = new RepositorioUsuario();
+            instance = lerDoArquivo();
         }
         return instance;
     }

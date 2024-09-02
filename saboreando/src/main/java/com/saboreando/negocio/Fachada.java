@@ -1,5 +1,7 @@
 package com.saboreando.negocio;
 
+import java.util.ArrayList;
+
 import com.saboreando.dados.beans.Curtida;
 import com.saboreando.dados.beans.Postagem;
 import com.saboreando.dados.beans.Usuario;
@@ -64,6 +66,7 @@ public class Fachada {
         controladorPostagem.excluirPostagem(usuario, postagem);
     }
 
+    //Métodos do controlador usuário
     public void cadastrarUsuario(Usuario usuario) throws UsuarioExisteException{
         controladorUsuario.cadastrarUsuario(usuario);
     }
@@ -82,5 +85,9 @@ public class Fachada {
 
     public void excluirUsuario(String username, String senha) throws UsuarioNaoEncontradoException{
         controladorUsuario.excluirUsuario(username, senha);
+    }
+
+    public ArrayList<Usuario> listar(){
+        return controladorUsuario.listar();
     }
 }

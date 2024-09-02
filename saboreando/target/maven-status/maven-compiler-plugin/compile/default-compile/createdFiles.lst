@@ -15,6 +15,7 @@ module-info.class
 com/saboreando/exceptions/UsuarioExisteException.class
 com/saboreando/dados/beans/Postagem.class
 com/saboreando/dados/RepositorioCurtida.class
+com/saboreando/negocio/Fachada.class
 com/saboreando/App.class
 com/saboreando/negocio/ControladorPostagem.class
 com/saboreando/negocio/ControladorUsuario.class

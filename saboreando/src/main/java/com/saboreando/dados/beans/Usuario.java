@@ -1,8 +1,9 @@
 package com.saboreando.dados.beans;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Usuario{
+public class Usuario implements Serializable{
 
     private String nome;
     private String email;

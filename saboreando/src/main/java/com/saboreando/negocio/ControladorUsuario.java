@@ -1,5 +1,7 @@
 package com.saboreando.negocio;
 
+import java.util.ArrayList;
+
 import com.saboreando.dados.RepositorioUsuario;
 import com.saboreando.dados.beans.Usuario;
 import com.saboreando.exceptions.UsuarioExisteException;
@@ -93,6 +95,10 @@ public class ControladorUsuario {
         else{
             throw new UsuarioNaoEncontradoException();
         } 
+    }
+
+    public ArrayList<Usuario> listar(){
+        return repositorioUsuario.listar();
     }
 }
 

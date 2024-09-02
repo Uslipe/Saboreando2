@@ -1,6 +1,7 @@
 /home/felipe/Documentos/Projetos/PROJETO/Saboreando2/saboreando/src/main/java/module-info.java
 /home/felipe/Documentos/Projetos/PROJETO/Saboreando2/saboreando/src/main/java/com/saboreando/dados/beans/Interacao.java
 /home/felipe/Documentos/Projetos/PROJETO/Saboreando2/saboreando/src/main/java/com/saboreando/negocio/ControladorPostagem.java
+/home/felipe/Documentos/Projetos/PROJETO/Saboreando2/saboreando/src/main/java/com/saboreando/negocio/Fachada.java
 /home/felipe/Documentos/Projetos/PROJETO/Saboreando2/saboreando/src/main/java/com/saboreando/dados/IRepositorioUsuario.java
 /home/felipe/Documentos/Projetos/PROJETO/Saboreando2/saboreando/src/main/java/com/saboreando/dados/beans/Postagem.java
 /home/felipe/Documentos/Projetos/PROJETO/Saboreando2/saboreando/src/main/java/com/saboreando/dados/beans/Comentario.java
