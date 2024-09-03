@@ -2,6 +2,8 @@ package com.saboreando.negocio;
 
 import com.saboreando.dados.RepositorioUsuario;
 import com.saboreando.dados.beans.Usuario;
+import com.saboreando.exceptions.SenhaIncorretaException;
+import com.saboreando.exceptions.UsuarioIncorretoException;
 import com.saboreando.exceptions.UsuarioNaoEncontradoException;
 
 public class LoginControlador {
@@ -22,7 +24,7 @@ public class LoginControlador {
     }
 
     //Autenticar o usuário
-    public boolean validarLogin(String username, String senha) throws UsuarioNaoEncontradoException{
+    public boolean validarLogin(String username, String senha) throws UsuarioNaoEncontradoException, SenhaIncorretaException, UsuarioIncorretoException{
         //Procura o indice do usuário
         int indice = repositorioUsuario.procurarUsuarioIndice(username);
         //Se for diferente de -1, ele existe...
@@ -30,20 +32,23 @@ public class LoginControlador {
             //Utiliza o indice do usuário para retornar a instancia desse usuário
             Usuario usuario = repositorioUsuario.retornarUsuario(indice);
             //Se a senha e o username forem iguais aos parametros passados...
-            if(usuario.getUsername().equals(username) && usuario.getSenha().equals(senha)){
-                usuarioLogado = username;
-                return true;
+            if(usuario.getUsername().equals(username)){
+                if(usuario.getSenha().equals(senha)){
+                    usuarioLogado = username;
+                    return true;
+                }
+                else{
+                    throw new SenhaIncorretaException();
+                }
             }
             else{
-                System.out.println("Login errado");
+                throw new UsuarioIncorretoException();
             }
         }
         //Se for igual a -1, usuário não existe, lança exceçao
         else{
             throw new UsuarioNaoEncontradoException();
         }
-
-        return false;
     }
 
     public String getUsuarioLogado() {

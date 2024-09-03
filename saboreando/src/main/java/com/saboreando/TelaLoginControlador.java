@@ -1,5 +1,7 @@
 package com.saboreando;
 
+import com.saboreando.exceptions.SenhaIncorretaException;
+import com.saboreando.exceptions.UsuarioIncorretoException;
 import com.saboreando.exceptions.UsuarioNaoEncontradoException;
 import com.saboreando.negocio.LoginControlador;
 
@@ -31,7 +33,7 @@ public class TelaLoginControlador {
 
         // Método chamado ao clicar no botão de login
     @FXML
-    private void handleBotaoLogarAction(ActionEvent event) {
+    private void handleBotaoLogarAction(ActionEvent event) throws SenhaIncorretaException, UsuarioIncorretoException {
         String username = inputUsuario.getText();
         String senha = inputSenha.getText();
         
@@ -46,12 +48,24 @@ public class TelaLoginControlador {
                 // irParaProximaTela();
             }
 
-        } catch (UsuarioNaoEncontradoException e) {
+        } 
+        catch(UsuarioNaoEncontradoException e) {
             // Usuário não encontrado, exibir uma mensagem de erro
-            System.out.println("Usuário não encontrado: " + e.getMessage());
+            System.out.println("Erro: " + e.getMessage());
             // Exibir uma mensagem de erro na interface gráfica, se necessário
             labelErro.setText("Usuário não encontrado!");
-            
+        } 
+        catch(SenhaIncorretaException e){
+            //Senha incorreta, exibir erro
+            System.out.println("Erro: " + e.getMessage());
+            // Exibir uma mensagem de erro na interface gráfica, se necessário
+            labelErro.setText("Senha incorreta!");
+        } 
+        catch(UsuarioIncorretoException e){ //Chega até ser reduntante essa parte do código aqui
+            //Usuário incorreto, exibir erro
+            System.out.println("Erro: " + e.getMessage());
+            // Exibir uma mensagem de erro na interface gráfica, se necessário
+            labelErro.setText("Usuário incorreto!");
         }
     }
 
