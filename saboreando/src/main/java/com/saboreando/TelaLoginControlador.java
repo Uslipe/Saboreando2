@@ -8,10 +8,15 @@ import com.saboreando.negocio.LoginControlador;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 public class TelaLoginControlador {
 
@@ -31,6 +36,9 @@ public class TelaLoginControlador {
 
     @FXML
     private Label labelErro;
+
+    @FXML
+    private Hyperlink linkParaTelaCadastro;
 
         // Método chamado ao clicar no botão de login
     @FXML
@@ -67,6 +75,23 @@ public class TelaLoginControlador {
             System.out.println("Erro: " + e.getMessage());
             // Exibir uma mensagem de erro na interface gráfica, se necessário
             labelErro.setText("Usuário incorreto!");
+        }
+    }
+
+    @FXML
+    protected void handleHyperlinkAction(ActionEvent event) {
+        try {
+            // Carregar o novo arquivo FXML
+            FXMLLoader loader = new FXMLLoader(TelaLoginControlador.class.getResource("/Saboreando2/saboreando/src/main/resources/com/saboreando/telaCadastro.fxml"));
+            AnchorPane novaTela = loader.load();
+            
+            // Obter a cena atual e definir a nova tela como seu conteúdo
+            Stage stage = (Stage) linkParaTelaCadastro.getScene().getWindow();
+            Scene novaCena = new Scene(novaTela);
+            stage.setScene(novaCena);
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
