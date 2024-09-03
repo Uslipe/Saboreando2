@@ -6,7 +6,9 @@ import com.saboreando.dados.beans.Curtida;
 import com.saboreando.dados.beans.Postagem;
 import com.saboreando.dados.beans.Usuario;
 import com.saboreando.exceptions.CurtidaExistenteException;
+import com.saboreando.exceptions.SenhaIncorretaException;
 import com.saboreando.exceptions.UsuarioExisteException;
+import com.saboreando.exceptions.UsuarioIncorretoException;
 import com.saboreando.exceptions.UsuarioNaoEncontradoException;
 
 //Implementação do padrão de projeto FACADE
@@ -16,6 +18,7 @@ public class Fachada {
     private ControladorCurtida controladorCurtida;
     private ControladorPostagem controladorPostagem;
     private ControladorUsuario controladorUsuario;
+    private LoginControlador loginControlador;
     
     //Padrão singleton de única instância
     public static Fachada getInstance(){
@@ -30,6 +33,7 @@ public class Fachada {
         this.controladorCurtida = ControladorCurtida.getInstance();
         this.controladorPostagem = ControladorPostagem.getInstance();
         this.controladorUsuario = ControladorUsuario.getInstance();
+        this.loginControlador = LoginControlador.getInstance();
     }
 
     //Métodos do ControladorCurtida
@@ -89,5 +93,14 @@ public class Fachada {
 
     public ArrayList<Usuario> listar(){
         return controladorUsuario.listar();
+    }
+
+    //Métodos do login controlador
+    public boolean validarLogin(String username, String senha) throws UsuarioNaoEncontradoException, SenhaIncorretaException, UsuarioIncorretoException{
+        return loginControlador.validarLogin(username, senha);
+    }
+
+    public String getUsuarioLogado(){
+        return loginControlador.getUsuarioLogado();
     }
 }

@@ -3,6 +3,7 @@ package com.saboreando;
 import com.saboreando.exceptions.SenhaIncorretaException;
 import com.saboreando.exceptions.UsuarioIncorretoException;
 import com.saboreando.exceptions.UsuarioNaoEncontradoException;
+import com.saboreando.negocio.Fachada;
 import com.saboreando.negocio.LoginControlador;
 
 import javafx.event.ActionEvent;
@@ -14,7 +15,7 @@ import javafx.scene.control.TextField;
 
 public class TelaLoginControlador {
 
-    LoginControlador loginControlador = LoginControlador.getInstance();
+    Fachada fachada = Fachada.getInstance();
     
     @FXML
     private Button botaoLogar;
@@ -38,7 +39,7 @@ public class TelaLoginControlador {
         String senha = inputSenha.getText();
         
         try {
-            boolean loginBemSucedido = loginControlador.validarLogin(username, senha);
+            boolean loginBemSucedido = fachada.validarLogin(username, senha);
             
             if (loginBemSucedido) {
                 // Login bem-sucedido, prossiga para a próxima tela ou exiba uma mensagem de sucesso
