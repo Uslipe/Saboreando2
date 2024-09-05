@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import com.saboreando.dados.RepositorioUsuario;
 import com.saboreando.exceptions.UsuarioExisteException;
 
 /**
@@ -35,6 +36,7 @@ public class App extends Application {
 
     public static void main(String[] args) throws UsuarioExisteException {
         launch();
+        System.out.println(RepositorioUsuario.getInstance().listar());
     }
 
 }

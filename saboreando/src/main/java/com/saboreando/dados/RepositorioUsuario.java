@@ -90,7 +90,7 @@ public class RepositorioUsuario implements IRepositorioUsuario, Serializable {
         if (instance == null) {
             return;
         }
-        File out = new File("Saboreando2/saboreando/usuarios.dat");
+        File out = new File("saboreando/usuarios.dat");
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
 
@@ -114,7 +114,7 @@ public class RepositorioUsuario implements IRepositorioUsuario, Serializable {
     //Método para ler o objeto do arquivo
     private static RepositorioUsuario lerDoArquivo() {
         RepositorioUsuario instanciaLocal = null;
-        File in = new File("Saboreando2/saboreando/usuarios.dat");
+        File in = new File("saboreando/usuarios.dat");
         FileInputStream fis = null;
         ObjectInputStream ois = null;
 

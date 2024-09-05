@@ -65,7 +65,7 @@
                         <Cursor fx:constant="TEXT" />
                      </cursor>
                   </PasswordField>
-                  <Button fx:id="botaoCadastrar" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="72.0" prefWidth="336.0" style="-fx-background-radius: 16; -fx-background-color: #E00958;" text="Cadastrar" textFill="#f8dfe8">
+                  <Button fx:id="botaoCadastrar" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleBotaoCadastrarAction" prefHeight="72.0" prefWidth="336.0" style="-fx-background-radius: 16; -fx-background-color: #E00958;" text="Cadastrar" textFill="#f8dfe8">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>

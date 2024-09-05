@@ -27,7 +27,7 @@ public class ControladorUsuario {
     //Cadastrar usuário
     public void cadastrarUsuario(Usuario usuario) throws UsuarioExisteException{
         //Verifica se todos os campos são preenchidos
-        if(usuario.getNome() == null || usuario.getEmail() == null || usuario.getUsername() == null || usuario.getSenha() == null){
+        if(usuario.getNome() == null || usuario.getEmail() == null || usuario.getUsername() == null || usuario.getSenha() == null || usuario.getNome().isEmpty() || usuario.getEmail().isEmpty() || usuario.getUsername().isEmpty() || usuario.getSenha().isEmpty()){
             throw new IllegalArgumentException("Argumento nulo");
         }
         //Caso todos estejam preenchidos...
