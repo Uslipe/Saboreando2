@@ -1,5 +1,7 @@
 package com.saboreando;
 
+import java.io.IOException;
+
 import com.saboreando.exceptions.SenhaIncorretaException;
 import com.saboreando.exceptions.UsuarioIncorretoException;
 import com.saboreando.exceptions.UsuarioNaoEncontradoException;
@@ -41,7 +43,7 @@ public class TelaLoginControlador {
 
         // Método chamado ao clicar no botão de login
     @FXML
-    private void handleBotaoLogarAction(ActionEvent event) throws SenhaIncorretaException, UsuarioIncorretoException {
+    private void handleBotaoLogarAction(ActionEvent event) throws SenhaIncorretaException, UsuarioIncorretoException, IOException {
         String username = inputUsuario.getText();
         String senha = inputSenha.getText();
         
@@ -52,8 +54,15 @@ public class TelaLoginControlador {
                 // Login bem-sucedido, prossiga para a próxima tela ou exiba uma mensagem de sucesso
                 System.out.println("Login bem-sucedido!");
                 labelErro.setText("");
-                // Aqui você pode navegar para a próxima tela, por exemplo:
-                // irParaProximaTela();
+                
+                //Ao apertar o botão de login (e ser bem sucedido), ir para a tela feed
+                FXMLLoader loader = new FXMLLoader(TelaLoginControlador.class.getResource("telaFeed.fxml"));
+                AnchorPane novaTela = loader.load();
+            
+                // Obter a cena atual e definir a nova tela como seu conteúdo
+                Stage stage = (Stage) linkParaTelaCadastro.getScene().getWindow();
+                Scene novaCena = new Scene(novaTela);
+                stage.setScene(novaCena);
             }
 
         } 

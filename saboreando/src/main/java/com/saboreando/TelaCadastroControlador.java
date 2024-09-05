@@ -1,5 +1,7 @@
 package com.saboreando;
 
+import java.io.IOException;
+
 import com.saboreando.dados.beans.Usuario;
 import com.saboreando.exceptions.UsuarioExisteException;
 import com.saboreando.negocio.Fachada;
@@ -46,7 +48,7 @@ public class TelaCadastroControlador {
 
     //Método para fazer cadastro
     @FXML
-    private void handleBotaoCadastrarAction(ActionEvent event) throws UsuarioExisteException{
+    private void handleBotaoCadastrarAction(ActionEvent event) throws UsuarioExisteException, IOException{
         String nome = inputNome.getText();
         String email = inputEmail.getText();
         String username = inputUsuario.getText();
@@ -56,6 +58,16 @@ public class TelaCadastroControlador {
             Usuario usuario = new Usuario(nome, email, username, senha);
             fachada.cadastrarUsuario(usuario);
             System.out.println("Usuario cadastrado com sucesso");
+            labelErro.setText("");
+            
+            //Caso a operação de cadastro seja bem sucedida, direciona para a tela de feed
+            FXMLLoader loader = new FXMLLoader(TelaLoginControlador.class.getResource("telaLogin.fxml"));
+            AnchorPane novaTela = loader.load();
+            
+            // Obter a cena atual e definir a nova tela como seu conteúdo
+            Stage stage = (Stage) linkParaTelaLogin.getScene().getWindow();
+            Scene novaCena = new Scene(novaTela);
+            stage.setScene(novaCena);
         } 
         catch(IllegalArgumentException e){
             System.out.println("Erro: " + e.getMessage());
