@@ -4,7 +4,6 @@ import com.saboreando.exceptions.SenhaIncorretaException;
 import com.saboreando.exceptions.UsuarioIncorretoException;
 import com.saboreando.exceptions.UsuarioNaoEncontradoException;
 import com.saboreando.negocio.Fachada;
-import com.saboreando.negocio.LoginControlador;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -78,8 +77,9 @@ public class TelaLoginControlador {
         }
     }
 
+    //Método para direcionar para a tela de cadastro
     @FXML
-    public void handleHyperlinkAction(ActionEvent event) {
+    public void handleHyperlinkAction(@SuppressWarnings("exports") ActionEvent event) {
         try {
             // Carregar o novo arquivo FXML
             FXMLLoader loader = new FXMLLoader(TelaLoginControlador.class.getResource("telaCadastro.fxml"));

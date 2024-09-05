@@ -9,7 +9,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 import com.saboreando.exceptions.UsuarioExisteException;
-import com.saboreando.negocio.Fachada;
 
 /**
  * JavaFX App
