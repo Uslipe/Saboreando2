@@ -79,10 +79,10 @@ public class TelaLoginControlador {
     }
 
     @FXML
-    protected void handleHyperlinkAction(ActionEvent event) {
+    public void handleHyperlinkAction(ActionEvent event) {
         try {
             // Carregar o novo arquivo FXML
-            FXMLLoader loader = new FXMLLoader(TelaLoginControlador.class.getResource("/Saboreando2/saboreando/src/main/resources/com/saboreando/telaCadastro.fxml"));
+            FXMLLoader loader = new FXMLLoader(TelaLoginControlador.class.getResource("telaCadastro.fxml"));
             AnchorPane novaTela = loader.load();
             
             // Obter a cena atual e definir a nova tela como seu conteúdo
