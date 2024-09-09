@@ -1,6 +1,8 @@
 package com.saboreando.dados.beans;
 
-public class Postagem{
+import java.io.Serializable;
+
+public class Postagem implements Serializable{
     private String tituloPostagem;
     private Usuario autorPostagem;
     private String conteudo;

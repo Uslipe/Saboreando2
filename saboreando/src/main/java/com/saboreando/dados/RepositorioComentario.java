@@ -1,12 +1,13 @@
 package com.saboreando.dados;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.saboreando.dados.beans.Comentario;
 import com.saboreando.dados.beans.Postagem;
 
-public class RepositorioComentario {
+public class RepositorioComentario implements Serializable {
     private static RepositorioComentario instance;
     private ArrayList<Comentario> listaComentarios;
 

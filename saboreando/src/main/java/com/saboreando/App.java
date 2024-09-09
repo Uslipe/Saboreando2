@@ -8,8 +8,11 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import com.saboreando.dados.RepositorioPostagem;
 import com.saboreando.dados.RepositorioUsuario;
+import com.saboreando.dados.beans.Postagem;
 import com.saboreando.exceptions.UsuarioExisteException;
+import com.saboreando.negocio.Fachada;
 
 /**
  * JavaFX App
@@ -36,7 +39,8 @@ public class App extends Application {
 
     public static void main(String[] args) throws UsuarioExisteException {
         launch();
-        System.out.println(RepositorioUsuario.getInstance().listar());
+        //Fachada.getInstance().criarPostagem(new Postagem(RepositorioUsuario.getInstance().retornarUsuario(0), "Titulo", "conteudo"));
+        //System.out.println(RepositorioPostagem.getInstance().listar());
     }
 
 }

@@ -1,5 +1,6 @@
 package com.saboreando.dados;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +8,7 @@ import com.saboreando.dados.beans.Curtida;
 import com.saboreando.dados.beans.Postagem;
 import com.saboreando.dados.beans.Usuario;
 
-public class RepositorioCurtida {
+public class RepositorioCurtida implements Serializable {
     private static RepositorioCurtida instance;
     private ArrayList<Curtida> listaCurtida;
 
