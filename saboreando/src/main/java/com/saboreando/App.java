@@ -39,8 +39,8 @@ public class App extends Application {
 
     public static void main(String[] args) throws UsuarioExisteException {
         launch();
-        //Fachada.getInstance().criarPostagem(new Postagem(RepositorioUsuario.getInstance().retornarUsuario(0), "Titulo", "conteudo"));
-        //System.out.println(RepositorioPostagem.getInstance().listar());
+        //Fachada.getInstance().criarPostagem(new Postagem(RepositorioUsuario.getInstance().retornarUsuario(1), "Alfajor caseiro da xixa", "Docinho e barato"));
+        System.out.println(RepositorioPostagem.getInstance().listar());
     }
 
 }
