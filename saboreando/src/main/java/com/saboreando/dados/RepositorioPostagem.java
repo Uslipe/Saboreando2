@@ -74,10 +74,20 @@ public class RepositorioPostagem implements IRepositorioPostagem, Serializable{
     }
 
     //AVISO: no controlador, colocar o método para retornar uma lista com as postagens e verificar se a postagem puxada já não está presente na lista
-    public Postagem retornarPostagensAleatorias(){
-        Random numeroAleatorio = new Random();
-        int index = numeroAleatorio.nextInt(listaPostagens.size());
+    public Postagem retornarPostagemAleatoria() {
+        int index = 0;
+        if(listaPostagens.size() > 0){
+            index = new Random().nextInt(listaPostagens.size());
+        }
+        else{
+            System.out.println("Erro aqui");
+            index = 0;
+        }
         return listaPostagens.get(index);
+    }
+
+    public int retornarTamanhoDaLista(){
+        return listaPostagens.size();
     }
 
     //Métodos de comentários

@@ -12,6 +12,7 @@ import com.saboreando.dados.RepositorioPostagem;
 import com.saboreando.dados.RepositorioUsuario;
 import com.saboreando.dados.beans.Postagem;
 import com.saboreando.exceptions.UsuarioExisteException;
+import com.saboreando.negocio.ControladorPostagem;
 import com.saboreando.negocio.Fachada;
 
 /**
@@ -39,7 +40,9 @@ public class App extends Application {
 
     public static void main(String[] args) throws UsuarioExisteException {
         launch();
-        //Fachada.getInstance().criarPostagem(new Postagem(RepositorioUsuario.getInstance().retornarUsuario(1), "Alfajor caseiro da xixa", "Docinho e barato"));
+        //Fachada.getInstance().criarPostagem(new Postagem(RepositorioUsuario.getInstance().retornarUsuario(1), "Snickers caseiro", "Snickers proteico da xi"));
+        //System.out.println(RepositorioPostagem.getInstance().retornarPostagemAleatoria());
+        //System.out.println(ControladorPostagem.getInstance().montarFeedDePostagens());
         System.out.println(RepositorioPostagem.getInstance().listar());
     }
 

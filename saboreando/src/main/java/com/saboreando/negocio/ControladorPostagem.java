@@ -3,6 +3,8 @@ package com.saboreando.negocio;
 import com.saboreando.dados.RepositorioPostagem;
 import com.saboreando.dados.beans.Postagem;
 import com.saboreando.dados.beans.Usuario;
+import java.util.List;
+import java.util.ArrayList;
 
 public class ControladorPostagem {
     private static ControladorPostagem instance;
@@ -83,5 +85,26 @@ public class ControladorPostagem {
         else{
             throw new IllegalArgumentException("Usuário inválido");
         }
+    }
+
+    //Retornar lista de postagens para o feed
+    //Usar o método de retornar postagem aleatória
+    //Verificar se não é do usuário logado
+    public List<Postagem> montarFeedDePostagens(){
+        List<Postagem> feed = new ArrayList<>();
+        while(feed.size() <= 9){
+            Postagem postagem = repositorioPostagem.retornarPostagemAleatoria();
+            //Aqui ele verifica o username do autor da postagem com o username do usuário logado
+            if(!postagem.getAutorPostagem().getUsername().equals(LoginControlador.getInstance().getUsuarioLogado())){
+                //Aqui ele verifica se a postagem já está no feed
+                if(!feed.contains(postagem)){
+                    feed.add(postagem);
+                }
+            }
+            if(feed.size() == repositorioPostagem.retornarTamanhoDaLista()){
+                break;
+            }
+        }
+        return feed;
     }
 }
