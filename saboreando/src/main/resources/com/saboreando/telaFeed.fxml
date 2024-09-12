@@ -2,45 +2,108 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #F8DFE8;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #F8DFE8;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.saboreando.TelaFeedControlador">
    <children>
       <BorderPane prefHeight="720.0" prefWidth="1280.0">
          <left>
             <VBox alignment="TOP_CENTER" prefHeight="720.0" prefWidth="280.0" spacing="24.0" style="-fx-border-width: 0 0.5 0 0; -fx-border-color: black;" BorderPane.alignment="CENTER">
                <children>
-                  <Hyperlink text="Feed" textFill="#e00958">
+                  <HBox fx:id="hboxFeed" alignment="CENTER" prefHeight="64.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <HBox.margin>
+                              <Insets left="16.0" />
+                           </HBox.margin>
+                           <image>
+                              <Image url="@images/feed.png" />
+                           </image>
+                        </ImageView>
+                        <Hyperlink alignment="BASELINE_LEFT" prefHeight="0.0" prefWidth="280.0" text="Feed" textFill="#e00958">
+                           <font>
+                              <Font name="DejaVu Sans Mono Bold" size="24.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="80.0" />
+                           </HBox.margin>
+                        </Hyperlink>
+                     </children>
                      <VBox.margin>
                         <Insets top="80.0" />
                      </VBox.margin>
-                     <font>
-                        <Font name="DejaVu Sans Mono Bold" size="24.0" />
-                     </font>
-                  </Hyperlink>
-                  <Line endX="178.0" startX="-100.0" strokeWidth="0.5" />
-                  <Hyperlink text="Criar" textFill="#e00958">
-                     <font>
-                        <Font name="DejaVu Sans Mono Bold" size="24.0" />
-                     </font>
-                  </Hyperlink>
-                  <Line endX="178.0" startX="-100.0" strokeWidth="0.5" />
-                  <Hyperlink text="Perfil" textFill="#e00958">
-                     <font>
-                        <Font name="DejaVu Sans Mono Bold" size="24.0" />
-                     </font>
-                  </Hyperlink>
+                     <padding>
+                        <Insets right="32.0" />
+                     </padding>
+                  </HBox>
+                  <HBox fx:id="hboxCriar" alignment="CENTER" prefHeight="64.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <HBox.margin>
+                              <Insets left="16.0" />
+                           </HBox.margin>
+                           <image>
+                              <Image url="@images/add.png" />
+                           </image>
+                        </ImageView>
+                        <Hyperlink alignment="BASELINE_LEFT" prefHeight="0.0" prefWidth="280.0" text="Criar" textFill="#e00958">
+                           <font>
+                              <Font name="DejaVu Sans Mono Bold" size="24.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="80.0" />
+                           </HBox.margin>
+                        </Hyperlink>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets right="32.0" />
+                     </padding>
+                  </HBox>
+                  <HBox fx:id="hboxPerfil" alignment="CENTER" prefHeight="64.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <HBox.margin>
+                              <Insets left="16.0" />
+                           </HBox.margin>
+                           <image>
+                              <Image url="@images/user.png" />
+                           </image>
+                        </ImageView>
+                        <Hyperlink alignment="BASELINE_LEFT" prefHeight="0.0" prefWidth="280.0" text="Perfil" textFill="#e00958">
+                           <font>
+                              <Font name="DejaVu Sans Mono Bold" size="24.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="80.0" />
+                           </HBox.margin>
+                        </Hyperlink>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets right="32.0" />
+                     </padding>
+                  </HBox>
                </children>
                <BorderPane.margin>
                   <Insets />
                </BorderPane.margin>
+               <HBox.margin>
+                  <Insets left="20.0" right="80.0" />
+               </HBox.margin>
             </VBox>
          </left>
          <center>
