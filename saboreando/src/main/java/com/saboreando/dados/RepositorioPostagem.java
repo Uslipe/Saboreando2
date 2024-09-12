@@ -135,7 +135,7 @@ public class RepositorioPostagem implements IRepositorioPostagem, Serializable{
         if (instance == null) {
             return;
         }
-        File out = new File("saboreando/postagens.dat");
+        File out = new File("Saboreando2/saboreando/postagens.dat");
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
 
@@ -159,7 +159,7 @@ public class RepositorioPostagem implements IRepositorioPostagem, Serializable{
     //Método para ler o objeto do arquivo
     private static RepositorioPostagem lerDoArquivo() {
         RepositorioPostagem instanciaLocal = null;
-        File in = new File("saboreando/postagens.dat");
+        File in = new File("Saboreando2/saboreando/postagens.dat");
         FileInputStream fis = null;
         ObjectInputStream ois = null;
 

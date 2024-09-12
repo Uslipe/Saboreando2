@@ -11,6 +11,7 @@ import java.io.IOException;
 import com.saboreando.dados.RepositorioPostagem;
 import com.saboreando.dados.RepositorioUsuario;
 import com.saboreando.dados.beans.Postagem;
+import com.saboreando.dados.beans.Usuario;
 import com.saboreando.exceptions.UsuarioExisteException;
 import com.saboreando.negocio.ControladorPostagem;
 import com.saboreando.negocio.Fachada;
@@ -43,8 +44,10 @@ public class App extends Application {
         //Fachada.getInstance().criarPostagem(new Postagem(RepositorioUsuario.getInstance().retornarUsuario(0), "Milshake simples", "Milkshake fácil e prático"));
         //System.out.println(RepositorioPostagem.getInstance().retornarPostagemAleatoria());
         //System.out.println(ControladorPostagem.getInstance().montarFeedDePostagens());
+
+        //Fachada.getInstance().cadastrarUsuario(new Usuario("Felipe", "felipe@smau.com", "uslipe", "12345678"));
         System.out.println(RepositorioPostagem.getInstance().listar());
-        System.out.println(Fachada.getInstance().retornarQntPostagensUsuario(RepositorioUsuario.getInstance().retornarUsuario(0)));
+        //System.out.println(Fachada.getInstance().retornarQntPostagensUsuario(RepositorioUsuario.getInstance().retornarUsuario(0)));
     }
 
 }
