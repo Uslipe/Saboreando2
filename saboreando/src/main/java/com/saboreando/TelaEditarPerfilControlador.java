@@ -1,5 +1,10 @@
 package com.saboreando;
 
+import java.io.IOException;
+
+import com.saboreando.dados.beans.Usuario;
+import com.saboreando.exceptions.UsuarioExisteException;
+import com.saboreando.exceptions.UsuarioNaoEncontradoException;
 import com.saboreando.negocio.Fachada;
 
 import javafx.event.ActionEvent;
@@ -86,6 +91,30 @@ public class TelaEditarPerfilControlador {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    public void enviarDados() throws IOException, UsuarioNaoEncontradoException, UsuarioExisteException{
+        //Ele altera primeiro as postagens que tem ele como autor
+        //A linha tá enorme msm
+        fachada.alterarAutorPostagem(fachada.pegarInstanciaUsuarioLogado().getUsername(), inputEditarUsername.getText());
+
+        //Depois ele altera os campos do usuario
+        fachada.editarEmailUsuario(fachada.pegarInstanciaUsuarioLogado(), inputEditarEmail.getText());
+        fachada.editarNomeUsuario(fachada.pegarInstanciaUsuarioLogado(), inputEditarNome.getText());
+        fachada.editarUsernameUsuario(fachada.pegarInstanciaUsuarioLogado(), inputEditarUsername.getText());
+
+        //Depois, ele atualiza o nome do usuário logado
+        fachada.setUsuarioLogado(inputEditarUsername.getText());
+
+        //Ao apertar o botão de login (e ser bem sucedido), ir para a tela feed
+        FXMLLoader loader = new FXMLLoader(TelaEditarPerfilControlador.class.getResource("telaPerfil.fxml"));
+        AnchorPane novaTela = loader.load();
+    
+        // Obter a cena atual e definir a nova tela como seu conteúdo
+        Stage stage = (Stage) botaoEnviar.getScene().getWindow();
+        Scene novaCena = new Scene(novaTela);
+        stage.setScene(novaCena);
     }
 
 }

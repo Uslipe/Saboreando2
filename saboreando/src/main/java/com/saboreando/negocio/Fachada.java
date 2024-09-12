@@ -68,12 +68,16 @@ public class Fachada {
         return controladorPostagem.retornarQuantidadeComentarios(postagem);
     }
 
-    public void excluirPostagem(Usuario usuario, Postagem postagem){
+    public void excluirPostagem(String usuario, Postagem postagem){
         controladorPostagem.excluirPostagem(usuario, postagem);
     }
 
     public int retornarQntPostagensUsuario(Usuario usuario){
         return controladorPostagem.retornarQntPostagensUsuario(usuario);
+    }
+
+    public void alterarAutorPostagem(String antigo, String novo){
+        controladorPostagem.alterarAutorPostagem(antigo, novo);
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -114,5 +118,9 @@ public class Fachada {
 
     public String getUsuarioLogado(){
         return loginControlador.getUsuarioLogado();
+    }
+
+    public void setUsuarioLogado(String usuario){
+        loginControlador.setUsuarioLogado(usuario);
     }
 }

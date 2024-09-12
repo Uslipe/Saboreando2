@@ -66,7 +66,7 @@ public class RepositorioPostagem implements IRepositorioPostagem, Serializable{
         int contador = 0;
         //Iterar a lista de postagens
         for(Postagem p : listaPostagens){
-            if(p.getAutorPostagem().getUsername().equals(usuario.getUsername())){
+            if(p.getAutorPostagem().equals(usuario.getUsername())){
                 contador++;
             }
         }
@@ -75,7 +75,7 @@ public class RepositorioPostagem implements IRepositorioPostagem, Serializable{
 
     //Métodos para a montagem da postagem
     public String retornarUsernameAutor(Postagem postagem){
-        return postagem.getAutorPostagem().getUsername();
+        return postagem.getAutorPostagem();
     }
 
     public String retornarTituloPostagem(Postagem postagem){
@@ -127,6 +127,19 @@ public class RepositorioPostagem implements IRepositorioPostagem, Serializable{
 
     public int contabilizarCurtidas(Postagem postagem){
         return repositorioCurtida.listarCurtidasPostagem(postagem).size();
+    }
+
+    public void alterarAutorPostagem(String antigoUsuario, String novoUsuario) {
+        // Itera sobre todas as postagens no repositório
+        for (Postagem postagem : listaPostagens) {
+            // Verifica se o autor da postagem é o antigo usuário
+            if (postagem.getAutorPostagem().equals(antigoUsuario)) {
+                // Atualiza o autor da postagem para o novo usuário
+                postagem.setAutorPostagem(novoUsuario);
+            }
+        }
+        // Salva as alterações no arquivo
+        salvarArquivo();
     }
 
         //Métodos de arquivos

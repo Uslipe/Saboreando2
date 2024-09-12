@@ -4,12 +4,12 @@ import java.io.Serializable;
 
 public class Postagem implements Serializable{
     private String tituloPostagem;
-    private Usuario autorPostagem;
+    private String usernameAutorPostagem;
     private String conteudo;
 
     //Construtor
-    public Postagem(Usuario autor, String titulo, String conteudo){
-        this.autorPostagem = autor;
+    public Postagem(String autor, String titulo, String conteudo){
+        this.usernameAutorPostagem = autor;
         this.tituloPostagem = titulo;
         this.conteudo = conteudo;
     }
@@ -24,12 +24,12 @@ public class Postagem implements Serializable{
         this.tituloPostagem = tituloPostagem;
     }
 
-    public Usuario getAutorPostagem() {
-        return autorPostagem;
+    public String getAutorPostagem() {
+        return usernameAutorPostagem;
     }
 
-    public void setAutorPostagem(Usuario autorPostagem) {
-        this.autorPostagem = autorPostagem;
+    public void setAutorPostagem(String autorPostagem) {
+        this.usernameAutorPostagem = autorPostagem;
     }
 
     public String getConteudo() {
@@ -42,7 +42,7 @@ public class Postagem implements Serializable{
 
     //To String
     public String toString(){
-        return "\nAutor: " + autorPostagem.getUsername() + "\nTítulo: " + tituloPostagem +"\nConteúdo: " + conteudo + "\n";
+        return "\nAutor: " + usernameAutorPostagem + "\nTítulo: " + tituloPostagem +"\nConteúdo: " + conteudo + "\n";
     }
     
 }

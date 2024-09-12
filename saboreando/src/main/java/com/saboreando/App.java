@@ -41,13 +41,15 @@ public class App extends Application {
 
     public static void main(String[] args) throws UsuarioExisteException {
         launch();
-        //Fachada.getInstance().criarPostagem(new Postagem(RepositorioUsuario.getInstance().retornarUsuario(0), "Milshake simples", "Milkshake fácil e prático"));
+        //Fachada.getInstance().criarPostagem(new Postagem(RepositorioUsuario.getInstance().retornarUsuario(0).getUsername(), "Milshake simples", "Milkshake fácil e prático"));
         //System.out.println(RepositorioPostagem.getInstance().retornarPostagemAleatoria());
         //System.out.println(ControladorPostagem.getInstance().montarFeedDePostagens());
 
-        //Fachada.getInstance().cadastrarUsuario(new Usuario("Felipe", "felipe@smau.com", "uslipe", "12345678"));
-        System.out.println(RepositorioPostagem.getInstance().listar());
-        //System.out.println(Fachada.getInstance().retornarQntPostagensUsuario(RepositorioUsuario.getInstance().retornarUsuario(0)));
+        //Fachada.getInstance().cadastrarUsuario(new Usuario("Gisele", "gisele@smau.com", "xixa", "12345678"));
+        System.out.println(RepositorioUsuario.getInstance().listar());
+        System.out.println(Fachada.getInstance().retornarQntPostagensUsuario(RepositorioUsuario.getInstance().retornarUsuario(0)));
+
+   
     }
 
 }

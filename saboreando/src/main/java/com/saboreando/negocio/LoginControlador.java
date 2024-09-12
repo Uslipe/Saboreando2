@@ -54,4 +54,8 @@ public class LoginControlador {
     public String getUsuarioLogado() {
         return usuarioLogado;
     }
+
+    public void setUsuarioLogado(String usuarioLogado){
+        this.usuarioLogado = usuarioLogado;
+    }
 }

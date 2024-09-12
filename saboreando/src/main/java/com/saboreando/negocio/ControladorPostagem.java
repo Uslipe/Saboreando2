@@ -77,7 +77,7 @@ public class ControladorPostagem {
 
     //Excluir postagem
     //para excluir, tem que verificar se o autor postagem é o mesmo usuário da pessoa logada
-    public void excluirPostagem(Usuario usuario, Postagem postagem){
+    public void excluirPostagem(String usuario, Postagem postagem){
         //Verifica se o usuário é o autor da postagem
         if(usuario.equals(postagem.getAutorPostagem())){
             repositorioPostagem.remover(postagem);
@@ -95,7 +95,7 @@ public class ControladorPostagem {
         while(feed.size() <= 9){
             Postagem postagem = repositorioPostagem.retornarPostagemAleatoria();
             //Aqui ele verifica o username do autor da postagem com o username do usuário logado
-            if(!postagem.getAutorPostagem().getUsername().equals(LoginControlador.getInstance().getUsuarioLogado())){
+            if(!postagem.getAutorPostagem().equals(LoginControlador.getInstance().getUsuarioLogado())){
                 //Aqui ele verifica se a postagem já está no feed
                 if(!feed.contains(postagem)){
                     feed.add(postagem);
@@ -110,5 +110,14 @@ public class ControladorPostagem {
 
     public int retornarQntPostagensUsuario(Usuario usuario){
         return repositorioPostagem.retornarQntPostagensUsuario(usuario);
+    }
+
+    public void alterarAutorPostagem(String antigUsuario, String novUsuario){
+        if(antigUsuario != null || novUsuario != null){
+            repositorioPostagem.alterarAutorPostagem(antigUsuario, novUsuario);
+        } 
+        else{
+            throw new IllegalArgumentException("Parâmetro nulos");
+        }
     }
 }

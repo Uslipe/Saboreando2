@@ -56,9 +56,15 @@ public class ControladorUsuario {
                 throw new UsuarioNaoEncontradoException();
             }
         }
-        //Se o novo username pertencer a alguém, lança a exception
+        //Se o novo username pertencer a alguém...
         else{
-            throw new UsuarioExisteException(novoUsername);
+            //Verifica se já não é o próprio usuário
+            if(novoUsername.equals(loginControlador.getUsuarioLogado())){
+                repositorioUsuario.editarUsername(usuario, novoUsername);
+            }
+            else{
+                throw new UsuarioExisteException(novoUsername); 
+            }
         }
         
     }
