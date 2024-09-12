@@ -81,7 +81,7 @@
                               <Image url="@images/user.png" />
                            </image>
                         </ImageView>
-                        <Hyperlink alignment="BASELINE_LEFT" prefHeight="0.0" prefWidth="280.0" text="Perfil" textFill="#e00958">
+                        <Hyperlink fx:id="hyperLinkTelaPerfil" alignment="BASELINE_LEFT" onAction="#HyperLinkActionTelaPerfil" prefHeight="0.0" prefWidth="280.0" text="Perfil" textFill="#e00958">
                            <font>
                               <Font name="DejaVu Sans Mono Bold" size="24.0" />
                            </font>
