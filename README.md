@@ -24,6 +24,31 @@ O projeto é estruturado em várias camadas, cada uma com uma função específi
  ```mermaid
 classDiagram
 
+    
+    class ControladorPostagem {
+        +criarPostagem()  void
+        +retornarTituloPostagem()  String
+        +retornarConteudoPostagem()  String
+        +retornarAutorPostagem()  String
+        +excluirPostagem()  void
+    }
+
+    class ControladorUsuario {
+        +cadastrarUsuario()  void
+        +editarUsernameUsuario()  void
+        +editarEmailUsuario()  void
+        +editarNomeUsuario()  void
+        +excluirUsuario()  void
+    }
+
+    class ControladorCurtida {
+        +inserirCurtida()  void
+    }
+
+    class ControladorComentario {
+        +inserirComentario()  void
+    }
+
     class RepositorioUsuario {
         +inserir()  void
         +listar()  ArrayList<Usuario>
@@ -55,34 +80,18 @@ classDiagram
         +listarComentariosPostagem()  ArrayList<Comentario>
     }
 
-    class ControladorPostagem {
-        +criarPostagem()  void
-        +retornarTituloPostagem()  String
-        +retornarConteudoPostagem()  String
-        +retornarAutorPostagem()  String
-        +excluirPostagem()  void
-    }
+    Fachada --> Telas
+  
+    ControladorUsuario --> Fachada
+    ControladorPostagem --> Fachada
+    ControladorCurtida --> Fachada
+    ControladorComentario --> Fachada
 
-    class ControladorUsuario {
-        +cadastrarUsuario()  void
-        +editarUsernameUsuario()  void
-        +editarEmailUsuario()  void
-        +editarNomeUsuario()  void
-        +excluirUsuario()  void
-    }
+    RepositorioUsuario --> ControladorUsuario
+    RepositorioPostagem --> ControladorPostagem
+    RepositorioCurtida --> ControladorCurtida
+    RepositorioComentario --> ControladorComentario
 
-    class ControladorCurtida {
-        +inserirCurtida()  void
-    }
-
-    class ControladorComentario {
-        +inserirComentario()  void
-    }
-
-    RepositorioUsuario <|-- ControladorUsuario
-    RepositorioPostagem <|-- ControladorPostagem
-    RepositorioCurtida <|-- ControladorCurtida
-    RepositorioComentario <|-- ControladorComentario
 ```
 
 ## Padrão Singleton
