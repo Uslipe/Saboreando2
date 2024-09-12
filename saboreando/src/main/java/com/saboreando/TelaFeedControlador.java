@@ -37,6 +37,7 @@ public class TelaFeedControlador {
         hboxPerfil.setOnMouseExited(event -> hboxPerfil.setStyle("-fx-background-color: transparent;"));
     }
 
+    //Direcionamento para tela perfil
     @FXML
     public void HyperLinkActionTelaPerfil(@SuppressWarnings("exports") ActionEvent event) {
         try {
