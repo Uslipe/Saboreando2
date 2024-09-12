@@ -40,10 +40,11 @@ public class App extends Application {
 
     public static void main(String[] args) throws UsuarioExisteException {
         launch();
-        //Fachada.getInstance().criarPostagem(new Postagem(RepositorioUsuario.getInstance().retornarUsuario(1), "Snickers caseiro", "Snickers proteico da xi"));
+        //Fachada.getInstance().criarPostagem(new Postagem(RepositorioUsuario.getInstance().retornarUsuario(0), "Milshake simples", "Milkshake fácil e prático"));
         //System.out.println(RepositorioPostagem.getInstance().retornarPostagemAleatoria());
         //System.out.println(ControladorPostagem.getInstance().montarFeedDePostagens());
         System.out.println(RepositorioPostagem.getInstance().listar());
+        System.out.println(Fachada.getInstance().retornarQntPostagensUsuario(RepositorioUsuario.getInstance().retornarUsuario(0)));
     }
 
 }

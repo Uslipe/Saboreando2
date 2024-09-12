@@ -72,6 +72,10 @@ public class Fachada {
         controladorPostagem.excluirPostagem(usuario, postagem);
     }
 
+    public int retornarQntPostagensUsuario(Usuario usuario){
+        return controladorPostagem.retornarQntPostagensUsuario(usuario);
+    }
+
     //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     //Métodos do controlador usuário
     public void cadastrarUsuario(Usuario usuario) throws UsuarioExisteException{

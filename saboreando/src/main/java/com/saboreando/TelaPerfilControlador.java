@@ -41,6 +41,7 @@ public class TelaPerfilControlador {
     private void initialize(){
         nomeDisplay.setText(fachada.pegarInstanciaUsuarioLogado().getNome());
         usernameDisplay.setText(fachada.pegarInstanciaUsuarioLogado().getUsername());
+        numPublicacoes.setText(String.valueOf(fachada.retornarQntPostagensUsuario(fachada.pegarInstanciaUsuarioLogado())));
     }
 
     //Direcionamento para tela feed

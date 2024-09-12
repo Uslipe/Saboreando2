@@ -107,4 +107,8 @@ public class ControladorPostagem {
         }
         return feed;
     }
+
+    public int retornarQntPostagensUsuario(Usuario usuario){
+        return repositorioPostagem.retornarQntPostagensUsuario(usuario);
+    }
 }

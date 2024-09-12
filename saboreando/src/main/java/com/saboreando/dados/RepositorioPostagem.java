@@ -14,6 +14,9 @@ import java.util.Random;
 import com.saboreando.dados.beans.Comentario;
 import com.saboreando.dados.beans.Curtida;
 import com.saboreando.dados.beans.Postagem;
+import com.saboreando.dados.beans.Usuario;
+
+import javafx.geometry.Pos;
 
 @SuppressWarnings("rawtypes") //Isso faz o alerta amarelo sumir
 
@@ -58,6 +61,18 @@ public class RepositorioPostagem implements IRepositorioPostagem, Serializable{
     public void remover(Postagem p) {
         listaPostagens.remove(p);
         salvarArquivo();
+    }
+
+    public int retornarQntPostagensUsuario(Usuario usuario){
+        //Contador para retornar
+        int contador = 0;
+        //Iterar a lista de postagens
+        for(Postagem p : listaPostagens){
+            if(p.getAutorPostagem().getUsername().equals(usuario.getUsername())){
+                contador++;
+            }
+        }
+        return contador;
     }
 
     //Métodos para a montagem da postagem
