@@ -36,11 +36,13 @@ public class Fachada {
         this.loginControlador = LoginControlador.getInstance();
     }
 
+    //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     //Métodos do ControladorCurtida
     public void inserirCurtida(Curtida curtida, Usuario usuario, Postagem postagem) throws CurtidaExistenteException{
         controladorCurtida.inserirCurtida(curtida, usuario, postagem);
     }
 
+    //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     //Métodos do ControladorPostagem
     public void criarPostagem(Postagem postagem){
         controladorPostagem.criarPostagem(postagem);
@@ -70,6 +72,7 @@ public class Fachada {
         controladorPostagem.excluirPostagem(usuario, postagem);
     }
 
+    //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     //Métodos do controlador usuário
     public void cadastrarUsuario(Usuario usuario) throws UsuarioExisteException{
         controladorUsuario.cadastrarUsuario(usuario);
@@ -95,6 +98,11 @@ public class Fachada {
         return controladorUsuario.listar();
     }
 
+    public Usuario pegarInstanciaUsuarioLogado(){
+        return controladorUsuario.pegarInstanciaUsuarioLogado();
+    }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     //Métodos do login controlador
     public boolean validarLogin(String username, String senha) throws UsuarioNaoEncontradoException, SenhaIncorretaException, UsuarioIncorretoException{
         return loginControlador.validarLogin(username, senha);

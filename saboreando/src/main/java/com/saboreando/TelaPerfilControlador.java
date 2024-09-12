@@ -1,5 +1,7 @@
 package com.saboreando;
 
+import com.saboreando.negocio.Fachada;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +13,8 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 public class TelaPerfilControlador {
+
+    Fachada fachada = Fachada.getInstance();
     
     @FXML
     private HBox hboxCriar;
@@ -32,6 +36,12 @@ public class TelaPerfilControlador {
 
     @FXML
     private Label usernameDisplay;
+
+    @FXML
+    private void initialize(){
+        nomeDisplay.setText(fachada.pegarInstanciaUsuarioLogado().getNome());
+        usernameDisplay.setText(fachada.pegarInstanciaUsuarioLogado().getUsername());
+    }
 
     //Direcionamento para tela feed
     @FXML

@@ -10,6 +10,7 @@ import com.saboreando.exceptions.UsuarioNaoEncontradoException;
 public class ControladorUsuario {
     private static ControladorUsuario instance;
     private RepositorioUsuario repositorioUsuario;
+    private LoginControlador loginControlador;
 
     //Padrão singleton de única instância
     public static ControladorUsuario getInstance(){
@@ -22,6 +23,7 @@ public class ControladorUsuario {
     //Construtor da classe
     public ControladorUsuario(){
         this.repositorioUsuario = RepositorioUsuario.getInstance();
+        this.loginControlador = LoginControlador.getInstance();
     }
 
     //Cadastrar usuário
@@ -95,6 +97,13 @@ public class ControladorUsuario {
         else{
             throw new UsuarioNaoEncontradoException();
         } 
+    }
+
+    public Usuario pegarInstanciaUsuarioLogado(){
+        //Retorna o indice do usuário com base no username do usuário logado
+        int indice = repositorioUsuario.procurarUsuarioIndice(loginControlador.getUsuarioLogado());
+        return repositorioUsuario.retornarUsuario(indice);
+
     }
 
     public ArrayList<Usuario> listar(){
