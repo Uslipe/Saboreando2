@@ -46,6 +46,12 @@ public class TelaCadastroControlador {
     @FXML
     private Label titulo;
 
+    @FXML
+    private void initialize(){
+        botaoCadastrar.setOnMouseEntered(event -> botaoCadastrar.setStyle("-fx-background-color: #b30746; -fx-background-radius: 16"));
+        botaoCadastrar.setOnMouseExited(event -> botaoCadastrar.setStyle("-fx-background-color: #e00958;  -fx-background-radius: 16"));
+    }
+
     //Método para fazer cadastro
     @FXML
     private void handleBotaoCadastrarAction(ActionEvent event) throws UsuarioExisteException, IOException{

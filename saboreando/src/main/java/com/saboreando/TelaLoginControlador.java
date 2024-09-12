@@ -41,7 +41,13 @@ public class TelaLoginControlador {
     @FXML
     private Hyperlink linkParaTelaCadastro;
 
-        // Método chamado ao clicar no botão de login
+    @FXML
+    private void initialize(){
+        botaoLogar.setOnMouseEntered(event -> botaoLogar.setStyle("-fx-background-color: #b30746; -fx-background-radius: 16"));
+        botaoLogar.setOnMouseExited(event -> botaoLogar.setStyle("-fx-background-color: #e00958;  -fx-background-radius: 16"));
+    }
+
+    // Método chamado ao clicar no botão de login
     @FXML
     private void handleBotaoLogarAction(ActionEvent event) throws SenhaIncorretaException, UsuarioIncorretoException, IOException {
         String username = inputUsuario.getText();
