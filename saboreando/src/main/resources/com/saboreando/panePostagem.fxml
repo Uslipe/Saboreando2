@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="192.0" prefWidth="320.0" style="-fx-background-color: #f8dfe8;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.saboreando.PaneControlador">
+   <children>
+      <VBox prefHeight="192.0" prefWidth="320.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="320.0">
+               <children>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/userPic.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="usernamePane" text="username">
+                     <HBox.margin>
+                        <Insets left="16.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <Label fx:id="tituloPane" text="titulo">
+               <VBox.margin>
+                  <Insets top="16.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+         <padding>
+            <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+         </padding>
+      </VBox>
+   </children>
+</Pane>

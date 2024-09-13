@@ -2,7 +2,6 @@ package com.saboreando;
 
 import java.io.IOException;
 
-import com.saboreando.dados.beans.Usuario;
 import com.saboreando.exceptions.UsuarioExisteException;
 import com.saboreando.exceptions.UsuarioNaoEncontradoException;
 import com.saboreando.negocio.Fachada;
