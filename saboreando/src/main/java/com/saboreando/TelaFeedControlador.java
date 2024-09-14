@@ -23,6 +23,9 @@ public class TelaFeedControlador {
     private Hyperlink hyperLinkTelaPerfil;
 
     @FXML
+    private Hyperlink hyperLinkTelaCriar;
+
+    @FXML
     private void initialize(){
         //Hover effect do menu (BOTÃO FEED)
         hboxFeed.setOnMouseEntered(event -> hboxFeed.setStyle("-fx-background-color: #f7b9cd; -fx-background-radius: 24"));
@@ -43,6 +46,23 @@ public class TelaFeedControlador {
         try {
             // Carregar o novo arquivo FXML
             FXMLLoader loader = new FXMLLoader(TelaLoginControlador.class.getResource("telaPerfil.fxml"));
+            AnchorPane novaTela = loader.load();
+            
+            // Obter a cena atual e definir a nova tela como seu conteúdo
+            Stage stage = (Stage) hyperLinkTelaPerfil.getScene().getWindow();
+            Scene novaCena = new Scene(novaTela);
+            stage.setScene(novaCena);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void HyperLinkActionTelaCriar(@SuppressWarnings("exports") ActionEvent event) {
+        try {
+            // Carregar o novo arquivo FXML
+            FXMLLoader loader = new FXMLLoader(TelaLoginControlador.class.getResource("telaCriarPostagem.fxml"));
             AnchorPane novaTela = loader.load();
             
             // Obter a cena atual e definir a nova tela como seu conteúdo

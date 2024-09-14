@@ -147,7 +147,7 @@
                               <Image url="@images/add.png" />
                            </image>
                         </ImageView>
-                        <Hyperlink alignment="BASELINE_LEFT" prefHeight="0.0" prefWidth="280.0" text="Criar" textFill="#e00958">
+                        <Hyperlink fx:id="hyperLinkTelaCriar" alignment="BASELINE_LEFT" onAction="#HyperLinkActionTelaCriar" prefHeight="0.0" prefWidth="280.0" text="Criar" textFill="#e00958">
                            <font>
                               <Font name="DejaVu Sans Mono Bold" size="24.0" />
                            </font>

@@ -66,7 +66,7 @@ public class TelaPerfilControlador {
         List<Postagem> listaPostagensUsuario = new ArrayList<>(fachada.montarFeedDePostagensUsuario());
         int coluna = 0;
         int linha = 1;
-        
+
 
         if(!listaPostagensUsuario.isEmpty()){
             try {
@@ -121,6 +121,23 @@ public class TelaPerfilControlador {
         try {
             // Carregar o novo arquivo FXML
             FXMLLoader loader = new FXMLLoader(TelaLoginControlador.class.getResource("telaEditar.fxml"));
+            AnchorPane novaTela = loader.load();
+            
+            // Obter a cena atual e definir a nova tela como seu conteúdo
+            Stage stage = (Stage) linkParaTelaFeed.getScene().getWindow();
+            Scene novaCena = new Scene(novaTela);
+            stage.setScene(novaCena);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void HyperlinkActionTelaCriar(@SuppressWarnings("exports") ActionEvent event) {
+        try {
+            // Carregar o novo arquivo FXML
+            FXMLLoader loader = new FXMLLoader(TelaLoginControlador.class.getResource("telaCriarPostagem.fxml"));
             AnchorPane novaTela = loader.load();
             
             // Obter a cena atual e definir a nova tela como seu conteúdo
