@@ -1,6 +1,7 @@
 package com.saboreando.negocio;
 
 import com.saboreando.dados.RepositorioPostagem;
+import com.saboreando.dados.RepositorioUsuario;
 import com.saboreando.dados.beans.Postagem;
 import com.saboreando.dados.beans.Usuario;
 import java.util.List;
@@ -9,6 +10,8 @@ import java.util.ArrayList;
 public class ControladorPostagem {
     private static ControladorPostagem instance;
     private RepositorioPostagem repositorioPostagem;
+    private LoginControlador loginControlador;
+    private RepositorioUsuario repositorioUsuario;
 
     //Padrão singleton de única instância
     public static ControladorPostagem getInstance(){
@@ -21,6 +24,8 @@ public class ControladorPostagem {
     //Construtor da classe
     public ControladorPostagem(){
         this.repositorioPostagem = RepositorioPostagem.getInstance();
+        this.loginControlador = LoginControlador.getInstance();
+        this.repositorioUsuario = RepositorioUsuario.getInstance();
     }
 
     //Criar uma nova postagem
@@ -96,6 +101,30 @@ public class ControladorPostagem {
             Postagem postagem = repositorioPostagem.retornarPostagemAleatoria();
             //Aqui ele verifica o username do autor da postagem com o username do usuário logado
             if(!postagem.getAutorPostagem().equals(LoginControlador.getInstance().getUsuarioLogado())){
+                //Aqui ele verifica se a postagem já está no feed
+                if(!feed.contains(postagem)){
+                    feed.add(postagem);
+                }
+            }
+            if(feed.size() == repositorioPostagem.retornarTamanhoDaLista()){
+                break;
+            }
+        }
+        return feed;
+    }
+
+    //Mesmo método, mas do usuário
+    //Só muda que ele verifica se a postagem é do usuário
+    public List<Postagem> montarFeedDePostagensUsuario(){
+        List<Postagem> feed = new ArrayList<>();
+        //Um emaranhado, mas verifica se a qnt de postagens do usuário logado é 0
+        if(repositorioPostagem.retornarQntPostagensUsuario(repositorioUsuario.retornarUsuario(repositorioUsuario.procurarUsuarioIndice(loginControlador.getUsuarioLogado()))) == 0){
+            return feed;
+        }
+        while(feed.size() <= 9){
+            Postagem postagem = repositorioPostagem.retornarPostagemAleatoria();
+            //Aqui ele verifica o username do autor da postagem com o username do usuário logado
+            if(postagem.getAutorPostagem().equals(LoginControlador.getInstance().getUsuarioLogado())){
                 //Aqui ele verifica se a postagem já está no feed
                 if(!feed.contains(postagem)){
                     feed.add(postagem);

@@ -1,6 +1,7 @@
 package com.saboreando.negocio;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.saboreando.dados.beans.Curtida;
 import com.saboreando.dados.beans.Postagem;
@@ -78,6 +79,14 @@ public class Fachada {
 
     public void alterarAutorPostagem(String antigo, String novo){
         controladorPostagem.alterarAutorPostagem(antigo, novo);
+    }
+
+    public List<Postagem> montarFeedDePostagens(){
+        return controladorPostagem.montarFeedDePostagens();
+    }
+
+    public List<Postagem> montarFeedDePostagensUsuario(){
+        return controladorPostagem.montarFeedDePostagensUsuario();
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------------------

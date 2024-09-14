@@ -1,6 +1,11 @@
 package com.saboreando;
 
+import com.saboreando.dados.beans.Postagem;
 import com.saboreando.negocio.Fachada;
+
+import java.util.List;
+
+import java.util.ArrayList;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,7 +15,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class TelaPerfilControlador {
@@ -40,6 +47,12 @@ public class TelaPerfilControlador {
 
     @FXML
     private Label usernameDisplay;
+    
+    @FXML
+    private Label labelPublicacoes;
+
+    @FXML
+    private GridPane gridPostagens;
 
     @FXML
     private void initialize(){
@@ -49,6 +62,39 @@ public class TelaPerfilControlador {
 
         botaoEditarPerfil.setOnMouseEntered(event -> botaoEditarPerfil.setStyle("-fx-background-color: #b30746; -fx-background-radius: 8"));
         botaoEditarPerfil.setOnMouseExited(event -> botaoEditarPerfil.setStyle("-fx-background-color: #e00958;  -fx-background-radius: 8"));
+
+        List<Postagem> listaPostagensUsuario = new ArrayList<>(fachada.montarFeedDePostagensUsuario());
+        int coluna = 0;
+        int linha = 1;
+        
+
+        if(!listaPostagensUsuario.isEmpty()){
+            try {
+                labelPublicacoes.setText("Publicações");
+                for(Postagem p : listaPostagensUsuario){
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("panePostagem.fxml"));
+                    Pane pane = fxmlLoader.load();
+                    PaneControlador paneControlador = fxmlLoader.getController();
+                    paneControlador.setData(p.getTituloPostagem(), p.getAutorPostagem());
+
+                    if(coluna == 2){
+                        coluna = 0;
+                        linha++;
+                    }
+                    gridPostagens.add(pane, coluna++, linha);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        else{
+            labelPublicacoes.setText("Não há postagens feitas");
+        }
+
+        
+
+        
     }
 
     //Direcionamento para tela feed
