@@ -133,6 +133,9 @@ public class ControladorPostagem {
             if(feed.size() == repositorioPostagem.retornarTamanhoDaLista()){
                 break;
             }
+            if(retornarQntPostagensUsuario(Fachada.getInstance().pegarInstanciaUsuarioLogado()) == feed.size()){
+                break;
+            }
         }
         return feed;
     }
