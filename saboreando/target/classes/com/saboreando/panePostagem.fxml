@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
@@ -37,6 +38,7 @@
             <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
          </padding>
       </VBox>
+      <Hyperlink fx:id="hyperLinkTelaPostagem" onAction="#HyperlinkActionTelaCriar" prefHeight="147.0" prefWidth="320.0" />
    </children>
    <effect>
       <DropShadow offsetX="2.0" offsetY="2.0" />
