@@ -1,15 +1,29 @@
 package com.saboreando;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.saboreando.dados.beans.Postagem;
+import com.saboreando.negocio.Fachada;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class TelaFeedControlador {
+
+    Fachada fachada = Fachada.getInstance();
+
+    @FXML
+    private GridPane gridPostagens;
+
     @FXML
     private HBox hboxCriar;
 
@@ -38,6 +52,34 @@ public class TelaFeedControlador {
         //Hover effect do menu (BOTÃO PERFIL)
         hboxPerfil.setOnMouseEntered(event -> hboxPerfil.setStyle("-fx-background-color: #f7b9cd; -fx-background-radius: 24"));
         hboxPerfil.setOnMouseExited(event -> hboxPerfil.setStyle("-fx-background-color: transparent;"));
+
+        List<Postagem> listaPostagensFeed = new ArrayList<>(fachada.montarFeedDePostagens());
+        int coluna = 0;
+        int linha = 0;
+
+
+        if(!listaPostagensFeed.isEmpty()){
+            try {
+                for(Postagem p : listaPostagensFeed){
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("panePostagem.fxml"));
+                    Pane pane = fxmlLoader.load();
+                    PaneControlador paneControlador = fxmlLoader.getController();
+                    paneControlador.setData(p.getTituloPostagem(), p.getAutorPostagem());
+
+                    if(coluna == 3){
+                        coluna = 0;
+                        linha++;
+                    }
+                    gridPostagens.add(pane, coluna++, linha);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        else{
+            System.out.println("Não há postagens feitas");
+        }
     }
 
     //Direcionamento para tela perfil

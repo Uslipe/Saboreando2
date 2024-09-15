@@ -99,6 +99,10 @@ public class RepositorioPostagem implements IRepositorioPostagem, Serializable{
         return listaPostagens.get(index);
     }
 
+    public Postagem retornarPostagemPorIndice(int i){
+        return listaPostagens.get(i);
+    }
+
     public int retornarTamanhoDaLista(){
         return listaPostagens.size();
     }

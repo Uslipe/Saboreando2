@@ -2,15 +2,16 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="192.0" prefWidth="320.0" style="-fx-background-color: #f8dfe8;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.saboreando.PaneControlador">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="147.0" prefWidth="320.0" style="-fx-background-color: #f8dfe8;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.saboreando.PaneControlador">
    <children>
-      <VBox prefHeight="192.0" prefWidth="320.0">
+      <VBox prefHeight="147.0" prefWidth="320.0">
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="320.0">
                <children>
@@ -37,4 +38,7 @@
          </padding>
       </VBox>
    </children>
+   <effect>
+      <DropShadow offsetX="2.0" offsetY="2.0" />
+   </effect>
 </Pane>

@@ -65,7 +65,7 @@ public class TelaPerfilControlador {
 
         List<Postagem> listaPostagensUsuario = new ArrayList<>(fachada.montarFeedDePostagensUsuario());
         int coluna = 0;
-        int linha = 1;
+        int linha = 0;
 
 
         if(!listaPostagensUsuario.isEmpty()){

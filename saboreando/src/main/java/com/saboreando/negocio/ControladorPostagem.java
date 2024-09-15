@@ -96,6 +96,7 @@ public class ControladorPostagem {
     //Usar o método de retornar postagem aleatória
     //Verificar se não é do usuário logado
     public List<Postagem> montarFeedDePostagens(){
+
         List<Postagem> feed = new ArrayList<>();
         while(feed.size() <= 9){
             Postagem postagem = repositorioPostagem.retornarPostagemAleatoria();
@@ -107,6 +108,10 @@ public class ControladorPostagem {
                 }
             }
             if(feed.size() == repositorioPostagem.retornarTamanhoDaLista()){
+                break;
+            }
+            //Verifica se o tamanho da lista é igual ao tamanho da lista inteira - a qnt de postagens do usuário
+            if(feed.size() == (repositorioPostagem.retornarTamanhoDaLista() - repositorioPostagem.retornarQntPostagensUsuario(Fachada.getInstance().pegarInstanciaUsuarioLogado()))){
                 break;
             }
         }
