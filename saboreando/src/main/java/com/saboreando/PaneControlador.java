@@ -11,6 +11,16 @@ import javafx.stage.Stage;
 
 public class PaneControlador {
 
+    private static PaneControlador instance;
+
+    public static PaneControlador getInstance(){
+        
+        if(instance == null){
+            instance = new PaneControlador();
+        }
+        return instance;
+    }
+
     @FXML
     private Hyperlink hyperLinkTelaPostagem;
 
@@ -21,9 +31,16 @@ public class PaneControlador {
     private Label usernamePane;
 
     @FXML
-    public void setData(String titulo, String username){
+    private Label labelIdPostagem;
+
+    private int id;
+
+    @FXML
+    public void setData(String titulo, String username, int id){
         tituloPane.setText(titulo);
         usernamePane.setText(username);
+        labelIdPostagem.setText(String.valueOf(id));
+        this.id = id;
     }
 
     @FXML
@@ -41,5 +58,9 @@ public class PaneControlador {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public int getPostagemId(){
+        return id;
     }
 }

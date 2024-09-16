@@ -41,7 +41,7 @@ public class App extends Application {
 
     public static void main(String[] args) throws UsuarioExisteException {
         launch();
-        //Fachada.getInstance().criarPostagem(new Postagem(RepositorioUsuario.getInstance().retornarUsuario(0).getUsername(), "Quarta postagem", "teste4"));
+        //Fachada.getInstance().criarPostagem(new Postagem(RepositorioUsuario.getInstance().retornarUsuario(0).getUsername(), "Quinta postagem", "teste5"));
         //System.out.println(RepositorioPostagem.getInstance().retornarPostagemAleatoria());
         //System.out.println(ControladorPostagem.getInstance().montarFeedDePostagens());
 

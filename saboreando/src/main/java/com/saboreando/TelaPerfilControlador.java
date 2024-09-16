@@ -76,7 +76,7 @@ public class TelaPerfilControlador {
                     fxmlLoader.setLocation(getClass().getResource("panePostagem.fxml"));
                     Pane pane = fxmlLoader.load();
                     PaneControlador paneControlador = fxmlLoader.getController();
-                    paneControlador.setData(p.getTituloPostagem(), p.getAutorPostagem());
+                    paneControlador.setData(p.getTituloPostagem(), p.getAutorPostagem(), fachada.retornarIndicePostagem(p));
 
                     if(coluna == 2){
                         coluna = 0;

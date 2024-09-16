@@ -1,7 +1,9 @@
 package com.saboreando;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.saboreando.dados.beans.Postagem;
 import com.saboreando.negocio.Fachada;
@@ -57,7 +59,6 @@ public class TelaFeedControlador {
         int coluna = 0;
         int linha = 0;
 
-
         if(!listaPostagensFeed.isEmpty()){
             try {
                 for(Postagem p : listaPostagensFeed){
@@ -65,7 +66,7 @@ public class TelaFeedControlador {
                     fxmlLoader.setLocation(getClass().getResource("panePostagem.fxml"));
                     Pane pane = fxmlLoader.load();
                     PaneControlador paneControlador = fxmlLoader.getController();
-                    paneControlador.setData(p.getTituloPostagem(), p.getAutorPostagem());
+                    paneControlador.setData(p.getTituloPostagem(), p.getAutorPostagem(), fachada.retornarIndicePostagem(p));
 
                     if(coluna == 3){
                         coluna = 0;

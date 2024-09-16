@@ -89,6 +89,14 @@ public class Fachada {
         return controladorPostagem.montarFeedDePostagensUsuario();
     }
 
+    public int retornarIndicePostagem(Postagem postagem){
+        return controladorPostagem.retornarIndicePostagem(postagem);
+    }
+
+    public Postagem retornarPostagemPorIndice(int i){
+        return controladorPostagem.retornarPostagemPorIndice(i);
+    }
+
     //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     //Métodos do controlador usuário
     public void cadastrarUsuario(Usuario usuario) throws UsuarioExisteException{

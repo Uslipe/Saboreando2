@@ -157,4 +157,12 @@ public class ControladorPostagem {
             throw new IllegalArgumentException("Parâmetro nulos");
         }
     }
+
+    public int retornarIndicePostagem(Postagem postagem){
+        return repositorioPostagem.retornarIndicePostagem(postagem);
+    }
+
+    public Postagem retornarPostagemPorIndice(int i){
+        return repositorioPostagem.retornarPostagemPorIndice(i);
+    }
 }

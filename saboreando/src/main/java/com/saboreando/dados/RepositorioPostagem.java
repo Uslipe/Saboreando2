@@ -146,6 +146,16 @@ public class RepositorioPostagem implements IRepositorioPostagem, Serializable{
         salvarArquivo();
     }
 
+    public int retornarIndicePostagem(Postagem postagem){
+        int id = 0;
+        for(int i = 0; i < listaPostagens.size(); i++){
+            if(listaPostagens.get(i).equals(postagem)){
+                id = i;
+            }
+        }
+        return id;
+    }
+
         //Métodos de arquivos
     //Método para salvar o objeto no arquivo
     private void salvarArquivo() {
