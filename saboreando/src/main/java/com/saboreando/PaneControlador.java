@@ -34,6 +34,7 @@ public class PaneControlador {
     private Label labelIdPostagem;
 
     private int id;
+    private static int retornoDoId;
 
     @FXML
     public void setData(String titulo, String username, int id){
@@ -46,6 +47,9 @@ public class PaneControlador {
     @FXML
     public void HyperlinkActionTelaCriar(@SuppressWarnings("exports") ActionEvent event) {
         try {
+            //Passa o id para uma variável
+            retornoDoId = id;
+
             // Carregar o novo arquivo FXML
             FXMLLoader loader = new FXMLLoader(TelaLoginControlador.class.getResource("telaPostagem.fxml"));
             AnchorPane novaTela = loader.load();
@@ -60,7 +64,7 @@ public class PaneControlador {
         }
     }
 
-    public int getPostagemId(){
-        return id;
+    public static int getPostagemId(){
+        return retornoDoId;
     }
 }

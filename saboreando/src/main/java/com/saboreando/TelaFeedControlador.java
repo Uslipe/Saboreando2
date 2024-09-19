@@ -22,6 +22,14 @@ import javafx.stage.Stage;
 public class TelaFeedControlador {
 
     Fachada fachada = Fachada.getInstance();
+    private static TelaFeedControlador instance;
+
+    public static TelaFeedControlador getInstance(){
+        if(instance == null){
+            instance = new TelaFeedControlador();
+        }
+        return instance;
+    }
 
     @FXML
     private GridPane gridPostagens;
@@ -41,6 +49,12 @@ public class TelaFeedControlador {
     @FXML
     private Hyperlink hyperLinkTelaCriar;
 
+    List<Postagem> listaPostagensFeed = new ArrayList<>(fachada.montarFeedDePostagens());
+
+    public List<Postagem> getListaPostagensFeed(){
+        return listaPostagensFeed;
+    }
+
     @FXML
     private void initialize(){
         //Hover effect do menu (BOTÃO FEED)
@@ -55,7 +69,6 @@ public class TelaFeedControlador {
         hboxPerfil.setOnMouseEntered(event -> hboxPerfil.setStyle("-fx-background-color: #f7b9cd; -fx-background-radius: 24"));
         hboxPerfil.setOnMouseExited(event -> hboxPerfil.setStyle("-fx-background-color: transparent;"));
 
-        List<Postagem> listaPostagensFeed = new ArrayList<>(fachada.montarFeedDePostagens());
         int coluna = 0;
         int linha = 0;
 

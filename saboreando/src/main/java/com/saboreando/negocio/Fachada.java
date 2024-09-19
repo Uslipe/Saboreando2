@@ -39,8 +39,8 @@ public class Fachada {
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     //Métodos do ControladorCurtida
-    public void inserirCurtida(Curtida curtida, Usuario usuario, Postagem postagem) throws CurtidaExistenteException{
-        controladorCurtida.inserirCurtida(curtida, usuario, postagem);
+    public void inserirOuRemoverCurtida(Curtida curtida, Usuario usuario, Postagem postagem) throws CurtidaExistenteException{
+        controladorCurtida.inserirOuRemoverCurtida(curtida, usuario, postagem);
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
