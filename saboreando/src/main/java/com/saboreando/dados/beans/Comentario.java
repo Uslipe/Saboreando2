@@ -1,6 +1,8 @@
 package com.saboreando.dados.beans;
 
-public class Comentario extends Interacao {
+import java.io.Serializable;
+
+public class Comentario extends Interacao implements Serializable {
     private String texto;
 
     public Comentario(Usuario autor, Postagem postagemRelacionada, String texto) {
@@ -17,17 +19,17 @@ public class Comentario extends Interacao {
     }
 
     //Obter autor da interação
-    public Usuario getAutor(Interacao interacao){
-        return interacao.getAutor();
+    public Usuario getAutor(){
+        return super.getAutor();
     }
 
     // Método para obter a postagem relacionada de uma interação
-    public Postagem getPostagemRelacionada(Interacao interacao) {
-        return interacao.getPostagemRelacionada();
+    public Postagem getPostagemRelacionada() {
+        return super.getPostagemRelacionada();
     }
 
     //To String
     public String toString(){
-        return "\nAutor: " + this.getAutor().getUsername() + "\nTexto: " + this.getTexto() + "\n";
+        return "\nAutor: " + this.getAutor().getUsername() + "\nPostagem: " + this.getPostagemRelacionada() + "\nTexto: " + this.getTexto() + "\n";
     }
 }

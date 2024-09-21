@@ -8,9 +8,11 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import com.saboreando.dados.RepositorioComentario;
 import com.saboreando.dados.RepositorioCurtida;
 import com.saboreando.dados.RepositorioPostagem;
 import com.saboreando.dados.RepositorioUsuario;
+import com.saboreando.dados.beans.Comentario;
 import com.saboreando.dados.beans.Curtida;
 import com.saboreando.dados.beans.Postagem;
 import com.saboreando.dados.beans.Usuario;
@@ -45,14 +47,24 @@ public class App extends Application {
         launch();
         //Fachada.getInstance().criarPostagem(new Postagem(RepositorioUsuario.getInstance().retornarUsuario(0).getUsername(), "Primeira postagem", "postagem"));
 
-        Curtida curtida = new Curtida(RepositorioUsuario.getInstance().retornarUsuario(4), RepositorioPostagem.getInstance().retornarPostagemPorIndice(0));
+        //MÉTODOS PARA CADASTRAR USUÁRIOS CASO A LISTA CAIA -----------------------------------------------------------------------------------------------------------
+            //Usuario usuario1 = new Usuario("Thiago", "thiago@smau.com", "Guinho", "12345678");
+            //Usuario usuario2 = new Usuario("Gisele", "gisele@smau.com", "clawdeen", "pipoca88");
+            //Fachada.getInstance().cadastrarUsuario(usuario1);
+            //Fachada.getInstance().cadastrarUsuario(usuario2);
+
+        
+        Curtida curtida = new Curtida(RepositorioUsuario.getInstance().retornarUsuario(1), RepositorioPostagem.getInstance().retornarPostagemPorIndice(0));
         //RepositorioCurtida.getInstance().inserir(curtida);
 
-        System.out.println(RepositorioPostagem.getInstance().retornarIndicePostagem(curtida.getPostagemRelacionada()));
+        //System.out.println(RepositorioPostagem.getInstance().retornarIndicePostagem(curtida.getPostagemRelacionada()));
         
 
         //System.out.println(RepositorioCurtida.getInstance().listar());
-        System.out.println(RepositorioCurtida.getInstance().retornarQntCurtidasPostagem(RepositorioPostagem.getInstance().retornarPostagemPorIndice(0)));
+        //System.out.println(RepositorioCurtida.getInstance().retornarQntCurtidasPostagem(RepositorioPostagem.getInstance().retornarPostagemPorIndice(0)));
+        //System.out.println(RepositorioUsuario.getInstance().listar());
+        
+        //System.out.println(RepositorioCurtida.getInstance().curtiuOuNao(RepositorioUsuario.getInstance().retornarUsuario(1), RepositorioPostagem.getInstance().retornarPostagemPorIndice(0))); 
         //System.out.println(RepositorioPostagem.getInstance().listar());
 
 
@@ -62,8 +74,17 @@ public class App extends Application {
 
 
 
-
         
+        Comentario comentario = new Comentario(
+            /*usuario*/ RepositorioUsuario.getInstance().retornarUsuario(1), 
+            /*postagem*/RepositorioPostagem.getInstance().retornarPostagemPorIndice(0), 
+            /*texto*/"Comentário 1");
+
+        //System.out.println(RepositorioComentario.getInstance().listar());
+        //System.out.println(RepositorioComentario.getInstance().listarComentariosPostagem(RepositorioPostagem.getInstance().retornarPostagemPorIndice(0)));    
+        //RepositorioComentario.getInstance().inserir(comentario);
+
+
     }
 
 }

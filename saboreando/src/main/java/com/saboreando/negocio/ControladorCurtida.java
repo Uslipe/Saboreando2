@@ -31,4 +31,12 @@ public class ControladorCurtida {
             repositorioCurtida.remover(curtida);
         }
     }
+
+    public int retornarQntCurtidasPostagem(Postagem postagem){
+        return repositorioCurtida.retornarQntCurtidasPostagem(postagem);
+    }
+
+    public boolean curtiuOuNao(Usuario usuario, Postagem postagem){
+        return repositorioCurtida.curtiuOuNao(usuario, postagem);
+    }
 }

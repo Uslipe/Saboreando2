@@ -45,4 +45,11 @@ public class Postagem implements Serializable{
         return "\nAutor: " + usernameAutorPostagem + "\nTítulo: " + tituloPostagem +"\nConteúdo: " + conteudo + "\n";
     }
     
+    @Override
+    public boolean equals(Object obj) {
+        if(this.tituloPostagem.equals(((Postagem)obj).tituloPostagem) && this.conteudo.equals(((Postagem)obj).conteudo) && this.usernameAutorPostagem.equals(((Postagem)obj).usernameAutorPostagem)){
+            return true;
+        }
+        return false;
+    }
 }

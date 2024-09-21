@@ -70,4 +70,12 @@ public class Usuario implements Serializable{
     public String toString(){
         return "\nNome: " + this.getNome() + "\nEmail: " + this.getEmail() + "\nUsername: " + getUsername() + "\nSenha: " + getSenha() + "\n";
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(this.nome.equals(((Usuario)obj).nome) && this.email.equals(((Usuario)obj).email) && this.username.equals(((Usuario)obj).username) && this.senha.equals(((Usuario)obj).senha)){
+            return true;
+        }
+        return false;
+    }
 }

@@ -77,13 +77,23 @@ public class TelaPostagemControlador {
         //Hover effect do menu (BOTÃO PERFIL)
         hboxPerfil.setOnMouseEntered(event -> hboxPerfil.setStyle("-fx-background-color: #f7b9cd; -fx-background-radius: 24"));
         hboxPerfil.setOnMouseExited(event -> hboxPerfil.setStyle("-fx-background-color: transparent;"));
+
+        botaoCurtir.setOnMouseEntered(event -> botaoCurtir.setStyle("-fx-background-color: #b30746; -fx-background-radius: 8"));
+        botaoCurtir.setOnMouseExited(event -> botaoCurtir.setStyle("-fx-background-color: #e00958;  -fx-background-radius: 8"));
         
         Postagem postagem = fachada.retornarPostagemPorIndice(PaneControlador.getPostagemId());
         labelAutorPostagem.setText(postagem.getAutorPostagem());
         labelConteudoPostagem.setText(postagem.getConteudo());
         labelTituloPostagem.setText(postagem.getTituloPostagem());
 
-        labelQntCurtidas.setText("Treze");
+        if(fachada.curtiuOuNao(fachada.pegarInstanciaUsuarioLogado(), fachada.retornarPostagemPorIndice(PaneControlador.getPostagemId()))){
+            botaoCurtir.setText("Descurtir");
+        }
+        else{
+            botaoCurtir.setText("Curtir");
+        }
+
+        labelQntCurtidas.setText(String.valueOf(fachada.retornarQntCurtidasPostagem(postagem)));
     }
 
     @FXML
@@ -141,6 +151,12 @@ public class TelaPostagemControlador {
     public void curtir() throws CurtidaExistenteException{
         Curtida curtida = new Curtida(fachada.pegarInstanciaUsuarioLogado(), fachada.retornarPostagemPorIndice(PaneControlador.getPostagemId()));
         fachada.inserirOuRemoverCurtida(curtida, fachada.pegarInstanciaUsuarioLogado(), fachada.retornarPostagemPorIndice(PaneControlador.getPostagemId()));
-        //labelQntCurtidas.setText(String.valueOf(fachada.retornarQuantidadeCurtidas(fachada.retornarPostagemPorIndice(PaneControlador.getPostagemId()))));
+        if(fachada.curtiuOuNao(fachada.pegarInstanciaUsuarioLogado(), fachada.retornarPostagemPorIndice(PaneControlador.getPostagemId()))){
+            botaoCurtir.setText("Descurtir");
+        }
+        else{
+            botaoCurtir.setText("Curtir");
+        }
+        labelQntCurtidas.setText(String.valueOf(fachada.retornarQntCurtidasPostagem(fachada.retornarPostagemPorIndice(PaneControlador.getPostagemId()))));
     }
 }

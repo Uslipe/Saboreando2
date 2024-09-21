@@ -21,4 +21,12 @@ public class Curtida extends Interacao implements Serializable{
     public String toString(){
         return "Curtida:\n" + "Autor: " + getAutor() + "Postagem: " + getPostagemRelacionada();
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(this.getAutor().equals(((Curtida)obj).getAutor()) && this.getPostagemRelacionada().equals(((Curtida)obj).getPostagemRelacionada())){
+            return true;
+        }
+        return false;
+    }
 }

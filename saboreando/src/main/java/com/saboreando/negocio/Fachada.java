@@ -12,6 +12,8 @@ import com.saboreando.exceptions.UsuarioExisteException;
 import com.saboreando.exceptions.UsuarioIncorretoException;
 import com.saboreando.exceptions.UsuarioNaoEncontradoException;
 
+import javafx.geometry.Pos;
+
 //Implementação do padrão de projeto FACADE
 public class Fachada {
     private static Fachada instance;
@@ -41,6 +43,14 @@ public class Fachada {
     //Métodos do ControladorCurtida
     public void inserirOuRemoverCurtida(Curtida curtida, Usuario usuario, Postagem postagem) throws CurtidaExistenteException{
         controladorCurtida.inserirOuRemoverCurtida(curtida, usuario, postagem);
+    }
+
+    public int retornarQntCurtidasPostagem(Postagem postagem){
+        return controladorCurtida.retornarQntCurtidasPostagem(postagem);
+    }
+
+    public boolean curtiuOuNao(Usuario usuario, Postagem postagem){
+        return controladorCurtida.curtiuOuNao(usuario, postagem);
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
