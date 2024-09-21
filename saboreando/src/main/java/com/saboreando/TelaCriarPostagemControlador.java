@@ -31,6 +31,12 @@ public class TelaCriarPostagemControlador {
     private HBox hboxPerfil;
 
     @FXML
+    private HBox hboxSair;
+
+    @FXML
+    private Hyperlink hyperLinkSair;
+
+    @FXML
     private Hyperlink hyperLinkTelaFeed;
 
     @FXML
@@ -55,6 +61,9 @@ public class TelaCriarPostagemControlador {
         //Hover effect do menu (BOTÃO PERFIL)
         hboxPerfil.setOnMouseEntered(event -> hboxPerfil.setStyle("-fx-background-color: #f7b9cd; -fx-background-radius: 24"));
         hboxPerfil.setOnMouseExited(event -> hboxPerfil.setStyle("-fx-background-color: transparent;"));
+
+        hboxSair.setOnMouseEntered(event -> hboxSair.setStyle("-fx-background-color: #f7b9cd; -fx-background-radius: 24"));
+        hboxSair.setOnMouseExited(event -> hboxSair.setStyle("-fx-background-color: transparent;"));
 
         //Hover botão criar
         botaoEnviar.setOnMouseEntered(event -> botaoEnviar.setStyle("-fx-background-color: #b30746; -fx-background-radius: 8"));
@@ -106,5 +115,22 @@ public class TelaCriarPostagemControlador {
 
         inputConteudoPostagem.setText(null);
         inputTituloPostagem.setText(null);
+    }
+
+    @FXML
+    public void HyperLinkActionSair(@SuppressWarnings("exports") ActionEvent event) {
+        try {
+            // Carregar o novo arquivo FXML
+            FXMLLoader loader = new FXMLLoader(TelaLoginControlador.class.getResource("telaLogin.fxml"));
+            AnchorPane novaTela = loader.load();
+            
+            // Obter a cena atual e definir a nova tela como seu conteúdo
+            Stage stage = (Stage) hyperLinkTelaPerfil.getScene().getWindow();
+            Scene novaCena = new Scene(novaTela);
+            stage.setScene(novaCena);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

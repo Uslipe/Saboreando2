@@ -48,6 +48,12 @@ public class TelaFeedControlador {
     private Hyperlink hyperLinkTelaCriar;
 
     @FXML
+    private HBox hboxSair;
+
+    @FXML
+    private Hyperlink hyperLinkSair;
+
+    @FXML
     private void initialize(){
         //Hover effect do menu (BOTÃO FEED)
         hboxFeed.setOnMouseEntered(event -> hboxFeed.setStyle("-fx-background-color: #f7b9cd; -fx-background-radius: 24"));
@@ -60,6 +66,9 @@ public class TelaFeedControlador {
         //Hover effect do menu (BOTÃO PERFIL)
         hboxPerfil.setOnMouseEntered(event -> hboxPerfil.setStyle("-fx-background-color: #f7b9cd; -fx-background-radius: 24"));
         hboxPerfil.setOnMouseExited(event -> hboxPerfil.setStyle("-fx-background-color: transparent;"));
+
+        hboxSair.setOnMouseEntered(event -> hboxSair.setStyle("-fx-background-color: #f7b9cd; -fx-background-radius: 24"));
+        hboxSair.setOnMouseExited(event -> hboxSair.setStyle("-fx-background-color: transparent;"));
 
         List<Postagem> listaPostagensFeed = new ArrayList<>(fachada.montarFeedDePostagens());
 
@@ -113,6 +122,23 @@ public class TelaFeedControlador {
         try {
             // Carregar o novo arquivo FXML
             FXMLLoader loader = new FXMLLoader(TelaLoginControlador.class.getResource("telaCriarPostagem.fxml"));
+            AnchorPane novaTela = loader.load();
+            
+            // Obter a cena atual e definir a nova tela como seu conteúdo
+            Stage stage = (Stage) hyperLinkTelaPerfil.getScene().getWindow();
+            Scene novaCena = new Scene(novaTela);
+            stage.setScene(novaCena);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void HyperLinkActionSair(@SuppressWarnings("exports") ActionEvent event) {
+        try {
+            // Carregar o novo arquivo FXML
+            FXMLLoader loader = new FXMLLoader(TelaLoginControlador.class.getResource("telaLogin.fxml"));
             AnchorPane novaTela = loader.load();
             
             // Obter a cena atual e definir a nova tela como seu conteúdo

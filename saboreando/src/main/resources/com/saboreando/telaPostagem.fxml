@@ -97,6 +97,32 @@
                         <Insets right="32.0" />
                      </padding>
                   </HBox>
+                  <HBox fx:id="hboxSair" alignment="CENTER" prefHeight="64.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <HBox.margin>
+                              <Insets left="16.0" />
+                           </HBox.margin>
+                           <image>
+                              <Image url="@images/exit.png" />
+                           </image>
+                        </ImageView>
+                        <Hyperlink fx:id="hyperLinkSair" alignment="BASELINE_LEFT" onAction="#HyperLinkActionSair" prefHeight="0.0" prefWidth="280.0" text="Sair" textFill="#e00958">
+                           <font>
+                              <Font name="DejaVu Sans Mono Bold" size="24.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="80.0" />
+                           </HBox.margin>
+                        </Hyperlink>
+                     </children>
+                     <padding>
+                        <Insets right="32.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets top="280.0" />
+                     </VBox.margin>
+                  </HBox>
                </children>
             </VBox>
          </left>

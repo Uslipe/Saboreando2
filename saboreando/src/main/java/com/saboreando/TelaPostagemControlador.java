@@ -11,7 +11,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -46,6 +45,12 @@ public class TelaPostagemControlador {
     private HBox hboxPerfil;
 
     @FXML
+    private HBox hboxSair;
+
+    @FXML
+    private Hyperlink hyperLinkSair;
+
+    @FXML
     private Hyperlink hyperLinkTelaCriar;
 
     @FXML
@@ -77,6 +82,9 @@ public class TelaPostagemControlador {
         //Hover effect do menu (BOTÃO PERFIL)
         hboxPerfil.setOnMouseEntered(event -> hboxPerfil.setStyle("-fx-background-color: #f7b9cd; -fx-background-radius: 24"));
         hboxPerfil.setOnMouseExited(event -> hboxPerfil.setStyle("-fx-background-color: transparent;"));
+
+        hboxSair.setOnMouseEntered(event -> hboxSair.setStyle("-fx-background-color: #f7b9cd; -fx-background-radius: 24"));
+        hboxSair.setOnMouseExited(event -> hboxSair.setStyle("-fx-background-color: transparent;"));
 
         botaoCurtir.setOnMouseEntered(event -> botaoCurtir.setStyle("-fx-background-color: #b30746; -fx-background-radius: 8"));
         botaoCurtir.setOnMouseExited(event -> botaoCurtir.setStyle("-fx-background-color: #e00958;  -fx-background-radius: 8"));
@@ -158,5 +166,22 @@ public class TelaPostagemControlador {
             botaoCurtir.setText("Curtir");
         }
         labelQntCurtidas.setText(String.valueOf(fachada.retornarQntCurtidasPostagem(fachada.retornarPostagemPorIndice(PaneControlador.getPostagemId()))));
+    }
+
+    @FXML
+    public void HyperLinkActionSair(@SuppressWarnings("exports") ActionEvent event) {
+        try {
+            // Carregar o novo arquivo FXML
+            FXMLLoader loader = new FXMLLoader(TelaLoginControlador.class.getResource("telaLogin.fxml"));
+            AnchorPane novaTela = loader.load();
+            
+            // Obter a cena atual e definir a nova tela como seu conteúdo
+            Stage stage = (Stage) hyperLinkTelaPerfil.getScene().getWindow();
+            Scene novaCena = new Scene(novaTela);
+            stage.setScene(novaCena);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
