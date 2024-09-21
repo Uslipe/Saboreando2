@@ -26,7 +26,7 @@
                         <Insets left="16.0" />
                      </HBox.margin>
                   </Label>
-                  <Label fx:id="labelIdPostagem" />
+                  <Label fx:id="labelIdPostagem" textFill="#f8dfe8" />
                </children>
             </HBox>
             <Label fx:id="tituloPane" text="titulo">

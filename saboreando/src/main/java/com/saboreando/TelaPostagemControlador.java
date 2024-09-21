@@ -1,7 +1,5 @@
 package com.saboreando;
 
-import java.util.List;
-
 import com.saboreando.dados.beans.Postagem;
 import com.saboreando.exceptions.CurtidaExistenteException;
 import com.saboreando.negocio.Fachada;
@@ -67,12 +65,25 @@ public class TelaPostagemControlador {
 
     @FXML
     private void initialize(){
+        
+        //Hover effect do menu (BOTÃO FEED)
+        hboxFeed.setOnMouseEntered(event -> hboxFeed.setStyle("-fx-background-color: #f7b9cd; -fx-background-radius: 24"));
+        hboxFeed.setOnMouseExited(event -> hboxFeed.setStyle("-fx-background-color: transparent;"));
+
+        //Hover effect do menu (BOTÃO CRIAR)
+        hboxCriar.setOnMouseEntered(event -> hboxCriar.setStyle("-fx-background-color: #f7b9cd; -fx-background-radius: 24"));
+        hboxCriar.setOnMouseExited(event -> hboxCriar.setStyle("-fx-background-color: transparent;"));
+
+        //Hover effect do menu (BOTÃO PERFIL)
+        hboxPerfil.setOnMouseEntered(event -> hboxPerfil.setStyle("-fx-background-color: #f7b9cd; -fx-background-radius: 24"));
+        hboxPerfil.setOnMouseExited(event -> hboxPerfil.setStyle("-fx-background-color: transparent;"));
+        
         Postagem postagem = fachada.retornarPostagemPorIndice(PaneControlador.getPostagemId());
         labelAutorPostagem.setText(postagem.getAutorPostagem());
         labelConteudoPostagem.setText(postagem.getConteudo());
         labelTituloPostagem.setText(postagem.getTituloPostagem());
 
-        labelQntCurtidas.setText(String.valueOf(fachada.retornarQuantidadeCurtidas(postagem)));
+        labelQntCurtidas.setText("Treze");
     }
 
     @FXML
@@ -128,8 +139,8 @@ public class TelaPostagemControlador {
 
     @FXML
     public void curtir() throws CurtidaExistenteException{
-        Curtida curtida = new Curtida(fachada.pegarInstanciaUsuarioLogado(), fachada.retornarPostagemPorIndice(PaneControlador.getInstance().getPostagemId()));
-        fachada.inserirOuRemoverCurtida(curtida, fachada.pegarInstanciaUsuarioLogado(), fachada.retornarPostagemPorIndice(PaneControlador.getInstance().getPostagemId()));
-        labelQntCurtidas.setText(String.valueOf(fachada.retornarQuantidadeCurtidas(fachada.retornarPostagemPorIndice(PaneControlador.getInstance().getPostagemId()))));
+        Curtida curtida = new Curtida(fachada.pegarInstanciaUsuarioLogado(), fachada.retornarPostagemPorIndice(PaneControlador.getPostagemId()));
+        fachada.inserirOuRemoverCurtida(curtida, fachada.pegarInstanciaUsuarioLogado(), fachada.retornarPostagemPorIndice(PaneControlador.getPostagemId()));
+        //labelQntCurtidas.setText(String.valueOf(fachada.retornarQuantidadeCurtidas(fachada.retornarPostagemPorIndice(PaneControlador.getPostagemId()))));
     }
 }

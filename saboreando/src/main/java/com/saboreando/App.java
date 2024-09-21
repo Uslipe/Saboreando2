@@ -42,21 +42,28 @@ public class App extends Application {
     }
 
     public static void main(String[] args) throws UsuarioExisteException {
-        //RepositorioCurtida.getInstance().inserir(new Curtida(RepositorioUsuario.getInstance().retornarUsuario(1), RepositorioPostagem.getInstance().retornarPostagemPorIndice(0)));
         launch();
-        //Fachada.getInstance().criarPostagem(new Postagem(RepositorioUsuario.getInstance().retornarUsuario(0).getUsername(), "Chocolate quente", "Receita: \n4 colheres de achocolatado; \n1 caixa de creme de leite; \n1/2 caixa de leite condensado; \n1 colher de manteiga; \nLeite a olho; \n\n Modo de preparo:\n Coloque o creme de leite junto do leite condensado, manteiga e achocolatado na panela e mexa até ponto de ganache. Adicione leite aos poucos para o ponto desejado"));
-        //System.out.println(RepositorioPostagem.getInstance().retornarPostagemAleatoria());
-        //System.out.println(ControladorPostagem.getInstance().montarFeedDePostagens());
+        //Fachada.getInstance().criarPostagem(new Postagem(RepositorioUsuario.getInstance().retornarUsuario(0).getUsername(), "Primeira postagem", "postagem"));
 
-        //Fachada.getInstance().cadastrarUsuario(new Usuario("Gisele", "gisele@smau.com", "xixa", "12345678"));
-        //System.out.println(RepositorioUsuario.getInstance().listar());
-        //System.out.println(ControladorPostagem.getInstance().montarFeedDePostagensUsuario());
-        System.out.println(RepositorioPostagem.getInstance().listar());
-        //RepositorioPostagem.getInstance().remover(RepositorioPostagem.getInstance().retornarPostagemPorIndice(3));
-        //RepositorioCurtida.getInstance().inserir(new Curtida(RepositorioUsuario.getInstance().retornarUsuario(1), RepositorioPostagem.getInstance().retornarPostagemPorIndice(0)));
-        //System.out.println(RepositorioCurtida.getInstance().listarCurtidasPostagem(RepositorioPostagem.getInstance().retornarPostagemPorIndice(0)));
-        //System.out.println(Fachada.getInstance().retornarQntPostagensUsuario(RepositorioUsuario.getInstance().retornarUsuario(3)));
+        Curtida curtida = new Curtida(RepositorioUsuario.getInstance().retornarUsuario(4), RepositorioPostagem.getInstance().retornarPostagemPorIndice(0));
+        //RepositorioCurtida.getInstance().inserir(curtida);
 
+        System.out.println(RepositorioPostagem.getInstance().retornarIndicePostagem(curtida.getPostagemRelacionada()));
+        
+
+        //System.out.println(RepositorioCurtida.getInstance().listar());
+        System.out.println(RepositorioCurtida.getInstance().retornarQntCurtidasPostagem(RepositorioPostagem.getInstance().retornarPostagemPorIndice(0)));
+        //System.out.println(RepositorioPostagem.getInstance().listar());
+
+
+
+
+
+
+
+
+
+        
     }
 
 }

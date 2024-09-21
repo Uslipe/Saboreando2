@@ -37,22 +37,28 @@ public class RepositorioCurtida implements Serializable {
         salvarArquivo();
     }
 
+    public ArrayList<Curtida> listar() {
+        return new ArrayList<>(listaCurtida);
+    }
+
+    public Curtida retornarCurtidaPorIndice(int i){
+        return listaCurtida.get(i);
+    }
+
     public void remover(Curtida curtida){
         listaCurtida.remove(curtida);
         salvarArquivo();
     }
 
-    //Retorna uma lista com todas as curtidas relacionadas a determinada postagem
-    public List<Curtida> listarCurtidasPostagem(Postagem postagem){
-        List<Curtida> curtidasDaPostagem = new ArrayList<>();
-        //Vasculha o array atrás de curtidas
+    //Retorna a quantidade de curtidas relacionadas a determinada postagem
+    public int retornarQntCurtidasPostagem(Postagem postagem){
+        int contador = 0;
         for(Curtida curtida : listaCurtida){
-            //Verificar se a postagem armazenada na curtida se iguala a postagem do parâmetro
             if(curtida.getPostagemRelacionada().equals(postagem)){
-                curtidasDaPostagem.add(curtida);
+                contador++;
             }
         }
-        return curtidasDaPostagem;
+        return contador;
     }
 
     //Verificar se um determinado usuário já curtiu a postagem

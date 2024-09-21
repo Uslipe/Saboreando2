@@ -1,6 +1,8 @@
 package com.saboreando.dados.beans;
 
-public abstract class Interacao {
+import java.io.Serializable;
+
+public abstract class Interacao implements Serializable{
     private Usuario autor;
     private Postagem postagemRelacionada;
 

@@ -70,11 +70,6 @@ public class ControladorPostagem {
         }
     }
 
-    //Retornar quantidade de curtidas
-    public int retornarQuantidadeCurtidas(Postagem postagem){
-        return repositorioPostagem.contabilizarCurtidas(postagem);
-    }
-
     //Retornar quantidade de comentários
     public int retornarQuantidadeComentarios(Postagem postagem){
         return repositorioPostagem.contabilizarComentarios(postagem);
@@ -98,7 +93,7 @@ public class ControladorPostagem {
     public List<Postagem> montarFeedDePostagens(){
 
         List<Postagem> feed = new ArrayList<>();
-        while(feed.size() <= 9){
+        while(feed.size() <= 6){
             Postagem postagem = repositorioPostagem.retornarPostagemAleatoria();
             //Aqui ele verifica o username do autor da postagem com o username do usuário logado
             if(!postagem.getAutorPostagem().equals(LoginControlador.getInstance().getUsuarioLogado())){
@@ -126,7 +121,7 @@ public class ControladorPostagem {
         if(repositorioPostagem.retornarQntPostagensUsuario(repositorioUsuario.retornarUsuario(repositorioUsuario.procurarUsuarioIndice(loginControlador.getUsuarioLogado()))) == 0){
             return feed;
         }
-        while(feed.size() <= 9){
+        while(feed.size() <= 4){
             Postagem postagem = repositorioPostagem.retornarPostagemAleatoria();
             //Aqui ele verifica o username do autor da postagem com o username do usuário logado
             if(postagem.getAutorPostagem().equals(LoginControlador.getInstance().getUsuarioLogado())){

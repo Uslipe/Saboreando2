@@ -9,13 +9,13 @@ public class Curtida extends Interacao implements Serializable{
     }
     
     //Obter autor da interação
-    public Usuario getAutor(Interacao interacao){
-        return interacao.getAutor();
+    public Usuario getAutor(){
+        return super.getAutor();
     }
 
     // Método para obter a postagem relacionada de uma interação
-    public Postagem getPostagemRelacionada(Interacao interacao) {
-        return interacao.getPostagemRelacionada();
+    public Postagem getPostagemRelacionada() {
+        return super.getPostagemRelacionada();
     }
 
     public String toString(){

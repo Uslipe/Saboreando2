@@ -61,9 +61,6 @@ public class Fachada {
         return controladorPostagem.retornarAutorPostagem(postagem);
     }
 
-    public int retornarQuantidadeCurtidas(Postagem postagem){
-        return controladorPostagem.retornarQuantidadeCurtidas(postagem);
-    }
 
     public int retornarQuantidadeComentarios(Postagem postagem){
         return controladorPostagem.retornarQuantidadeComentarios(postagem);

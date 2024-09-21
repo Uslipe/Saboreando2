@@ -125,14 +125,6 @@ public class RepositorioPostagem implements IRepositorioPostagem, Serializable{
         repositorioCurtida.inserir(curtida);
     }
 
-    public List<Curtida> listarCurtidas(Postagem postagem){
-        return repositorioCurtida.listarCurtidasPostagem(postagem);
-    }
-
-    public int contabilizarCurtidas(Postagem postagem){
-        return repositorioCurtida.listarCurtidasPostagem(postagem).size();
-    }
-
     public void alterarAutorPostagem(String antigoUsuario, String novoUsuario) {
         // Itera sobre todas as postagens no repositório
         for (Postagem postagem : listaPostagens) {
