@@ -3,6 +3,7 @@ package com.saboreando.negocio;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.saboreando.dados.beans.Comentario;
 import com.saboreando.dados.beans.Curtida;
 import com.saboreando.dados.beans.Postagem;
 import com.saboreando.dados.beans.Usuario;
@@ -19,6 +20,7 @@ public class Fachada {
     private ControladorCurtida controladorCurtida;
     private ControladorPostagem controladorPostagem;
     private ControladorUsuario controladorUsuario;
+    private ControladorComentario controladorComentario;
     private LoginControlador loginControlador;
     
     //Padrão singleton de única instância
@@ -34,7 +36,18 @@ public class Fachada {
         this.controladorCurtida = ControladorCurtida.getInstance();
         this.controladorPostagem = ControladorPostagem.getInstance();
         this.controladorUsuario = ControladorUsuario.getInstance();
+        this.controladorComentario = ControladorComentario.getInstance();
         this.loginControlador = LoginControlador.getInstance();
+    }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    //Métodos do ControadorComentario
+    public void inserirComentario(Comentario comentario){
+        controladorComentario.inserirComentario(comentario);
+    }
+
+    public List<Comentario> listarComentariosPostagem(Postagem postagem){
+        return controladorComentario.listarComentariosPostagem(postagem);
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------------------

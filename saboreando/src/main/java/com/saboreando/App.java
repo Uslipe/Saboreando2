@@ -80,9 +80,9 @@ public class App extends Application {
             /*postagem*/RepositorioPostagem.getInstance().retornarPostagemPorIndice(0), 
             /*texto*/"Comentário 1");
 
-        //System.out.println(RepositorioComentario.getInstance().listar());
-        //System.out.println(RepositorioComentario.getInstance().listarComentariosPostagem(RepositorioPostagem.getInstance().retornarPostagemPorIndice(0)));    
         //RepositorioComentario.getInstance().inserir(comentario);
+        //System.out.println(RepositorioComentario.getInstance().listar());
+        System.out.println(RepositorioComentario.getInstance().listarComentariosPostagem(RepositorioPostagem.getInstance().retornarPostagemPorIndice(0)));    
 
 
     }
