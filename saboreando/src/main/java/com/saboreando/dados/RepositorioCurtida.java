@@ -8,7 +8,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 
 import com.saboreando.dados.beans.Curtida;
 import com.saboreando.dados.beans.Postagem;

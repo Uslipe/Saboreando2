@@ -12,8 +12,6 @@ import com.saboreando.exceptions.UsuarioExisteException;
 import com.saboreando.exceptions.UsuarioIncorretoException;
 import com.saboreando.exceptions.UsuarioNaoEncontradoException;
 
-import javafx.geometry.Pos;
-
 //Implementação do padrão de projeto FACADE
 public class Fachada {
     private static Fachada instance;

@@ -2,6 +2,7 @@ package com.saboreando.dados.beans;
 
 import java.io.Serializable;
 
+@SuppressWarnings("unused")
 public class Curtida extends Interacao implements Serializable{
 
     public Curtida(Usuario autor, Postagem postagemRelacionada) {
