@@ -65,7 +65,7 @@ public class App extends Application {
         //System.out.println(RepositorioUsuario.getInstance().listar());
         
         //System.out.println(RepositorioCurtida.getInstance().curtiuOuNao(RepositorioUsuario.getInstance().retornarUsuario(1), RepositorioPostagem.getInstance().retornarPostagemPorIndice(0))); 
-        //System.out.println(RepositorioPostagem.getInstance().listar());
+        System.out.println(RepositorioPostagem.getInstance().listar());
 
 
 
@@ -78,7 +78,7 @@ public class App extends Application {
         Comentario comentario = new Comentario(
             /*usuario*/ RepositorioUsuario.getInstance().retornarUsuario(1), 
             /*postagem*/RepositorioPostagem.getInstance().retornarPostagemPorIndice(0), 
-            /*texto*/"Comentário 1");
+            /*texto*/"Comentário 3");
 
         //RepositorioComentario.getInstance().inserir(comentario);
         //System.out.println(RepositorioComentario.getInstance().listar());

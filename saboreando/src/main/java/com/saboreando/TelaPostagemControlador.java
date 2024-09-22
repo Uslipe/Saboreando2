@@ -15,8 +15,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import java.util.List;
+import java.util.ArrayList;
 
+import com.saboreando.dados.beans.Comentario;
 import com.saboreando.dados.beans.Curtida;
 
 public class TelaPostagemControlador {
@@ -25,6 +29,15 @@ public class TelaPostagemControlador {
 
     @FXML
     private Button botaoCurtir;
+
+    @FXML
+    private Button botaoProximo;
+
+    @FXML
+    private Button botaoAnterior;
+
+    @FXML
+    private GridPane gridComentarios;
 
     @FXML
     private ImageView imageCoracao;
@@ -68,6 +81,9 @@ public class TelaPostagemControlador {
     @FXML
     private Label labelTituloPostagem;
 
+    private List<Comentario> listaComentarios;
+    int indicePostagem = 0;
+
     @FXML
     private void initialize(){
         
@@ -94,6 +110,8 @@ public class TelaPostagemControlador {
         labelConteudoPostagem.setText(postagem.getConteudo());
         labelTituloPostagem.setText(postagem.getTituloPostagem());
 
+        //Inicializador de curtidas----------------------------------------------------------------------------------------------------------------------------
+
         if(fachada.curtiuOuNao(fachada.pegarInstanciaUsuarioLogado(), fachada.retornarPostagemPorIndice(PaneControlador.getPostagemId()))){
             botaoCurtir.setText("Descurtir");
         }
@@ -102,6 +120,23 @@ public class TelaPostagemControlador {
         }
 
         labelQntCurtidas.setText(String.valueOf(fachada.retornarQntCurtidasPostagem(postagem)));
+
+        //Inicializador de comentários--------------------------------------------------------------------------------------------------------------------------
+        listaComentarios = new ArrayList<>(fachada.listarComentariosPostagem(postagem));
+
+        if(!listaComentarios.isEmpty()){
+            try {
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("paneComentario.fxml"));
+                    Pane pane = fxmlLoader.load();
+                    PaneComentarioControlador paneComentarioControlador = fxmlLoader.getController();
+                    paneComentarioControlador.setData(listaComentarios.get(indicePostagem).getTexto(), listaComentarios.get(indicePostagem).getAutor().getUsername());
+
+                    gridComentarios.add(pane, 0, 0);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @FXML
@@ -183,5 +218,43 @@ public class TelaPostagemControlador {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    public void proximo(){
+            gridComentarios.getChildren().clear();
+            indicePostagem++;
+
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("paneComentario.fxml"));
+                Pane pane = fxmlLoader.load();
+                PaneComentarioControlador paneComentarioControlador = fxmlLoader.getController();
+                paneComentarioControlador.setData(listaComentarios.get(indicePostagem).getTexto(), listaComentarios.get(indicePostagem).getAutor().getUsername());
+
+                gridComentarios.add(pane, 0, 0);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+    }
+
+    @FXML
+    public void anterior(){
+            gridComentarios.getChildren().clear();
+            indicePostagem--;
+
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("paneComentario.fxml"));
+                Pane pane = fxmlLoader.load();
+                PaneComentarioControlador paneComentarioControlador = fxmlLoader.getController();
+                paneComentarioControlador.setData(listaComentarios.get(indicePostagem).getTexto(), listaComentarios.get(indicePostagem).getAutor().getUsername());
+
+                gridComentarios.add(pane, 0, 0);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
     }
 }

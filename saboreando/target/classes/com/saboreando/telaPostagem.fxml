@@ -9,7 +9,10 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -165,7 +168,7 @@
                         <Insets bottom="24.0" left="24.0" right="24.0" top="24.0" />
                      </VBox.margin>
                   </Label>
-                  <HBox prefHeight="100.0" prefWidth="920.0">
+                  <HBox prefHeight="216.0" prefWidth="872.0">
                      <VBox.margin>
                         <Insets bottom="24.0" left="24.0" right="24.0" top="240.0" />
                      </VBox.margin>
@@ -201,6 +204,47 @@
                               </Button>
                            </children>
                         </HBox>
+                        <VBox prefHeight="98.0" prefWidth="280.0">
+                           <children>
+                              <Label text="Comentários" textFill="#e00958">
+                                 <font>
+                                    <Font name="DejaVu Sans Mono Bold" size="13.0" />
+                                 </font></Label>
+                              <GridPane fx:id="gridComentarios" prefHeight="82.0" prefWidth="100.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                              </GridPane>
+                              <HBox prefHeight="31.0" prefWidth="280.0">
+                                 <children>
+                                    <Button fx:id="botaoAnterior" mnemonicParsing="false" onAction="#anterior" style="-fx-background-color: transparent;" text="&lt;" textFill="#e00958">
+                                       <font>
+                                          <Font name="DejaVu Sans Mono Bold" size="16.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></Button>
+                                    <Button fx:id="botaoProximo" mnemonicParsing="false" onAction="#proximo" style="-fx-background-color: transparent;" text="&gt;" textFill="#e00958">
+                                       <font>
+                                          <Font name="DejaVu Sans Mono Bold" size="16.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <HBox.margin>
+                                          <Insets left="216.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="392.0" />
+                           </HBox.margin>
+                        </VBox>
                      </children>
                   </HBox>
                </children>
