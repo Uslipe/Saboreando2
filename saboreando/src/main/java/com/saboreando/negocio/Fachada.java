@@ -115,6 +115,10 @@ public class Fachada {
         return controladorPostagem.retornarPostagemPorIndice(i);
     }
 
+    public List<Postagem> montarFeedDePostagensOutroUsuario(Usuario outroUsuario){
+        return controladorPostagem.montarFeedDePostagensOutroUsuario(outroUsuario);
+    }
+
     //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     //Métodos do controlador usuário
     public void cadastrarUsuario(Usuario usuario) throws UsuarioExisteException{
@@ -143,6 +147,14 @@ public class Fachada {
 
     public Usuario pegarInstanciaUsuarioLogado(){
         return controladorUsuario.pegarInstanciaUsuarioLogado();
+    }
+
+    public int procurarUsuarioIndice(String username){
+        return controladorUsuario.procurarUsuarioIndice(username);
+    }
+
+    public Usuario retornarUsuario(int i){
+        return controladorUsuario.retornarUsuario(i);
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------------------

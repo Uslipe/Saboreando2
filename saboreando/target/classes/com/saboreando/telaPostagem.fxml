@@ -139,14 +139,14 @@
                               <Image url="@images/userPic.png" />
                            </image>
                         </ImageView>
-                        <Label fx:id="labelAutorPostagem" text="Label">
-                           <HBox.margin>
-                              <Insets left="24.0" />
-                           </HBox.margin>
+                        <Hyperlink fx:id="labelAutorPostagem" onAction="#mandarNomeParaTelaPerfilOutros" style="-fx-text-fill: black; -fx-underline: false;" text="Label">
                            <font>
                               <Font name="DejaVu Sans Mono Bold" size="24.0" />
                            </font>
-                        </Label>
+                           <HBox.margin>
+                              <Insets left="24.0" />
+                           </HBox.margin>
+                        </Hyperlink>
                      </children>
                      <VBox.margin>
                         <Insets bottom="24.0" />

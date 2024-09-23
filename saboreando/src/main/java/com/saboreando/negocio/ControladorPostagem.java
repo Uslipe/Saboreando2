@@ -140,6 +140,32 @@ public class ControladorPostagem {
         return feed;
     }
 
+    //Método para pegar as postagens de um outro usuário
+    public List<Postagem> montarFeedDePostagensOutroUsuario(Usuario outroUsuario){
+        List<Postagem> feed = new ArrayList<>();
+        //Verifica se a qnt de postagens do usuário passado é 0
+        if(repositorioPostagem.retornarQntPostagensUsuario(outroUsuario) == 0){
+            return feed;
+        }
+        while(feed.size() <= 4){
+            Postagem postagem = repositorioPostagem.retornarPostagemAleatoria();
+            //Aqui ele verifica o username do autor da postagem com o username do usuário passado
+            if(postagem.getAutorPostagem().equals(outroUsuario.getUsername())){
+                //Aqui ele verifica se a postagem já está no feed
+                if(!feed.contains(postagem)){
+                    feed.add(postagem);
+                }
+            }
+            if(feed.size() == repositorioPostagem.retornarTamanhoDaLista()){
+                break;
+            }
+            if(retornarQntPostagensUsuario(outroUsuario) == feed.size()){
+                break;
+            }
+        }
+        return feed;
+    }
+
     public int retornarQntPostagensUsuario(Usuario usuario){
         return repositorioPostagem.retornarQntPostagensUsuario(usuario);
     }

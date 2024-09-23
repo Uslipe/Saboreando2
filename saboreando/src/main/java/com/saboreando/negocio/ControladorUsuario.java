@@ -115,5 +115,13 @@ public class ControladorUsuario {
     public ArrayList<Usuario> listar(){
         return repositorioUsuario.listar();
     }
+
+    public int procurarUsuarioIndice(String username){
+        return repositorioUsuario.procurarUsuarioIndice(username);
+    }
+
+    public Usuario retornarUsuario(int i){
+        return repositorioUsuario.retornarUsuario(i);
+    }
 }
 

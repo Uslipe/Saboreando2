@@ -76,7 +76,7 @@ public class TelaPostagemControlador {
     private Hyperlink hyperLinkTelaFeed;
 
     @FXML
-    private Label labelAutorPostagem;
+    private Hyperlink labelAutorPostagem;
 
     @FXML
     private Label labelConteudoPostagem;
@@ -279,5 +279,24 @@ public class TelaPostagemControlador {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+    }
+
+    @FXML
+    public void mandarNomeParaTelaPerfilOutros(){
+        TelaPerfilOutrosControlador.setStringNomeUsuario(labelAutorPostagem.getText());
+
+        try {
+            // Carregar o novo arquivo FXML
+            FXMLLoader loader = new FXMLLoader(TelaLoginControlador.class.getResource("telaPerfilOutros.fxml"));
+            AnchorPane novaTela = loader.load();
+            
+            // Obter a cena atual e definir a nova tela como seu conteúdo
+            Stage stage = (Stage) hyperLinkTelaPerfil.getScene().getWindow();
+            Scene novaCena = new Scene(novaTela);
+            stage.setScene(novaCena);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
