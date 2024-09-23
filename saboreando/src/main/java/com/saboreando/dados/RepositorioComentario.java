@@ -14,8 +14,6 @@ import java.io.ObjectOutputStream;
 import com.saboreando.dados.beans.Comentario;
 import com.saboreando.dados.beans.Postagem;
 
-import javafx.geometry.Pos;
-
 public class RepositorioComentario implements Serializable {
     private static RepositorioComentario instance;
     private ArrayList<Comentario> listaComentarios;

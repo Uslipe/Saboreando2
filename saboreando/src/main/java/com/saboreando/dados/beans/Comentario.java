@@ -2,6 +2,7 @@ package com.saboreando.dados.beans;
 
 import java.io.Serializable;
 
+@SuppressWarnings("unused")
 public class Comentario extends Interacao implements Serializable {
     private String texto;
 
