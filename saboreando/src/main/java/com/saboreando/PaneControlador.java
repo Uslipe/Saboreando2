@@ -1,5 +1,7 @@
 package com.saboreando;
 
+import com.saboreando.negocio.Fachada;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -33,6 +35,9 @@ public class PaneControlador {
     @FXML
     private Label labelIdPostagem;
 
+    @FXML
+    private Label numCurtidas;
+
     private int id;
     private static int retornoDoId;
 
@@ -41,6 +46,7 @@ public class PaneControlador {
         tituloPane.setText(titulo);
         usernamePane.setText(username);
         labelIdPostagem.setText(String.valueOf(id));
+        numCurtidas.setText(String.valueOf(Fachada.getInstance().retornarQntCurtidasPostagem(Fachada.getInstance().retornarPostagemPorIndice(id))));
         this.id = id;
     }
 
