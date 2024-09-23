@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #f8dfe8;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.saboreando.TelaAdicionarComentarioControlador">
+   <children>
+      <BorderPane prefHeight="720.0" prefWidth="1280.0">
+         <center>
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label text="Adicionar comentario" textFill="#e00958">
+                     <font>
+                        <Font name="DejaVu Sans Mono Bold" size="24.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="40.0" />
+                     </VBox.margin>
+                  </Label>
+                  <VBox prefHeight="88.0" prefWidth="1000.0">
+                     <children>
+                        <Label text="Comentario">
+                           <font>
+                              <Font name="DejaVu Sans Mono Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="inputComentario" promptText="Digite seu comentário" style="-fx-background-radius: 8;">
+                           <padding>
+                              <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets top="16.0" />
+                           </VBox.margin>
+                        </TextField>
+                     </children>
+                     <padding>
+                        <Insets left="40.0" right="40.0" />
+                     </padding>
+                  </VBox>
+                  <Button fx:id="botaoEnviar" mnemonicParsing="false" onAction="#enviarComentario" prefHeight="40.0" prefWidth="140.0" style="-fx-background-color: #e00958; -fx-background-radius: 8;" text="Enviar" textFill="#f8dfe8">
+                     <padding>
+                        <Insets left="40.0" right="40.0" />
+                     </padding>
+                     <font>
+                        <Font name="DejaVu Sans Mono Bold" size="16.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="740.0" top="24.0" />
+                     </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+               <BorderPane.margin>
+                  <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+               </BorderPane.margin>
+            </VBox>
+         </center>
+         <left>
+            <VBox alignment="TOP_CENTER" prefHeight="720.0" prefWidth="280.0" spacing="24.0" style="-fx-border-width: 0 0.5 0 0; -fx-border-color: black;" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox fx:id="hboxFeed" alignment="CENTER" prefHeight="64.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <HBox.margin>
+                              <Insets left="16.0" />
+                           </HBox.margin>
+                           <image>
+                              <Image url="@images/feed.png" />
+                           </image>
+                        </ImageView>
+                        <Hyperlink fx:id="hyperLinkTelaFeed" alignment="BASELINE_LEFT" onAction="#HyperLinkActionTelaFeed" prefHeight="0.0" prefWidth="280.0" text="Feed" textFill="#e00958">
+                           <font>
+                              <Font name="DejaVu Sans Mono Bold" size="24.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="80.0" />
+                           </HBox.margin>
+                        </Hyperlink>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="80.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets right="32.0" />
+                     </padding>
+                  </HBox>
+                  <HBox fx:id="hboxCriar" alignment="CENTER" prefHeight="64.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <HBox.margin>
+                              <Insets left="16.0" />
+                           </HBox.margin>
+                           <image>
+                              <Image url="@images/add.png" />
+                           </image>
+                        </ImageView>
+                        <Hyperlink fx:id="hyperLinkTelaCriar" alignment="BASELINE_LEFT" onAction="#HyperLinkActionTelaCriar" prefHeight="0.0" prefWidth="280.0" text="Criar" textFill="#e00958">
+                           <font>
+                              <Font name="DejaVu Sans Mono Bold" size="24.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="80.0" />
+                           </HBox.margin>
+                        </Hyperlink>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets right="32.0" />
+                     </padding>
+                  </HBox>
+                  <HBox fx:id="hboxPerfil" alignment="CENTER" prefHeight="64.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <HBox.margin>
+                              <Insets left="16.0" />
+                           </HBox.margin>
+                           <image>
+                              <Image url="@images/user.png" />
+                           </image>
+                        </ImageView>
+                        <Hyperlink fx:id="hyperLinkTelaPerfil" alignment="BASELINE_LEFT" onAction="#HyperLinkActionTelaPerfil" prefHeight="0.0" prefWidth="280.0" text="Perfil" textFill="#e00958">
+                           <font>
+                              <Font name="DejaVu Sans Mono Bold" size="24.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="80.0" />
+                           </HBox.margin>
+                        </Hyperlink>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets right="32.0" />
+                     </padding>
+                  </HBox>
+                  <HBox fx:id="hboxSair" alignment="CENTER" prefHeight="64.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <HBox.margin>
+                              <Insets left="16.0" />
+                           </HBox.margin>
+                           <image>
+                              <Image url="@images/exit.png" />
+                           </image>
+                        </ImageView>
+                        <Hyperlink fx:id="hyperLinkSair" alignment="BASELINE_LEFT" onAction="#HyperLinkActionSair" prefHeight="0.0" prefWidth="280.0" text="Sair" textFill="#e00958">
+                           <font>
+                              <Font name="DejaVu Sans Mono Bold" size="24.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="80.0" />
+                           </HBox.margin>
+                        </Hyperlink>
+                     </children>
+                     <padding>
+                        <Insets right="32.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets top="280.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </left>
+      </BorderPane>
+   </children>
+</AnchorPane>

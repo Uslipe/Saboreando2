@@ -34,6 +34,9 @@ public class TelaPostagemControlador {
     private Button botaoProximo;
 
     @FXML
+    private Button botaoAdicionarComentario;
+
+    @FXML
     private Button botaoAnterior;
 
     @FXML
@@ -104,6 +107,9 @@ public class TelaPostagemControlador {
 
         botaoCurtir.setOnMouseEntered(event -> botaoCurtir.setStyle("-fx-background-color: #b30746; -fx-background-radius: 8"));
         botaoCurtir.setOnMouseExited(event -> botaoCurtir.setStyle("-fx-background-color: #e00958;  -fx-background-radius: 8"));
+
+        botaoAdicionarComentario.setOnMouseEntered(event -> botaoAdicionarComentario.setStyle("-fx-background-color: #b30746; -fx-background-radius: 8"));
+        botaoAdicionarComentario.setOnMouseExited(event -> botaoAdicionarComentario.setStyle("-fx-background-color: #e00958;  -fx-background-radius: 8"));
         
         Postagem postagem = fachada.retornarPostagemPorIndice(PaneControlador.getPostagemId());
         labelAutorPostagem.setText(postagem.getAutorPostagem());
@@ -182,6 +188,23 @@ public class TelaPostagemControlador {
             
             // Obter a cena atual e definir a nova tela como seu conteúdo
             Stage stage = (Stage) hyperLinkTelaFeed.getScene().getWindow();
+            Scene novaCena = new Scene(novaTela);
+            stage.setScene(novaCena);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void HyperLinkActionTelaAdicionarComentario(@SuppressWarnings("exports") ActionEvent event) {
+        try {
+            // Carregar o novo arquivo FXML
+            FXMLLoader loader = new FXMLLoader(TelaLoginControlador.class.getResource("telaAdicionarComentario.fxml"));
+            AnchorPane novaTela = loader.load();
+            
+            // Obter a cena atual e definir a nova tela como seu conteúdo
+            Stage stage = (Stage) hyperLinkTelaPerfil.getScene().getWindow();
             Scene novaCena = new Scene(novaTela);
             stage.setScene(novaCena);
 
