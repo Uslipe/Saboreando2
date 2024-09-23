@@ -108,8 +108,8 @@ public class TelaCriarPostagemControlador {
         String titulo = inputTituloPostagem.getText();
         String conteudo = inputConteudoPostagem.getText();
 
-        Postagem postagem = new Postagem(fachada.getUsuarioLogado(), titulo, conteudo);
-        fachada.criarPostagem(postagem);
+        //Postagem postagem = new Postagem(fachada.getUsuarioLogado(), titulo, conteudo);
+        //fachada.criarPostagem(postagem);
 
         System.out.println("Postagem cadastrada na tela");
 

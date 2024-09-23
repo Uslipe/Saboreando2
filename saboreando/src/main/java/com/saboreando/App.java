@@ -5,6 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import java.util.*;
+import com.saboreando.dados.beans.Categorias;
 
 import java.io.IOException;
 
@@ -45,7 +47,8 @@ public class App extends Application {
 
     public static void main(String[] args) throws UsuarioExisteException {
         launch();
-        //Fachada.getInstance().criarPostagem(new Postagem(RepositorioUsuario.getInstance().retornarUsuario(0).getUsername(), "Primeira postagem", "postagem"));
+        List<Categorias> categorias = Arrays.asList(Categorias.VEGANO);
+        //Fachada.getInstance().criarPostagem(new Postagem(RepositorioUsuario.getInstance().retornarUsuario(0).getUsername(), "Paçoca", "Ingredientes: \nAmendoím com sal\nAçṹcar\n\nModo de preparo:\nMoa o amendoim com sal junto do açúcar", categorias));
 
         //MÉTODOS PARA CADASTRAR USUÁRIOS CASO A LISTA CAIA -----------------------------------------------------------------------------------------------------------
             //Usuario usuario1 = new Usuario("Thiago", "thiago@smau.com", "Guinho", "12345678");
@@ -65,6 +68,8 @@ public class App extends Application {
         //System.out.println(RepositorioUsuario.getInstance().listar());
         
         //System.out.println(RepositorioCurtida.getInstance().curtiuOuNao(RepositorioUsuario.getInstance().retornarUsuario(1), RepositorioPostagem.getInstance().retornarPostagemPorIndice(0))); 
+        
+        //System.out.println(RepositorioPostagem.getInstance().retornarPostagemPorIndice(0).getCategorias());
         System.out.println(RepositorioPostagem.getInstance().listar());
 
 

@@ -160,7 +160,7 @@
                         <Insets left="24.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="labelConteudoPostagem" alignment="TOP_LEFT" prefHeight="222.0" prefWidth="872.0" style="-fx-wrap-text: true;" text="Label">
+                  <Label fx:id="labelConteudoPostagem" alignment="TOP_LEFT" prefHeight="250.0" prefWidth="872.0" style="-fx-wrap-text: true;" text="Label">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -168,9 +168,33 @@
                         <Insets bottom="24.0" left="24.0" right="24.0" top="24.0" />
                      </VBox.margin>
                   </Label>
-                  <HBox alignment="CENTER_LEFT" prefHeight="216.0" prefWidth="872.0">
+                  <VBox prefHeight="100.0" prefWidth="100.0">
+                     <children>
+                        <Label text="Categorias">
+                           <font>
+                              <Font name="DejaVu Sans Mono Bold" size="16.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                           </VBox.margin>
+                        </Label>
+                        <GridPane fx:id="gridCategorias" prefHeight="600.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <VBox.margin>
+                              <Insets top="24.0" />
+                           </VBox.margin>
+                        </GridPane>
+                     </children>
+                  </VBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="160.0" prefWidth="872.0">
                      <VBox.margin>
-                        <Insets bottom="24.0" left="24.0" right="24.0" top="240.0" />
+                        <Insets bottom="24.0" left="24.0" right="24.0" />
                      </VBox.margin>
                      <children>
                         <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">

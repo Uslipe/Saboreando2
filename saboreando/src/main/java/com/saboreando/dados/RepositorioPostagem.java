@@ -16,6 +16,8 @@ import com.saboreando.dados.beans.Curtida;
 import com.saboreando.dados.beans.Postagem;
 import com.saboreando.dados.beans.Usuario;
 
+import javafx.geometry.Pos;
+
 @SuppressWarnings("rawtypes") //Isso faz o alerta amarelo sumir
 
 public class RepositorioPostagem implements IRepositorioPostagem, Serializable{
@@ -146,6 +148,10 @@ public class RepositorioPostagem implements IRepositorioPostagem, Serializable{
             }
         }
         return id;
+    }
+
+    public int retornarQntCategoriasPostagem(Postagem postagem){
+        return postagem.getCategorias().size();
     }
 
         //Métodos de arquivos

@@ -3,6 +3,7 @@ package com.saboreando;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.saboreando.dados.beans.Categorias;
 import com.saboreando.dados.beans.Postagem;
 import com.saboreando.negocio.Fachada;
 
@@ -10,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -28,6 +30,9 @@ public class TelaFeedControlador {
         }
         return instance;
     }
+
+    @FXML
+    private ChoiceBox<Categorias> choiceBoxCategorias;
 
     @FXML
     private GridPane gridPostagens;
@@ -54,50 +59,62 @@ public class TelaFeedControlador {
     private Hyperlink hyperLinkSair;
 
     @FXML
-    private void initialize(){
-        //Hover effect do menu (BOTÃO FEED)
-        hboxFeed.setOnMouseEntered(event -> hboxFeed.setStyle("-fx-background-color: #f7b9cd; -fx-background-radius: 24"));
-        hboxFeed.setOnMouseExited(event -> hboxFeed.setStyle("-fx-background-color: transparent;"));
-
-        //Hover effect do menu (BOTÃO CRIAR)
-        hboxCriar.setOnMouseEntered(event -> hboxCriar.setStyle("-fx-background-color: #f7b9cd; -fx-background-radius: 24"));
-        hboxCriar.setOnMouseExited(event -> hboxCriar.setStyle("-fx-background-color: transparent;"));
-
-        //Hover effect do menu (BOTÃO PERFIL)
-        hboxPerfil.setOnMouseEntered(event -> hboxPerfil.setStyle("-fx-background-color: #f7b9cd; -fx-background-radius: 24"));
-        hboxPerfil.setOnMouseExited(event -> hboxPerfil.setStyle("-fx-background-color: transparent;"));
-
-        hboxSair.setOnMouseEntered(event -> hboxSair.setStyle("-fx-background-color: #f7b9cd; -fx-background-radius: 24"));
-        hboxSair.setOnMouseExited(event -> hboxSair.setStyle("-fx-background-color: transparent;"));
-
+    private void initialize() {
+        // ... (código do hover)
+    
+        // Populando o ChoiceBox com as categorias
+        choiceBoxCategorias.getItems().addAll(Categorias.values());
+        choiceBoxCategorias.setValue(Categorias.values()[0]); // Define uma categoria padrão
+    
         List<Postagem> listaPostagensFeed = new ArrayList<>(fachada.montarFeedDePostagens());
-
-        int coluna = 0;
-        int linha = 0;
-
-        if(!listaPostagensFeed.isEmpty()){
+    
+        final int[] coluna = {0};
+        final int[] linha = {0};
+    
+        // Filtragem inicial
+        filtrarPostagens(listaPostagensFeed, choiceBoxCategorias.getValue(), coluna, linha);
+    
+        // Listener para atualizar as postagens ao mudar a categoria
+        choiceBoxCategorias.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            coluna[0] = 0; // Reinicia a coluna
+            linha[0] = 0;  // Reinicia a linha
+            gridPostagens.getChildren().clear(); // Limpa o grid
+            filtrarPostagens(listaPostagensFeed, newValue, coluna, linha);
+        });
+    }
+    
+    private void filtrarPostagens(List<Postagem> listaPostagensFeed, Categorias categoria, int[] coluna, int[] linha) {
+        if (!listaPostagensFeed.isEmpty()) {
             try {
-                for(Postagem p : listaPostagensFeed){
-                    FXMLLoader fxmlLoader = new FXMLLoader();
-                    fxmlLoader.setLocation(getClass().getResource("panePostagem.fxml"));
-                    Pane pane = fxmlLoader.load();
-                    PaneControlador paneControlador = fxmlLoader.getController();
-                    paneControlador.setData(p.getTituloPostagem(), p.getAutorPostagem(), fachada.retornarIndicePostagem(p));
-
-                    if(coluna == 2){
-                        coluna = 0;
-                        linha++;
+                for (Postagem p : listaPostagensFeed) {
+                    // Se a categoria for 'NENHUM', mostra todas as postagens
+                    if (categoria.equals(Categorias.NENHUM) || 
+                        p.getCategorias().contains(categoria)) {
+                        
+                        FXMLLoader fxmlLoader = new FXMLLoader();
+                        fxmlLoader.setLocation(getClass().getResource("panePostagem.fxml"));
+                        Pane pane = fxmlLoader.load();
+                        PaneControlador paneControlador = fxmlLoader.getController();
+                        paneControlador.setData(p.getTituloPostagem(), p.getAutorPostagem(), fachada.retornarIndicePostagem(p));
+    
+                        if (coluna[0] == 2) {
+                            coluna[0] = 0;
+                            linha[0]++;
+                        }
+                        gridPostagens.add(pane, coluna[0]++, linha[0]);
                     }
-                    gridPostagens.add(pane, coluna++, linha);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
-        else{
+        } else {
             System.out.println("Não há postagens feitas");
         }
     }
+    
+    
+    
+
 
     //Direcionamento para tela perfil
     @FXML

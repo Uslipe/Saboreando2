@@ -20,6 +20,7 @@ import javafx.stage.Stage;
 import java.util.List;
 import java.util.ArrayList;
 
+import com.saboreando.dados.beans.Categorias;
 import com.saboreando.dados.beans.Comentario;
 import com.saboreando.dados.beans.Curtida;
 
@@ -50,6 +51,9 @@ public class TelaPostagemControlador {
 
     @FXML
     private GridPane gridPostagens;
+
+    @FXML
+    private GridPane gridCategorias;
 
     @FXML
     private HBox hboxCriar;
@@ -115,6 +119,39 @@ public class TelaPostagemControlador {
         labelAutorPostagem.setText(postagem.getAutorPostagem());
         labelConteudoPostagem.setText(postagem.getConteudo());
         labelTituloPostagem.setText(postagem.getTituloPostagem());
+
+        //Inicializador de categorias--------------------------------------------------------------------------------------------------------------------------
+
+        List<Categorias> listaCategorias = postagem.getCategorias();
+
+        int coluna = 0;
+
+        if(!listaCategorias.isEmpty()){
+            try {
+                for(Categorias categoria : listaCategorias){
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("paneCategoria.fxml"));
+                    Pane pane = fxmlLoader.load();
+                    PaneCategoriaControlador paneCategoriaControlador = fxmlLoader.getController();
+                    paneCategoriaControlador.setData(categoria.name());
+                    
+                    gridCategorias.add(pane, coluna, 0);
+
+                    if(coluna == 1){
+                        break;
+                    }
+                    coluna++;
+
+                }
+                
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else{
+            System.out.println("A lista de categorias está vazia trouxão");
+        }
+
+
 
         //Inicializador de curtidas----------------------------------------------------------------------------------------------------------------------------
 
