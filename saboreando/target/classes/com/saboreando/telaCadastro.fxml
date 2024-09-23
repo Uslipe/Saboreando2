@@ -73,7 +73,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Hyperlink fx:id="linkParaTelaLogin" onAction="#handleHyperlinkAction" text="Já possui conta? Faça login" />
+                  <Hyperlink fx:id="linkParaTelaLogin" onAction="#handleHyperlinkAction" style="-fx-border-color: transparent;" text="Já possui conta? Faça login" />
                </children>
                <effect>
                   <DropShadow offsetX="-8.0" offsetY="8.0">

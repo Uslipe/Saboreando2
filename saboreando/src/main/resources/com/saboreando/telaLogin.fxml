@@ -54,7 +54,7 @@
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></Button>
-                  <Hyperlink fx:id="linkParaTelaCadastro" onAction="#handleHyperlinkAction" text="Não tem uma conta? Faça o cadastro!" />
+                  <Hyperlink fx:id="linkParaTelaCadastro" onAction="#handleHyperlinkAction" style="-fx-border-color: transparent;" text="Não tem uma conta? Faça o cadastro!" />
                </children>
                <BorderPane.margin>
                   <Insets />

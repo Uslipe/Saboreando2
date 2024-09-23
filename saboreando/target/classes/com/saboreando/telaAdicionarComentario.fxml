@@ -81,7 +81,7 @@
                               <Image url="@images/feed.png" />
                            </image>
                         </ImageView>
-                        <Hyperlink fx:id="hyperLinkTelaFeed" alignment="BASELINE_LEFT" onAction="#HyperLinkActionTelaFeed" prefHeight="0.0" prefWidth="280.0" text="Feed" textFill="#e00958">
+                        <Hyperlink fx:id="hyperLinkTelaFeed" alignment="BASELINE_LEFT" onAction="#HyperLinkActionTelaFeed" prefHeight="0.0" prefWidth="280.0" style="-fx-border-color: transparent;" text="Feed" textFill="#e00958">
                            <font>
                               <Font name="DejaVu Sans Mono Bold" size="24.0" />
                            </font>
@@ -107,7 +107,7 @@
                               <Image url="@images/add.png" />
                            </image>
                         </ImageView>
-                        <Hyperlink fx:id="hyperLinkTelaCriar" alignment="BASELINE_LEFT" onAction="#HyperLinkActionTelaCriar" prefHeight="0.0" prefWidth="280.0" text="Criar" textFill="#e00958">
+                        <Hyperlink fx:id="hyperLinkTelaCriar" alignment="BASELINE_LEFT" onAction="#HyperLinkActionTelaCriar" prefHeight="0.0" prefWidth="280.0" style="-fx-border-color: transparent;" text="Criar" textFill="#e00958">
                            <font>
                               <Font name="DejaVu Sans Mono Bold" size="24.0" />
                            </font>
@@ -133,7 +133,7 @@
                               <Image url="@images/user.png" />
                            </image>
                         </ImageView>
-                        <Hyperlink fx:id="hyperLinkTelaPerfil" alignment="BASELINE_LEFT" onAction="#HyperLinkActionTelaPerfil" prefHeight="0.0" prefWidth="280.0" text="Perfil" textFill="#e00958">
+                        <Hyperlink fx:id="hyperLinkTelaPerfil" alignment="BASELINE_LEFT" onAction="#HyperLinkActionTelaPerfil" prefHeight="0.0" prefWidth="280.0" style="-fx-border-color: transparent;" text="Perfil" textFill="#e00958">
                            <font>
                               <Font name="DejaVu Sans Mono Bold" size="24.0" />
                            </font>
@@ -159,7 +159,7 @@
                               <Image url="@images/exit.png" />
                            </image>
                         </ImageView>
-                        <Hyperlink fx:id="hyperLinkSair" alignment="BASELINE_LEFT" onAction="#HyperLinkActionSair" prefHeight="0.0" prefWidth="280.0" text="Sair" textFill="#e00958">
+                        <Hyperlink fx:id="hyperLinkSair" alignment="BASELINE_LEFT" onAction="#HyperLinkActionSair" prefHeight="0.0" prefWidth="280.0" style="-fx-border-color: transparent;" text="Sair" textFill="#e00958">
                            <font>
                               <Font name="DejaVu Sans Mono Bold" size="24.0" />
                            </font>
