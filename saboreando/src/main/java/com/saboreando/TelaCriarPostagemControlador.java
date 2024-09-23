@@ -1,5 +1,6 @@
 package com.saboreando;
 
+import com.saboreando.dados.beans.Categorias;
 import com.saboreando.dados.beans.Postagem;
 import com.saboreando.negocio.Fachada;
 
@@ -8,15 +9,20 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import java.util.*;
 
 public class TelaCriarPostagemControlador {
 
     Fachada fachada = Fachada.getInstance();
+
+    @FXML
+    private ChoiceBox<Categorias> choiceBoxCategorias;
 
     @FXML
     private Button botaoEnviar;
@@ -68,6 +74,11 @@ public class TelaCriarPostagemControlador {
         //Hover botão criar
         botaoEnviar.setOnMouseEntered(event -> botaoEnviar.setStyle("-fx-background-color: #b30746; -fx-background-radius: 8"));
         botaoEnviar.setOnMouseExited(event -> botaoEnviar.setStyle("-fx-background-color: #e00958;  -fx-background-radius: 8"));
+
+        //ChoiceBox
+        //Populando o ChoiceBox com as categorias
+        choiceBoxCategorias.getItems().addAll(Categorias.values());
+        choiceBoxCategorias.setValue(Categorias.values()[0]); // Define uma categoria padrão
     }
 
     @FXML
@@ -104,18 +115,29 @@ public class TelaCriarPostagemControlador {
         }
     }
 
-    @FXML void handleBotaoCriarPostagemAction(ActionEvent event){
+    @FXML 
+    void handleBotaoCriarPostagemAction(ActionEvent event) {
         String titulo = inputTituloPostagem.getText();
         String conteudo = inputConteudoPostagem.getText();
-
-        //Postagem postagem = new Postagem(fachada.getUsuarioLogado(), titulo, conteudo);
-        //fachada.criarPostagem(postagem);
-
+    
+        // Coleta as categorias selecionadas do ChoiceBox
+        List<Categorias> categoriasSelecionadas = new ArrayList<>();
+        Categorias categoriaSelecionada = choiceBoxCategorias.getValue();
+        if (categoriaSelecionada != null && !categoriaSelecionada.equals(Categorias.NENHUM)) {
+            categoriasSelecionadas.add(categoriaSelecionada);
+        }
+    
+        // Cria a postagem com as categorias
+        Postagem postagem = new Postagem(fachada.getUsuarioLogado(), titulo, conteudo, categoriasSelecionadas);
+        fachada.criarPostagem(postagem);
+    
         System.out.println("Postagem cadastrada na tela");
-
+    
+        // Limpa os campos de entrada
         inputConteudoPostagem.setText(null);
         inputTituloPostagem.setText(null);
     }
+    
 
     @FXML
     public void HyperLinkActionSair(@SuppressWarnings("exports") ActionEvent event) {
